@@ -1,0 +1,35 @@
+{{/*  Sidebar from old site. I want to yse this sort of structure
+
+Picture in a circle
+bold title
+summary
+social links
+
+*/}}
+
+
+<div class="sidebar sticky">
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+    <div class="author__avatar">
+      <a href="https://vaines.org/">
+        <img src="/assets/img/me.png" alt="Aiden Vaines" itemprop="image" class="u-photo">
+      </a>
+    </div>
+    <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://vaines.org/" itemprop="url">Aiden Vaines</a>
+    </h3>
+      <div class="author__bio p-note" itemprop="description">
+        <p>Just another nerds blog and dumping ground.</p>
+      </div>
+  </div>
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+            <li><a href="https://vaines.org" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+            <li><a href="https://twitter.com/n3rden" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+            <li><a href="https://github.com/n3rden" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+            <li><a href="https://linkedin.com/in/aidenvaines" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+    </ul>
+  </div>
+</div>

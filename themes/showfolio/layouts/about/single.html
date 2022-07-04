@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article
+  class="mb-16 max-w-5xl mx-auto px-4 prose lg:prose-lg prose-blue dark:prose-dark"
+>
+  <h1 class="font-bold text-3xl">{{ .Title }}</h1>
+  {{ .Content }}
+
+
+</article>
+
+<div class="p-4 flex flex-col items-center">
+  {{ with .Site.Params.homepage.contact }}
+  <a
+    href="{{ . }}"
+    rel="noopener noreferrer"
+    target="_blank"
+    class="px-6 py-4 rounded-full font-semibold text-lg bg-black text-white hover:bg-gray-800 transition-colors dark:bg-white dark:text-black dark:hover:bg-gray-200"
+    >Send me an email</a
+  >
+  {{ end }}
+</div>
+
+{{ end }}

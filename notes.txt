@@ -1,0 +1,11 @@
+Theme: https://github.com/apvarun/showfolio-hugo-theme
+
+# Dev
+npm install && hugo serve --disableFastRender
+
+# Build
+npm install && hugo -D --gc
+
+
+# Theme has a demo site
+cd themes/showfolio/exampleSite/ && npm install && hugo serve --themesDir ../..
