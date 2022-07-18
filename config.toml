@@ -15,7 +15,7 @@ googleAnalytics = 'G-RLWH268NSH'
   autoDarkMode = true
 
   copyright = "Copyright © 2022 - Aiden Vaines · All rights reserved"
-  favicon = "favicon.ico"
+  favicon = "/favicon.ico"
 
 
 [params.homepage]
