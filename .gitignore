@@ -6,3 +6,4 @@ resources/_gen/
 .vscode/
 public/
 content/test/
+hugo_stats.json

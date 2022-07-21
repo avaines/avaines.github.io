@@ -3,7 +3,7 @@ author: "Aiden Vaines"
 title: "Unified authentication with AWS Cognito!"
 date: 2019-09-26
 # description: Unified authentication with AWS Cognito"
-# featured_image: /blog/2017-05-powershell-framework/featured.png
+# featured_image: /blog/2019-09-26-unified-auth-with-cognito/featured.png
 tags: [
   "aws",
   "azure",

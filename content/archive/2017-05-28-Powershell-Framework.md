@@ -3,7 +3,7 @@ author: "Aiden Vaines"
 title: "PowerShell Framework"
 date: 2017-05-28
 description: "A small PowerShell Framework"
-# featured_image: /blog/2017-05-powershell-framework/featured.png
+featured_image: /blog/2017-05-powershell-framework/featured.png
 tags: [
   "code",
   "powershell",

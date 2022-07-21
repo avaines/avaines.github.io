@@ -3,7 +3,7 @@ author: "Aiden Vaines"
 title: "Script to flash populate an Active Directory lab!"
 date: 2017-05-28
 description: "A small PowerShell Framework"
-# featured_image: /blog/2017-09-10-Flash-Populate-AD-Lab/featured.jpeg
+featured_image: /blog/2017-09-10-Flash-Populate-AD-Lab/featured.jpeg
 tags: [
     "code",
     "powershell",
