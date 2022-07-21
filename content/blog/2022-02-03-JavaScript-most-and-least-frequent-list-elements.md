@@ -3,7 +3,7 @@ author: "Aiden Vaines"
 title: "Finding the most and least frequent list elements in JavaScript"
 date: 2022-02-03
 # description: Finding the most and least frequent elements in JavaScript"
-# featured_image: /blog/2022-02-03-JavaScript-most-and-least-frequent-elements/featured.png
+featured_image: /blog/2022-02-03-JavaScript-most-and-least-frequent-list-elements/featured.png
 tags: [
   "code",
   "javascript",

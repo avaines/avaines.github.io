@@ -4,6 +4,7 @@ title = 'Vaines.org'
 theme = "showfolio"
 googleAnalytics = 'G-RLWH268NSH'
 
+summaryLength = 60
 
 [params]
   name = "Showfolio Theme"

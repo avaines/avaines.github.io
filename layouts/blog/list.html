@@ -5,21 +5,33 @@
 
   <div class="card-list">
     {{ range .Data.Pages -}}
+    {{ $title := .Params.title }}
+    {{ $img := .Params.featured_image }}
+
     <a class="block my-6" href="{{ .RelPermalink }}">
-      {{ $img := .Params.featured_image }}
-      {{ $title := .Params.title }}
-      {{ with $img }}
-      <img class="rounded max-w-full mb-4" src="{{ . }}" alt="{{ $title }}" />
-      {{ end }}
+
       <h2 class="text-xl font-semibold mb-1">{{ $title }}</h2>
       <p class="font-light mb-2 text-gray-500 text-sm">
         {{ .Params.date.Format "January 2, 2006" }}
       </p>
-      <div>
-        <div class="font-light text-gray-800 dark:text-gray-200">
-          {{ .Summary }}
+
+      <div class="flex">
+        {{ with $img }}
+          <div class="flex-none w-1/5 pr-3 self-center">
+            {{/*  <div>  */}}
+              <img class="rounded shadow-lg" src="{{ . }}" alt="{{ $title }}" />
+            {{/*  </div>  */}}
+          </div>
+        {{ end }}
+
+        <div class="flex-1 w-64">
+          <div>
+            <div class="font-light text-gray-800 dark:text-gray-200">
+              {{ .Summary }}
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </a>
     {{ end -}}
   </div>
