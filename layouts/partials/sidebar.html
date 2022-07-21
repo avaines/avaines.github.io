@@ -1,17 +1,18 @@
-<section class="p-1 flex flex-col items-left">
+<section>
+
     {{ $authorName := .Site.Params.author }}
     {{ with .Site.Params.authorImage }}
-    <div class="w-80 items-left"></div>
-        <div class="w-48 h-48 rounded-full mb-6 bg-red-100">
-            <img src="{{.}}" class="w-full p-2 h-full object-contain" alt="{{ $authorName }}" />
+    <div class="items-left">
+        <div class="rounded-full mb-6 bg-red-100">
+            <img src="{{.}}" alt="{{ $authorName }}" />
             {{ end }}
         </div>
         <div>
             <b>{{ $authorName }}</b>
-            <div class="relative">
+            <div>
                 {{ .Site.Params.homepage.tagline }}
             </div>
-            <div class="w-48">
+            <div>
                 {{- partial "social.html" . -}}
             </div>
         </div>
