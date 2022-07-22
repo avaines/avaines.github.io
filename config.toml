@@ -2,7 +2,7 @@ baseURL = 'https://www.vaines.org/'
 languageCode = 'en-gb'
 title = 'Vaines.org'
 theme = "showfolio"
-googleAnalytics = 'G-RLWH268NSH'
+googleAnalytics = 'UA-26350585-1'
 
 summaryLength = 60
 
@@ -11,7 +11,7 @@ summaryLength = 60
   description = "Modern portfolio theme for your Hugo site."
   author = "Aiden Vaines"
 
-  authorEmail = "aiden@vaines.org"
+  authorEmail = "aiden+enquiry@vaines.org"
   authorImage = "/me.png"
   autoDarkMode = true
 
