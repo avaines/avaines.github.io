@@ -15,7 +15,12 @@
 
 
       <div class="flex-auto mr-auto px-10 prose lg:prose-lg prose-blue dark:prose-dark ">
+        <p class="font-light text-gray-500 text-sm">
+          {{ .Params.date.Format "January 2, 2006" }}
+        </p>
+
         {{/*  <article class="prose lg:prose-lg prose-blue dark:prose-dark">  */}}
+
           {{ .Content }}
         {{/*  </article>  */}}
       </div>
