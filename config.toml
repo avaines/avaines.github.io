@@ -21,7 +21,7 @@ description = "A Digital Plumber and Tech Lead"
 
 # homepage main section
 mainSections = ["posts"]
-contact_form_action = "#" # contact form works with : https://formspree.io
+contact_form_action = "https://formspree.io/f/maykbnjj" # contact form works with : https://formspree.io
 copyright = "Copyright © 2022 - Aiden Vaines · All rights reserved"
 
 # search *** true or false (if Search is disable Menu will align in Right) ***
