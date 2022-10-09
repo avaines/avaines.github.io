@@ -23,7 +23,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: 'lategcmst'
           # extended: true
 
       - name: Cache dependencies
@@ -33,12 +33,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: |
-          npm install postcss -D
-          npm install -g postcss-cli
-          npm install -g autoprefixer
 
       - run: npm ci
       - run: hugo --minify
