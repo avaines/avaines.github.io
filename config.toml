@@ -1,112 +1,231 @@
 baseURL = 'https://www.vaines.org/'
-languageCode = 'en-gb'
-title = 'Vaines.org'
-theme = "showfolio"
-googleAnalytics = 'UA-26350585-1'
+title = ""
+theme = "northendlab"
+paginate = "5"
+summaryLength = "10"
 
-summaryLength = 60
+disqusShortname = "vaines-org" # get your shortname form here : https://disqus.com
+googleAnalytics = "UA-26350585-1"
 
+[outputs]
+home = ["HTML", "AMP", "RSS", "JSON"]
+[markup.goldmark.renderer]
+unsafe = true
+
+######################### Default Parameters ###########################
 [params]
-  name = "Showfolio Theme"
-  description = "Modern portfolio theme for your Hugo site."
-  author = "Aiden Vaines"
+logo = "logo.png"
+favicon = "favicon.png"
+author = "Aiden Vaines"
+description = "A Digital Plumber and Tech Lead"
 
-  authorEmail = "aiden+enquiry@vaines.org"
-  authorImage = "/me.png"
-  autoDarkMode = true
+# homepage main section
+mainSections = ["posts"]
+contact_form_action = "#" # contact form works with : https://formspree.io
+copyright = "Copyright © 2022 - Aiden Vaines · All rights reserved"
 
-  copyright = "Copyright © 2022 - Aiden Vaines · All rights reserved"
-  favicon = "/favicon.ico"
+# search *** true or false (if Search is disable Menu will align in Right) ***
+search = true
+header_search_layout = "expanded" # "expanded" or "popupable"
+# Menu align *** "left", "right" or "center" (if Search is disable Menu will align in Right) ***
+menu_align = "center"
+# Blog-details page sidebar
+sidebar = "right" # Sidebar value ("left", "right" or false)
 
+# google tag manager, see https://developers.google.com/tag-manager/
+google_tag_manager = "" # example: G-XXXXXXXXXX
 
-[params.homepage]
-  title = "Hi, I'm Aiden"
-  tagline = "A Digital Plumber and Tech Lead"
-  # description = "tagline"
-  contact = "mailto:aiden@vaines.org"
+######################## Site Variables #########################
+[params.variables]
+# Color Variables
+primary_color = "#5a50e8"
+secondary_color = "#9AC4F8"
+text_color = "#666666"
+text_color_dark = "#222222"
+body_color = "#fff"
+border_color = "#ACB9C4"
+black = "#000"
+white = "#fff"
+light = "#F8F8F8"
 
-# [params.homepage.projects]
-#   urls = [
-#     "https://wallstats.vaines.org",
-#     "https://recipe.vaines.org",
-#     "https://medium.com/@aidenvaines",
-#   ]
+# font variable
+# Give your font name from google font. add font weight using ":wght@" and separate by ";"
+# example: "Work Sans:wght@400;500;600"
+primary_font = "PT Sans:wght@400;700"
+secondary_font = ""
+icon_font = "Font Awesome 5 Free"
 
+######################## sidebar widgets #########################
+[params.widgets]
+sidebar = ["about-me", "categories", "featured-post", "tags", "social", "subscription"]
+# available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription
 
-[params.homepage.resume]
-  username = ""
-  pens = []
-  skills = [
-    "AWS",
-    "CI/CD",
-    "Python",
-    "Tech Leadership",
-    "Terraform",
-    "VMWare",
-  ]
+# preloader
+[params.preloader]
+enable = false
+preloader = "" # use png, jpg, svg or gif format
 
+# Subscription
+[params.subscription]
+enable = false
+# mailchimp subsciption
+mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
+mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074" # replace this code with yours
+title = "Subscribe for our monthly newsletter."
+input_placeholder = "Enter your email"
 
-[[params.homepage.resume.work]]
-  name = "BJSS"
-  role = "Principal Technologist"
-  duration = "2019 - Current"
+# cookies
+[params.cookies]
+enable = false
+expire_days = 2
 
-[[params.homepage.resume.work]]
-  name = "Oriium Consulting"
-  role = "Datacentre Manager"
-  duration = "2018 - 2019"
+########################## Plugings ######################################
+# css plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.min.css"
 
-[[params.homepage.resume.work]]
-  name = "Univar Ltd"
-  role = "Sr. Systems Engineer"
-  duration = "2016 - 2018"
-
-[[params.homepage.resume.work]]
-  name = "Sleek Networks/Adapt"
-  role = "Sr. Hosting Engineer"
-  duration = "2014 - 2016"
-
-
-[[params.homepage.resume.education]]
-  name = "BSc Computing Studies (HONS)"
-  provider = "University of Huddersfield"
-  duration = "2006 - 2009"
-
-
-[[params.homepage.resume.certifications]]
-  name = "Terraform Associate"
-  provider = "HashiCorp"
-  issued = "2021"
-
-[[params.homepage.resume.certifications]]
-  name = "Solutions Architect Associate"
-  provider = "Amazon Web Services"
-  issued = "2019"
-
-[[params.homepage.resume.certifications]]
-  name = "Azure Administrator Associate"
-  provider = "Microsoft"
-  issued = "2016 - 2009"
-
-[[params.homepage.resume.certifications]]
-  name = "VCP5: Data Centre Virtualisation"
-  provider = "VMWare"
-  issued = "2016 - 2009"
-
-
-[params.homepage.social]
-  twitter = "https://twitter.com/n3rden"
-  linkedin = "https://linkedin.com/in/aidenvaines/"
-  github = "https://github.com/n3rden"
-  medium = "https://medium.com/@aidenvaines"
-#   reddit = "https://reddit.com/"
-#   dribbble = "https://dribbble.com/"
+# js plugins
+[[params.plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/shuffle/shuffle.min.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+[[params.plugins.js]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
 
 
-[build]
-  writeStats = true
+############################## Social Site ##########################
+[[params.social]]
+icon = "fab fa-linkedin"
+link = "https://linkedin.com/in/aidenvaines/"
+[[params.social]]
+icon = "fab fa-twitter"
+link = "https://twitter.com/n3rden"
+[[params.social]]
+icon = "fab fa-github"
+link = "https://github.com/n3rden"
+[[params.social]]
+icon = "fab fa-medium"
+link = "https://medium.com/@aidenvaines"
 
-# syntax highlight settings
-[markup]
-  [markup.highlight]
-    style = "dracula"
+################################### English language #####################################
+[Languages.en]
+languageName = "En"
+languageCode = "en-gb"
+contentDir = "content"
+weight = 1
+
+####################### Banner #######################################
+[Languages.en.banner]
+bg_image = "banner-shape.png"
+title = "Hi, I'm Aiden Vaines <br> <strong>A Digital Plumber and Tech Lead</strong>"
+image = "banner-image.png"
+
+
+######################## About Me Widget ###############################
+[Languages.en.about_me]
+title = "Hi, I'm Aiden"
+bio = "I’ve been working in the IT field in various roles and I try write up things i've been doing that I found interesting. I am very bad at doing so; but its nice to try get things down every now and then."
+
+[[params.social_profile]]
+icon = "fab fa-linkedin"
+link = "https://linkedin.com/in/aidenvaines/"
+[[params.social_profile]]
+icon = "fab fa-twitter"
+link = "https://twitter.com/n3rden"
+[[params.social_profile]]
+icon = "fab fa-github"
+link = "https://github.com/n3rden"
+[[params.social_profile]]
+icon = "fab fa-medium"
+link = "https://medium.com/@aidenvaines"
+
+######################## call to action ###############################
+[params.cta]
+enable = true
+image = "hugo-muscot.svg"
+title = "Get the best hugo templates"
+description = "Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
+
+[params.cta.button]
+enable = true
+label = "Visit Here"
+link = "https://gethugothemes.com/shop/"
+
+############################# English - Main Menu ########################
+[[Languages.en.menu.main]]
+weight = 1
+url = "/"
+name = "Home"
+
+[[Languages.en.menu.main]]
+weight = 2
+url = "posts"
+name = "Posts"
+
+[[Languages.en.menu.main]]
+weight = 3
+url = "about"
+name = "About"
+
+[[Languages.en.menu.main]]
+weight = 5
+url = "contact"
+name = "Contact"
+
+# [[Languages.en.menu.main]]
+# weight = 5
+# url = "tools"
+# name = "Tools"
+
+# [[Languages.en.menu.main]]
+# weight = 6
+# url = "#"
+# name = "Pages"
+# hasChildren = true
+
+#   [[Languages.en.menu.main]]
+#   parent = "Pages"
+#   weight = 2
+#   url = "tags/tech/"
+#   name = "Tag"
+
+#   [[Languages.en.menu.main]]
+#   parent = "Pages"
+#   weight = 4
+#   url = "categories/hugo/"
+#   name = "Category"
+
+#   [[Languages.en.menu.main]]
+#   parent = "Pages"
+#   weight = 5
+#   url = "elements/"
+#   name = "Elements"
+
+############################# Footer Menu ########################
+[[Languages.en.menu.footer]]
+weight = 1
+url = "about/"
+name = "About"
+
+# [[Languages.en.menu.footer]]
+# weight = 3
+# url = "privacy/"
+# name = "Privacy"
+
+# [[Languages.en.menu.footer]]
+# weight = 4
+# url = "terms-conditions/"
+# name = "Terms & Conditions"

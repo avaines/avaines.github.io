@@ -33,7 +33,8 @@
           <img loading="lazy" src="{{ .Params.Image | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
           {{ end }}
 
-          {{/*  <img src="{{ .Params.image | absURL }}">  */}}
+          <img src="{{ .Params.image | absURL }}">
+
 
           <div class="content mb-5">
             {{ .Content }}

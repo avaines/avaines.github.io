@@ -7,3 +7,5 @@ resources/_gen/
 public/
 content/test/
 hugo_stats.json
+themes/northendlab/exampleSite
+TMP/
