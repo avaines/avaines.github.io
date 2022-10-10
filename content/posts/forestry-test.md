@@ -2,7 +2,6 @@
 author = "Aiden Vaines"
 catagories = ["AWS"]
 date = 2022-10-09T23:00:00Z
-draft = true
 featured = false
 image = "/uploads/me-sun.png"
 tags = []
