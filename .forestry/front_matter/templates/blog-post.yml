@@ -24,5 +24,3 @@ fields:
 - type: list
   name: tags
   label: tags
-pages:
-- content/posts/forestry-test.md
