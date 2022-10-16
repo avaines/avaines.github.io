@@ -2,7 +2,7 @@
 author: "Aiden Vaines"
 title: "Unified authentication with AWS Cognito!"
 description: "Unified authentication with AWS Cognito!"
-date: 2019-09-26T00:00:00Z
+date: 2019-09-26
 # image: "posts/2019-09-26-unified-auth-with-cognito/featured.png"
 featured: false
 categories: [

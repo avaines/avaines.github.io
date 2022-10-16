@@ -6,6 +6,7 @@ summaryLength = "10"
 
 disqusShortname = "vaines-org" # get your shortname form here : https://disqus.com
 googleAnalytics = "UA-26350585-1"
+enableRobotsTXT = true
 
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
@@ -215,10 +216,10 @@ name = "Contact"
 #   name = "Elements"
 
 ############################# Footer Menu ########################
-[[Languages.en.menu.footer]]
-weight = 1
-url = "about/"
-name = "About"
+# [[Languages.en.menu.footer]]
+# weight = 1
+# url = "about/"
+# name = "About"
 
 # [[Languages.en.menu.footer]]
 # weight = 3

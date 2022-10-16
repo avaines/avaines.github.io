@@ -1,7 +1,7 @@
 ---
 author: "Aiden Vaines"
 title: "Triggering a Cloudflare Cache Purge from S3 Object Events"
-date: 2021-09-18T00:00:00Z
+date: 2021-09-18
 featured: true
 description: Unified authentication with AWS Cognito"
 image: "/posts/2021-09-18-triggering-cloudflare-cache-purge-from-s3-event/featured.png"

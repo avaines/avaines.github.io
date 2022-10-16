@@ -2,7 +2,7 @@
 author: "Aiden Vaines"
 title: "CI/CD Agnostic, mono-repo pipelines for Firebase (Hosting, Database & Functions)"
 description: "Unified authentication with AWS Cognito!"
-date: 2020-06-01T00:00:00Z
+date: 2020-06-01
 image: "/posts/2020-06-01-cicd-agnostic-monirepo-firebase-pipeline/featured.png"
 featured: false
 categories: [

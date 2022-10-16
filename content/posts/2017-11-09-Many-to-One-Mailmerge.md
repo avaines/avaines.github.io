@@ -1,7 +1,7 @@
 ---
 author: "Aiden Vaines"
 title: "Many to one mailmerge aka Manager mail merge"
-date: 2017-05-28T00:00:00Z
+date: 2017-05-28
 description: "A Office365 AD connection module for my PowerShell Framework"
 featured: false
 # image: "/posts/2017-11-09-Many-to-One-Mailmerge/featured.jpeg"

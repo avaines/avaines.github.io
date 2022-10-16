@@ -1,7 +1,7 @@
 ---
 author: "Aiden Vaines"
 title: "Script to get the binary differential replication status of all SCCM packages"
-date: 2017-11-26T00:00:00Z
+date: 2017-11-26
 description: "A Office365 AD connection module for my PowerShell Framework"
 featured: false
 image: "/posts/2017-11-26-Get-all-sccm-packages-Binary-Diff/featured.jpg"

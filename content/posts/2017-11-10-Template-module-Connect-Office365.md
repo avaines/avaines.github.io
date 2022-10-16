@@ -1,7 +1,7 @@
 ---
 author: "Aiden Vaines"
 title: "PowerShell Framework Module: Connect-Office365"
-date: 2017-11-10T00:00:00Z
+date: 2017-11-10
 description: "An Office365 connection module for my PowerShell Framework"
 featured: false
 # image: "/blog/2017-11-10-Template-module-Connect-Office365/featured.jpeg"

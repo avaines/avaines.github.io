@@ -1,7 +1,7 @@
 ---
 author: "Aiden Vaines"
 title: "PowerShell Framework"
-date: 2017-05-28T00:00:00Z
+date: 2017-05-28
 description: "A small PowerShell Framework"
 # image: "/posts/2017-05-powershell-framework/featured.png"
 featured: false

@@ -1,7 +1,7 @@
 ---
 author: "Aiden Vaines"
 title: "PowerShell Framework Module: Connect-AD"
-date: 2017-05-28T00:00:00Z
+date: 2017-05-28
 description: "A Active Directory connection module for my PowerShell Framework"
 # featured_image: /blog/2017-10-12-Template-module-Connect-AD/featured.jpeg
 tags: [
