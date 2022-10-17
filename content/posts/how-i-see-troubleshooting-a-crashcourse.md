@@ -1,68 +1,77 @@
 +++
 author = "Aiden Vaines"
 catagories = []
-date = 2022-10-16T23:00:00Z
-draft = true
+date = 2022-10-17T19:00:00Z
 featured = true
 image = "/uploads/throubleshooting.png"
 tags = ["devops", "meta"]
-title = "How I See Troubleshooting - A Crashcourse"
+title = "How I See Troubleshooting"
 
 +++
-When I've been involved in an incident or dragged in to one of those "if we get enough people involved one of them might now" calls, one of the first things that usually catches my eye is the lack of troubleshooting.
+When I've been involved in an incident or dragged in to one of those "if we get enough people involved one of them might know" calls, one of the first things that usually catches my attention is the lack of solid troubleshooting that's gone on.
 
-Some times this is because the issue has only just occurred or the people who had been involved up to this point had started at step 5, not step 1 of troubleshooting.
+Usually this is because the issue had only just occurred or the people who had been involved up to this point had started at step 5, not step 1 of troubleshooting. Frequently it's because the full picture of how the service hangs together wasn't clear to all parties; which admittedly makes troubleshooting significantly harder.
 
-This cropped up first thing this morning and by 10 I had most of this in my head and needed to write it down, so here goes...
+_This issue cropped up first thing this morning and by 10 I had most of this in my head and needed to write it down, so here goes..._
 
-## Troubleshooting
+## Lets get troubleshooting
 
-A lot of people have written some very good things about the theory and mechanics of good troubleshooting, but from my experience these need to be VERY simple to be effective during a crisis/incident/outage/hangover or they just won't be at the forefront of my mind.
+A lot of people have written some very good things about the theory and mechanics of good troubleshooting, but from my experience these need to be VERY simple to be effective during a crisis/incident/outage/hangover.
 
-### 1) Whats the problem? But like really.
+_For the sake of this, I'm also assuming you have a reasonable to good understanding of the service/application/workload that's currently on fire._
 
-What is the issue?
+### 1) Whats the problem? But like, really.
 
-Who is affected by the issue
+The standard minimum dataset I would expect or immediately start working on is always the 5xW's:
 
-Why has this started occurring?
-
-Where is experiencing this issue? (live? staging? just the french sites?)
-
-When did this start being an issue
+* What is the issue?
+* Who is affected by the issue?
+* Why has this started occurring?
+* Where is experiencing this issue? (live? staging? just the french sites?)
+* When did this start being an issue?
 
 ### 2) Hmm, could it be...?
 
-1. Establish a theory of probable cause
+You should have a reasonable idea of the failure mode at this point. Simply follow the obligatory XKCD [https://xkcd.com/627/](https://xkcd.com/627/ "https://xkcd.com/627/"), but if that doesn't work...
 
-Keep a log of everything you do, and importantly the reason you got to the conclusion that you needed to change that thing
+As part of #1 you should have a good idea of log messages which relate to the issue. Have any areas of code which intersect where these logs are generated changed recently?
 
-### Was it that?
+Don't be worried about questioning the obvious, Occam's Razor and so on; just because it could be an issue AWS are having on their control-planes that hasn't been reported, it's more likely to be that commit which got pushed in at 5pm yesterday.
 
-Test it
+Start from the top (or bottom) and work down (or up) from the layers of the application and the stack; the more you can rule out the easier it is to start pinning down where an issue lies.
 
-if not GOTO1
+This is the stage where you will be tempted to make all-the-changes, because everything is on fire and people are panicking. But you are not, you are chill, you are the epitome of rationality. 
 
-### Make it permanent
+When this issue is resolved, you are going to need to fill in that RCA document and prepare tickets and works to resolve underlying issues to properly fix the issue. Make notes as to what you are changing and possibly more importantly WHY you are making those changes.
 
-You've probably just made several changes that didn't fix the problem and likely only un-did several of those. Tidy up after yourself, don't wait for a week to go buy and wonder why that Jenkins instance has just ran on of storage because you left all the extra logging enabled.
+Did you see something specific in the logs which lead you to enabling additional debugging which lead you to a certain area of the network or codebase? In a week that could be as important as how you fixed the problem.
 
-The internet is held together with sticking plasters, duct tape and string, make sure what you just did is done properly. Put tickets on back logs, raise risks or put time in your own calendar to fix that problem properly while its still fresh in your and your teams minds.
+### 3) Was it that?
 
-That 'tactical' fix you just made will outlive you if you don't do this.
+Was your assumption correct? Are you really really sure? Was this change you just made combined with the one you made 10 minutes ago the solution? You didn't change multiple things before testing did you?
 
-### Document it
+If it didn't work, GOTO 1, maybe reviewing the basic problem with the additional context and knowledge gained so far will help. Repeat as necessary.
 
-By Document it, I don't just mean completing an RCA document.
+### 4) Make it permanent
 
-Can you create an alert in your observability tool-bag to detect such an occurrence of a similar or the same problem
+You've probably just made several changes that didn't fix the problem and likely only un-did several of those. Tidy up after yourself. Don't wait for a week to go by and wonder why that instance has just run out of storage because you left all the extra logging enabled.
 
-1. 
+The internet is held together with sticking plasters, duct tape and string, don't be part of the problem and make sure what you just did is done properly. Put tickets on back logs, raise risks and put time in your calendar to fix that problem properly while it's still fresh in yours and your team's minds.
 
-## Now go shoot your troubles.
+**That 'tactical' fix you just made will outlive you if you don't do this.**
 
-Really understand the problem statement and the impacted areas of the workload. But equally which related parts of the workload are actually not on-fire.
+### 5) Document it
 
-Keep a log of what you are changing,
+By Document it, I don't just mean completing an RCA document and forgetting about it.
 
-For the love of Hephaestus, write down what you are changing and why before you forget 3 changes later.
+Was the issue caused by not following (or total lack of) process? Was it caused by inexperience? Was it caused by a bug or other flaw in the service? Was it caused by untested/bad code escaping somewhere?
+
+All this stuff shouldn't occur but does and probably did, its what you do next that matters.
+
+Can you create an alert in your observability tool-bag to detect such an occurrence of a similar or the same problem? Can you sure up the documentation/run-books/process docs to make it clearer? Can you add new tests either unit, automated or otherwise to better cover the related failure modes? Can you improve your team's knowledge transfer process to faster plug gaps? _(Can you remove Ian's access to production?)_
+
+## Now go shoot your troubles
+
+Really understand the problem statement and the impacted areas of the workload before starting anything else. Sometimes this includes which related parts of the workload are actually working as much as the on-fire bits.
+
+For the love of Hephaestus, write down what you are changing and why before you forget three changes down the line.
