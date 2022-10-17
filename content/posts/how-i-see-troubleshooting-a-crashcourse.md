@@ -1,10 +1,10 @@
 +++
 author = "Aiden Vaines"
-catagories = []
+catagories = ["ops"]
 date = 2022-10-17T19:00:00Z
 featured = true
 image = "/uploads/throubleshooting.png"
-tags = ["devops", "meta"]
+tags = ["ops", "devops", "meta"]
 title = "How I See Troubleshooting"
 
 +++
