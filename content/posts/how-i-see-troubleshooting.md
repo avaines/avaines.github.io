@@ -44,7 +44,7 @@ This is the stage where you will be tempted to make all-the-changes, because eve
 
 When this issue is resolved, you are going to need to fill in that RCA document and prepare tickets and works to resolve underlying issues to properly fix the issue. Make notes as to what you are changing and possibly more importantly WHY you are making those changes.
 
-Did you see something specific in the logs which lead you to enabling additional debugging which lead you to a certain area of the network or codebase? In a week that could be as important as how you fixed the problem.
+Did you see something specific in the logs which led you to enabling additional debugging which led you to a certain area of the network or codebase? In a week that could be as important as how you fixed the problem.
 
 ### 3) Was it that?
 
@@ -68,7 +68,7 @@ Was the issue caused by not following (or total lack of) process? Was it caused 
 
 All this stuff shouldn't occur but does and probably did, its what you do next that matters.
 
-Can you create an alert in your observability tool-bag to detect such an occurrence of a similar or the same problem? Can you sure up the documentation/run-books/process docs to make it clearer? Can you add new tests either unit, automated or otherwise to better cover the related failure modes? Can you improve your team's knowledge transfer process to faster plug gaps? _(Can you remove Ian's access to production?)_
+Can you create an alert in your observability tool-bag to detect such an occurrence of a similar or the same problem? Can you shore up the documentation/run-books/process docs to make it clearer? Can you add new tests either unit, automated or otherwise to better cover the related failure modes? Can you improve your team's knowledge transfer process to faster plug gaps? _(Can you remove Ian's access to production?)_
 
 ## Now go shoot your troubles
 
