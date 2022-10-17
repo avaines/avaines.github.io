@@ -40,7 +40,7 @@ Don't be worried about questioning the obvious, Occam's Razor and so on; just be
 
 Start from the top (or bottom) and work down (or up) from the layers of the application and the stack; the more you can rule out the easier it is to start pinning down where an issue lies.
 
-This is the stage where you will be tempted to make all-the-changes, because everything is on fire and people are panicking. But you are not, you are chill, you are the epitome of rationality. 
+This is the stage where you will be tempted to make all-the-changes, because everything is on fire and people are panicking. But you are not, you are chill, you are the epitome of rationality.
 
 When this issue is resolved, you are going to need to fill in that RCA document and prepare tickets and works to resolve underlying issues to properly fix the issue. Make notes as to what you are changing and possibly more importantly WHY you are making those changes.
 
