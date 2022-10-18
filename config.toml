@@ -80,7 +80,7 @@ input_placeholder = "Enter your email"
 enable = false
 expire_days = 2
 
-########################## Plugings ######################################
+########################## Plugins ######################################
 # css plugins
 [[params.plugins.css]]
 link = "plugins/bootstrap/bootstrap.min.css"
@@ -106,6 +106,9 @@ link = "plugins/search/search.js"
 link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
 attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
 
+[markup]
+  [markup.highlight]
+    style = "igor"
 
 ############################## Social Site ##########################
 [[params.social]]
