@@ -50,7 +50,7 @@ data "aws_efs_file_system" "replica_myfiles" {
 }
 ~~~
 
-The AWS account in question had, at the time of the incident, a few over 130 EFS resources which shouldn't be an issue. I expected it to just be a case of querying the AWS EFS API Endopoint, filtering the results and away we go; data resouce populated.
+The AWS account in question had, at the time of the incident, a few over 130 EFS resources which shouldn't be an issue. I expected it to just be a case of querying the AWS EFS API Endopoint, filtering the results and away we go; data resource populated.
 
 There is one slight issue with my childish assumption; the AWS EFS API for the `describe-files-systems` endpoint doesn't have a `--filter` argument ![aws cli options for efs describe-file-systems](/posts/2022-09-20-aws-efs-and-terraform-provider-pagination-issue/aws-cli-synopsis.png)
 
