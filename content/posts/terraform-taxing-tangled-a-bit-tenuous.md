@@ -1,10 +1,10 @@
 +++
 author = "Aiden Vaines"
-catagories = []
+catagories = ["Terraform"]
 date = 2019-10-19T23:00:00Z
 featured = false
 image = ""
-tags = []
+tags = ["AWS"]
 title = "Terraform: Taxing, Tangled & a bit Tenuous"
 
 +++
