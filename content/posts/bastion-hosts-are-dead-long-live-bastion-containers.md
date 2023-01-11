@@ -14,19 +14,19 @@ One of the biggest use-cases has been [tunneling](https://www.ssh.com/academy/ss
 
 ![](/uploads/bastion-containers7.png)
 
-Up until late 2022 it was possible to connect to a Fargate container in much the same way using ECS Exec (when it works) or using the Systems Manager `ssm start-session` commands. ECS Exec just intermittently rejects connections and for a while AWS support's advice was to use SSM directly. 
+Up until late 2022 it was possible to connect to a Fargate container in much the same way using ECS Exec (when it works) or using the Systems Manager `ssm start-session` commands. ECS Exec just intermittently rejects connections and for a while AWS support's advice was to use SSM directly.
 
-When a container is being run within Fargate there is an agent added automatically and the SSM document support is based on this version. 
+When a container is being run within Fargate there is an agent added automatically and the SSM document support is based on this version.
 
-One of the major things I would need to be able to cease using EC2 Bastion Hosts would be this tunneling functionality, the SSM agent baked in to the layer AWS injects has been stuck at `3.1.1260` dated April 2022 [https://github.com/aws/amazon-ssm-agent/releases/tag/3.1.1732.0](https://github.com/aws/amazon-ssm-agent/releases/tag/3.1.1732.0 "https://github.com/aws/amazon-ssm-agent/releases/tag/3.1.1732.0"). 
+One of the major things I would need to be able to cease using EC2 Bastion Hosts would be this tunneling functionality, the SSM agent baked in to the layer AWS injects has been stuck at `3.1.1260` dated April 2022 [https://github.com/aws/amazon-ssm-agent/releases/tag/3.1.1732.0](https://github.com/aws/amazon-ssm-agent/releases/tag/3.1.1732.0 "https://github.com/aws/amazon-ssm-agent/releases/tag/3.1.1732.0").
 
 ![](/uploads/bastion-containers6.png)
 
-This agent from April has support for the `AWS-StartPortForwardingSession` SSM document, this allows you to forward connection to another device. Like using a container to pass your SSM connection over to another server.......like another Bastion Host (yo dog, i heard you like....etc etc). But it doesn't support the `AWS-StartPortForwardingSessionToRemoteHost `document which I would need for the main use-case.
+This agent from April has support for the `AWS-StartPortForwardingSession` SSM document, this allows you to forward connection to another device. Like using a container to pass your SSM connection over to another server.......like another Bastion Host (yo dog, i heard you like....etc etc). But it doesn't support the `AWS-StartPortForwardingSessionToRemoteHost`document which I would need for the main use-case.
 
 For that I need the `3.1.1374.0` release, dated May 2022, as it supports the `AWS-StartPortForwardingSessionToRemoteHost` document which is what we would need to replace this final hurdle for my EC2 based Bastion hosts.
 
-Until at least November 2022 every container I spun up continued to have that April release basked in to the containers morning when I checked again this week, its finally moved on and I can fianlly tunnel through a container running in Fargate to manage other services like this:
+Until at least November 2022 every container I spun up continued to have that April release basked in to the containers morning when I checked again this week, its finally moved on and I can now tunnel through a container running in Fargate to manage other services like this:
 
 ![](/uploads/bastion-containers5.png)
 
