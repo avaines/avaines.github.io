@@ -25,5 +25,6 @@ fields:
   name: tags
   label: tags
 pages:
+- content/posts/bastion-hosts-are-dead-long-live-bastion-containers.md
 - content/posts/how-i-see-troubleshooting.md
 - content/posts/terraform-taxing-tangled-a-bit-tenuous.md
