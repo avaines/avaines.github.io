@@ -26,7 +26,7 @@ This agent from April has support for the `AWS-StartPortForwardingSession` SSM d
 
 For that I need the `3.1.1374.0` release, dated May 2022, as it supports the `AWS-StartPortForwardingSessionToRemoteHost` document which is what we would need to replace this final hurdle for my EC2 based Bastion hosts.
 
-Until at least November 2022 every container I spun up continued to have that April release basked in to the containers morning when I checked again this week, its finally moved on and I can now tunnel through a container running in Fargate to manage other services like this:
+Until at least November 2022 every container I spun up continued to have that April release basked in, that is until I checked again this week, its finally moved on and I can now tunnel through a container running in Fargate to manage other services like this:
 
 ![](/uploads/bastion-containers5.png)
 
