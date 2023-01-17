@@ -57,7 +57,7 @@ Next there are a few variables to assemble by looking up the AWS services
 
 Then we need to build a 'target' reference; unlike everything else in the AWS ecosystem, this construct seems poorly imagined and inconsistent with other services, its built from `ecs:${cluster-name}_${task-id}_${container-runtime-id}` see [https://github.com/aws/amazon-ssm-agent/issues/361](https://github.com/aws/amazon-ssm-agent/issues/361 "https://github.com/aws/amazon-ssm-agent/issues/361") for more
 
-    STUPID_REFERENCE_CONSTRUCT="ecs:${ECS_CLUSTER_NAME}${AWS_TASK_ID}${AWS_TASK_RUNTIME_ID}"
+    STUPID_REFERENCE_CONSTRUCT="ecs:${ECS_CLUSTER_NAME}_${AWS_TASK_ID}_${AWS_TASK_RUNTIME_ID}"
 
 Finally use the SSM start-session command to connect to the container
 
