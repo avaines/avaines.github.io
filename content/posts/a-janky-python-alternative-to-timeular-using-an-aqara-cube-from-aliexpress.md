@@ -11,7 +11,7 @@ title = "A janky python alternative to Timeular using an Aqara cube from AliExpr
 +++
 # A janky Timeular alternative using an Aqara cube and an Office365 calendar
 
-I am not paying £70 for a bit of plastic and £10 a month to use it. But I would find some of the features, namely, a way of tracking which project I'm currently working on and for it to be historically referable. Ideally I would like it to magically fill in my timesheets for various clients automatically, but, I'm a realist and will settle for an Outlook calendar being populated for me.
+I am not paying [£70 for a bit of plastic and £10 a month to use it](https://timeular.com), but I would find some of the features useful, namely, a way of tracking which project I'm currently working on and for it to be historically referable. Ideally I would like it to magically fill in my timesheets for various clients automatically, but, I'm a realist and will settle for an Outlook calendar being populated for me.
 
 I already have an Office 365 subscription with calendars and I don't mind spending £20 on AliExpress for some bits.
 
