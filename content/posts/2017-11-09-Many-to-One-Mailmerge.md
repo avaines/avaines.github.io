@@ -18,7 +18,7 @@ Sometime it's necessary to email an individual about multiple people. Sometimes,
 
 I needed a way to email managers about staff in their team who were receiving new equipment. As this was multiple people in multiple teams with multiple managers it was a bit out of the scope of what mail merge is designed to handle.
 
-[Follow this project on GitHub](https://github.com/n3rden/Random-Powershell-Scripts/tree/master/Start-ManagerMailMerge)
+[Follow this project on GitHub](https://github.com/avaines/Random-Powershell-Scripts/tree/master/Start-ManagerMailMerge)
 
 
 The script takes a "source.csv" layed out like this:

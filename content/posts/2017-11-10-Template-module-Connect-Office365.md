@@ -17,7 +17,7 @@ catagories: [
 
 One of the most common things I use Powershell for is Office 356, this requires the modules be installed and connecting to one of the Office365 sessions, Skype, Exchange or the Security & Compliance center.
 
-[Follow this project on GitHub](https://github.com/n3rden/Powershell-Template-Modules/tree/master/Connect-Office365)
+[Follow this project on GitHub](https://github.com/avaines/Powershell-Template-Modules/tree/master/Connect-Office365)
 
 
 
@@ -28,7 +28,7 @@ This script simply puts some belts and braces around importing the Office 365 mo
  
 # Setup
 * Create a project using the [Powershell Template](/archive/2017-05-28-powershell-framework/)
-* Clone the [Connect-Office365.ps1](https://github.com/n3rden/Powershell-Template-Modules/tree/master/Connect-Office365/Connect-Office365.ps1) to the "Modules" folder of the template
+* Clone the [Connect-Office365.ps1](https://github.com/avaines/Powershell-Template-Modules/tree/master/Connect-Office365/Connect-Office365.ps1) to the "Modules" folder of the template
 * When the "Driver.ps1" is run, it will dot-source the Connect-Office365 functions
 * Add "Connect-Office365" towards the beginning of your code block in the Driver.PS1 to connect to all the office 365 services
 * Add "Disconnect-Office365 towards the end of the code block to disconnect from the services

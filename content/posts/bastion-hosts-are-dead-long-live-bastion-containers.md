@@ -32,7 +32,7 @@ Until at least November 2022 every container I spun up continued to have that Ap
 
 ### Playground
 
-If you would like to test this out, I've put together a Terraform repo with the basics to create a single Fargate container with an RDS instance and everything else necessary to test the port forwarding in a semi-realistic scenario (obviously its not fit for production use). Source code here: [https://github.com/n3rden/tf-fargate-rds-ssm-port-forward](https://github.com/n3rden/tf-fargate-rds-ssm-port-forward "https://github.com/n3rden/tf-fargate-rds-ssm-port-forward")
+If you would like to test this out, I've put together a Terraform repo with the basics to create a single Fargate container with an RDS instance and everything else necessary to test the port forwarding in a semi-realistic scenario (obviously its not fit for production use). Source code here: [https://github.com/avaines/tf-fargate-rds-ssm-port-forward](https://github.com/avaines/tf-fargate-rds-ssm-port-forward "https://github.com/avaines/tf-fargate-rds-ssm-port-forward")
 
 _This will spin up billable services to the tune of <$15 p/m (excluding free tier). So for a couple of hours to experiment you should be looking at around few of dollars tops._ [_https://calculator.aws/#/estimate?id=1df2d8940113fe82dad6ffcdfe0581dfacbdf4c6_](https://calculator.aws/#/estimate?id=1df2d8940113fe82dad6ffcdfe0581dfacbdf4c6 "https://calculator.aws/#/estimate?id=1df2d8940113fe82dad6ffcdfe0581dfacbdf4c6")
 

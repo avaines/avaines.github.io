@@ -12,7 +12,7 @@ tags: [
 ---
 One of the most common things I use Powershell for requires the ActiveDirectory module. In its self, this isn't an issue, I know I have it installed and that it will import automatically. The problem comes when sending or transferring the script to someone else.
 
-[Follow this project on GitHub](https://github.com/n3rden/Powershell-Template-Modules/tree/master/Connect-AD)
+[Follow this project on GitHub](https://github.com/avaines/Powershell-Template-Modules/tree/master/Connect-AD)
 
 
 If the device running the script doesn't have some modules installed or available a script will fall-over.
@@ -22,7 +22,7 @@ This script simply puts some belts and braces around importing the ActiveDirecto
  
 # Setup
 * Create a project using the [Powershell Framework](/archive/2017-05-28-powershell-framework/)
-* Clone the [Connect-AD1.ps1](https://github.com/n3rden/Powershell-Template-Modules/blob/master/Connect-AD/Connect-AD.ps1) to the "Modules" folder of the template
+* Clone the [Connect-AD1.ps1](https://github.com/avaines/Powershell-Template-Modules/blob/master/Connect-AD/Connect-AD.ps1) to the "Modules" folder of the template
 *  When the "Driver.ps1" is run, it will dot-source the Connect-AD functions and check for an RSAT installation then attempt to import the ActiveDirectory module
 
 

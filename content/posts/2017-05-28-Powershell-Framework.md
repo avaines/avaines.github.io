@@ -19,7 +19,7 @@ Writing code that can be maintained by multiple people always requires some sort
 
 My requirements were for a small, extensible framework I can use for quick scripts, everything I found online was overly complicated. All I needed was a simple framework so all my scripts are a similar format, work in a similar way, can be moved around without too much fuss and can be easily debugged by someone else should they have issues.
 
-[Follow this project on GitHub](https://github.com/n3rden/Powershell-Template)
+[Follow this project on GitHub](https://github.com/avaines/Powershell-Template)
 
 
 To start off I asked myself what I want;

@@ -119,7 +119,7 @@ icon = "fab fa-twitter"
 link = "https://twitter.com/n3rden"
 [[params.social]]
 icon = "fab fa-github"
-link = "https://github.com/n3rden"
+link = "https://github.com/avaines"
 [[params.social]]
 icon = "fab fa-medium"
 link = "https://medium.com/@aidenvaines"
@@ -148,10 +148,10 @@ icon = "fab fa-linkedin"
 link = "https://linkedin.com/in/aidenvaines/"
 [[params.social_profile]]
 icon = "fab fa-twitter"
-link = "https://twitter.com/n3rden"
+link = "https://twitter.com/avaines"
 [[params.social_profile]]
 icon = "fab fa-github"
-link = "https://github.com/n3rden"
+link = "https://github.com/avaines"
 [[params.social_profile]]
 icon = "fab fa-medium"
 link = "https://medium.com/@aidenvaines"
