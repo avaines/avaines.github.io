@@ -1,7 +1,7 @@
 +++
 author = "Aiden Vaines"
 catagories = ["python", "time"]
-date = 2023-02-20T20:00:00Z
+date = 2023-02-20T21:00:00Z
 featured = true
 image = "/uploads/cube-on-table.png"
 tags = ["python"]
