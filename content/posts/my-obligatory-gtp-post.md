@@ -5,7 +5,7 @@ date = 2023-03-29T23:00:00Z
 featured = true
 image = "/uploads/gpt-robot-horse-1.png"
 tags = ["gpt", "openai", "bash", "code"]
-title = "My obligatory GTP post"
+title = "My obligatory GPT post"
 
 +++
 Seemingly everyone must now have a blog post about using ChatGPT, lets get on that band waggon.
