@@ -16,11 +16,11 @@ Like everything new, there are people and experts expressing concern, worry and 
 
 I suspect it means the raw number of questions asked in forums dies off, and only the actually complicated or niche questions which services like ChatGPT cannot answer correctly persist. But how does that effect the forums directly? Will that be enough traffic to sustain them through add revenue etc long term? Or will they cease to exist as they are no longer profitable or have a health community presence?
 
-Hot takes aside; I spend most of my time in a terminal and a web browser requires me to use a mouse, this is unacceptable. I need to be able to use this AI to bypass doing any work. When someone asks me a question I'd like to make sure they can't see that I just opened https://chat.openai.com and just asked it the exact same question like a modern https://lmgtfy.app.
+Hot takes aside; I spend most of my time in a terminal and a web browser requires me to use a mouse, this is unacceptable. I need to be able to use this AI to bypass doing any work. When someone asks me a question I'd like to make sure they can't see that I just opened https://chat.openai.com and just asked it the exact same question like a modern [https://lmgtfy.app](https://lmgtfy.app).
 
 To solve my challenge I've added some extra functions to my `.zshrc` (`.bashrc` should work too) file to let me query the OpenAI model directly from my terminal. _If you want to play along at home, you will need `jq`, `viu` and of course `curl` for this to work._
 
-Simply generate an API key from https://platform.openai.com/account/api-keys and update and add this snippet to your `~/.zshrc` or `~/.bashrc` files.
+Simply generate an API key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keyshttps://platform.openai.com/account/api-keys "https://platform.openai.com/account/api-keys") and update and add this snippet to your `~/.zshrc` or `~/.bashrc` files.
 
     # ChatGPT Bits
     OPENAI_API_KEY="YOUR_API_KEY_HERE"
