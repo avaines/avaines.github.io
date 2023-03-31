@@ -5,7 +5,7 @@ date = 2023-03-29T23:00:00Z
 featured = true
 image = "/uploads/gpt-robot-horse-1.png"
 tags = ["gpt", "openai", "bash", "code"]
-title = "My obligatory GPT post"
+title = "My obligatory GTP post"
 
 +++
 Seemingly everyone must now have a blog post about using ChatGPT, lets get on that band waggon.
@@ -16,7 +16,7 @@ Like everything new, there are people and experts expressing concern, worry and 
 
 I suspect it means the raw number of questions asked in forums dies off, and only the actually complicated or niche questions which services like ChatGPT cannot answer correctly persist. But how does that effect the forums directly? Will that be enough traffic to sustain them through add revenue etc long term? Or will they cease to exist as they are no longer profitable or have a health community presence?
 
-Hot takes aside; I spend most of my time in a terminal and a web browser requires me to use a mouse, this is unacceptable. I need to be able to use this AI to bypass doing any work. When someone asks me a question i'd like to make sure they can't see that I just opened https://chat.openai.com and just asked it the exact same question like a modern https://lmgtfy.app.
+Hot takes aside; I spend most of my time in a terminal and a web browser requires me to use a mouse, this is unacceptable. I need to be able to use this AI to bypass doing any work. When someone asks me a question I'd like to make sure they can't see that I just opened https://chat.openai.com and just asked it the exact same question like a modern https://lmgtfy.app.
 
 To solve my challenge I've added some extra functions to my `.zshrc` (`.bashrc` should work too) file to let me query the OpenAI model directly from my terminal. _If you want to play along at home, you will need `jq`, `viu` and of course `curl` for this to work._
 
@@ -57,9 +57,9 @@ Simply generate an API key from https://platform.openai.com/account/api-keys and
 
 Then away we go, are a couple of prompts to get started
 
-`hey_gpt 'Generate me a CSV formatted list of 10 stores with addresses' # ask a question`
-`img_gpt "Draw me a picture of a robot on a horse in the style of Botticelli' # to draw a picture and display in terminal using VIU`
-`img_gpt "Draw me a picture of a robot on a horse in the style of Caravaggio' my-horse-picture.png # to draw a picture and save it`
+`ask_gpt "Generate me a CSV formatted list of 10 stores with addresses' # ask a question"`
+`ask_gpt_img "Draw me a picture of a robot on a horse in the style of Botticelli" # to draw a picture and display in terminal using VIU`
+`ask_gpt_img "Draw me a picture of a robot on a horse in the style of Caravaggio" my-horse-picture.png # to draw a picture and save it`
 
 I can now query ChatGPT directly from my terminal, pipe the results straight in to files, commit it to git, and call it a day. Job done. I can also use it to generate pictures of robots riding horses. I don't know which has greater value.
 
