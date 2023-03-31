@@ -25,7 +25,7 @@ Simply generate an API key from [https://platform.openai.com/account/api-keys](h
     # ChatGPT Bits
     OPENAI_API_KEY="YOUR_API_KEY_HERE"
     OPENAI_VERSION="gpt-3.5-turbo" #"gpt-4" in future or if you are on the beta
-    
+
     function ask_gpt {
         PROMPT=$(echo ${1}|tr '\n' ' ') # Hack to support for multi-line prompts
         curl https://api.openai.com/v1/chat/completions -s \
@@ -37,7 +37,7 @@ Simply generate an API key from [https://platform.openai.com/account/api-keys](h
             "temperature": 0.7
         }' | jq -r '.choices[0].message.content'
     }
-    
+
     function ask_gpt_img {
         IMG_URL=$(curl https://api.openai.com/v1/images/generations -s \
         -H "Content-Type: application/json" \
@@ -47,7 +47,7 @@ Simply generate an API key from [https://platform.openai.com/account/api-keys](h
             "n": 1,
             "size": "1024x1024"
         }'| jq -r '.data[0].url')
-    
+
         if [ -n "$2" ]; then
             curl -s $IMG_URL -o "${2}"
         else
@@ -58,7 +58,9 @@ Simply generate an API key from [https://platform.openai.com/account/api-keys](h
 Then away we go, are a couple of prompts to get started
 
 `ask_gpt "Generate me a CSV formatted list of 10 stores with addresses' # ask a question"`
+
 `ask_gpt_img "Draw me a picture of a robot on a horse in the style of Botticelli" # to draw a picture and display in terminal using VIU`
+
 `ask_gpt_img "Draw me a picture of a robot on a horse in the style of Caravaggio" my-horse-picture.png # to draw a picture and save it`
 
 I can now query ChatGPT directly from my terminal, pipe the results straight in to files, commit it to git, and call it a day. Job done. I can also use it to generate pictures of robots riding horses. I don't know which has greater value.
