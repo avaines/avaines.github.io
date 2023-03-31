@@ -141,7 +141,7 @@ image = "banner-image.png"
 ######################## About Me Widget ###############################
 [Languages.en.about_me]
 title = "Hi, I'm Aiden"
-bio = "I’ve been working in the IT field in various roles and I try write up things i've been doing that I found interesting. I am very bad at doing so; but its nice to try get things down every now and then."
+bio = "I’ve been working in the IT field and filling various roles for the the last 15+ years and I try write up interesting things I've been doing. I am very bad at doing so; but its nice to try get things down every now and then."
 
 [[params.social_profile]]
 icon = "fab fa-linkedin"
