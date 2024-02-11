@@ -1,4 +1,5 @@
 +++
+_template = "blog_post"
 author = "Aiden Vaines"
 catagories = ["AWS"]
 date = 2023-01-11T00:00:00Z

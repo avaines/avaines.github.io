@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -34,8 +34,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm ci
-      - run: hugo
+      - name: Install Node Depencencies
+        run: npm ci
+
+      - name: Build TinaCMS
+        env:
+          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        run: npx tinacms build
+
+      - name: Build Hugo
+        run: hugo
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

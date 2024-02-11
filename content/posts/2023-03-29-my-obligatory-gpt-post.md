@@ -1,4 +1,5 @@
 +++
+_template = "blog_post"
 author = "Aiden Vaines"
 catagories = ["bash"]
 date = 2023-03-29T23:00:00Z

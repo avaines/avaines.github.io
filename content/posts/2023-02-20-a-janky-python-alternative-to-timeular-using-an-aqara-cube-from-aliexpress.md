@@ -1,4 +1,5 @@
 +++
+_template = "blog_post"
 author = "Aiden Vaines"
 catagories = ["python", "time"]
 date = 2023-02-20T21:00:00Z

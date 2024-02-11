@@ -4,7 +4,7 @@ theme = "northendlab"
 paginate = "5"
 summaryLength = "10"
 
-disqusShortname = "vaines-org" # get your shortname form here : https://disqus.com
+disqusShortname = "vaines-org"
 googleAnalytics = "UA-26350585-1"
 enableRobotsTXT = true
 

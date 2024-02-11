@@ -8,3 +8,4 @@ public/
 content/test/
 hugo_stats.json
 node_modules
+.env
