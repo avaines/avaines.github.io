@@ -1,6 +1,7 @@
 name: github pages
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main  # Set a branch to deploy
@@ -8,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -53,4 +54,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           cname: www.vaines.org
-
