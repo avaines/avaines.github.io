@@ -1,12 +1,12 @@
 +++
+_template = "blog_post"
 author = "Aiden Vaines"
 catagories = ["Terraform"]
 date = 2019-10-19T23:00:00Z
 featured = false
 image = ""
 tags = ["AWS"]
-title = "Terraform: Taxing, Tangled & a bit Tenuous"
-
+title = "Starting with Terraform: Taxing, Tangled & Troublesome"
 +++
 One of the first tools I picked up walking in to the DevOps world was Terraform, I found it a bit challenging to get to grips with one major concept. The language itself is easy enough to get to grips with but actually structuring anything slightly complex just didn’t click for me.
 

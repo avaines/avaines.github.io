@@ -1,4 +1,5 @@
 +++
+_template = "blog_post"
 author = "Aiden Vaines"
 catagories = ["ops"]
 date = 2022-10-17T19:00:00Z
