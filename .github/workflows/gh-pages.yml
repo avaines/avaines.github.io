@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - main
 
 permissions:
   contents: read
