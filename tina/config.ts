@@ -22,20 +22,50 @@ export default defineConfig({
       publicFolder: "static",
     },
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
       {
         name: "post",
         label: "Posts",
         path: "content/posts",
+        defaultItem: () => {
+          return {
+            author: 'Aiden Vaines',
+          }
+        },
         fields: [
           {
-            type: "string",
             name: "title",
             label: "Title",
+            type: "string",
             isTitle: true,
             required: true,
+          },
+          {
+            name: "author",
+            label: "Author",
+            type: "string",
+          },
+          {
+            name: 'image',
+            label: 'Hero image',
+            type: 'image',
+          },
+          {
+            name: 'featured',
+            type: 'boolean',
+            label: 'Featured'
+          },
+          {
+            name: "tags",
+            label: "Tags",
+            type: "string",
+            list: true
+          },
+          {
+            label: "Date",
+            name: "date",
+            type: "datetime"
           },
           {
             type: "rich-text",
@@ -46,5 +76,13 @@ export default defineConfig({
         ],
       },
     ],
+  },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ['eng'],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
   },
 });
