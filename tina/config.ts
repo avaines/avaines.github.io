@@ -11,7 +11,6 @@ export default defineConfig({
   branch,
   clientId: process.env.TINA_PUBLIC_CLIENT_ID,
   token: process.env.TINA_TOKEN,
-
   build: {
     outputFolder: "admin",
     publicFolder: "static",
@@ -28,10 +27,21 @@ export default defineConfig({
         name: "post",
         label: "Posts",
         path: "content/posts",
+        format: 'md',
         defaultItem: () => {
           return {
             author: 'Aiden Vaines',
           }
+        },
+        ui: {
+          filename: {
+            slugify: (values) => {
+              const postDate = values.date ? new Date(values.date) : new Date();
+              return `${postDate.toISOString().split("T")[0]}-${values?.title
+                ?.toLowerCase()
+                .replace(/ /g, '-')}`
+            },
+          },
         },
         fields: [
           {
