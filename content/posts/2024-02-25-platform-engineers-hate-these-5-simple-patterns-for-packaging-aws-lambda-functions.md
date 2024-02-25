@@ -36,8 +36,8 @@ resource "aws_lambda_function" "test_lambda" {
 ![option 1 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/diagram.png)
 ![option 1 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/graph.png)
 
-Build time: 16s
-Statefile size: 8K
+**Build time:** 16s
+**Statefile size**: 8K
 
 ## 2)
 
@@ -63,3 +63,16 @@ Statefile size: 8K
 
 ![option 5 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option5/diagram.png)
 ![option 5 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option5/graph.png)
+
+# Super, now what?
+
+To compare the options
+
+| Option     | Build time | Statefile size |
+| ---------- | ---------- | -------------- |
+| Option 1   | 16s        | 8K             |
+| Option 2   | 20s        | 8K             |
+| Option 3   | N/A        | N/A            |
+| Option 4   | 18s        | 12K            |
+| Option 4.5 | 18s        | 12K            |
+| Option 5   | 21s        | 8K             |
