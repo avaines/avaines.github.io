@@ -34,17 +34,32 @@ resource "aws_lambda_function" "test_lambda" {
 ```
 
 ![option 1 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/diagram.png)
-!\[option 1 terraform graph][https://github.com/avaines/terraform\_lambda\_build\_options/raw/main/option1/graph.png](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/graph.png)
+![option 1 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/graph.png)
 
 Build time: 16s
 Statefile size: 8K
 
 ## 2)
 
+![option 2 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/diagram.png)
+![option 2 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/graph.png)
+
 ## 3)
+
+![option 3 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option3/diagram.png)
+![option 3 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option3/graph.png)
 
 ## 4)
 
+![option 4 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option4/diagram.png)
+![option 4 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option4/graph.png)
+
 ### 4.5)
 
-# 5)
+![option 4.5 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option4.5/diagram.png)
+![option 4.5 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option4.5/graph.png)
+
+## 5)
+
+![option 5 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option5/diagram.png)
+![option 5 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option5/graph.png)
