@@ -3,7 +3,7 @@ draft: false
 title: >-
   Platform Engineers hate these 5 simple patterns for packaging AWS Lambda functions
 author: Aiden Vaines
-image: /uploads/Lambda packing hero.png
+image: /posts/2024-02-25-platform-engineers-hate-these-5-simple-patterns-for-packaging-aws-lambda-functions/lambda-packing-patterns.png
 featured: true
 tags:
   - Terraform
