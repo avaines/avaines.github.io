@@ -25,7 +25,7 @@ I've set out some basic requirements which I would want to achieve with a workfl
 
 &nbsp;
 
-## 1) The Classic: copy-&-paste from the docs
+### 1) The Classic: copy-&-paste from the docs
 
 *Sample Code: https://github.com/avaines/terraform_lambda_build_options/tree/main/option1*
 
@@ -53,7 +53,7 @@ A very simple chain of resources, Terraform's archive provider ZIPs up the Lambd
 The Terraform dependency graph is really simple to follow. We've got some code, a Lambda function and an IAM role all attached.  
 ![option 1 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/graph.png)
 
-### How does that stack up against the requirements I set out at the start?
+#### How does that stack up against the requirements I set out at the start?
 
 **Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.**  
 Assuming the Lambda code is always in a Git repo and changes are checked in as part of the workflow.
@@ -80,7 +80,7 @@ Unfortunately, the Terraform `archive_file` resource only supports ZIP files, if
 
 &nbsp;
 
-## 2) Did somebody say Shellscript?
+### 2) Did somebody say Shellscript?
 
 Sample Code: https://github.com/avaines/terraform_lambda_build_options/tree/main/option2
 
@@ -95,7 +95,7 @@ By adding a hash and a commit-id tag to the files we upload and the `source_code
 ![option 2 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/diagram.png)  
 ![option 2 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/graph.png)
 
-### How does that stack up against the requirements I set out at the start?
+#### How does that stack up against the requirements I set out at the start?
 
 **Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.**
 
@@ -118,7 +118,7 @@ Because the `source_code_hash` field is now the trigger for the resource to be r
 
 &nbsp;
 
-## 3) The Lie
+### 3) The Lie
 
 This one doesn't really work, sorry. *Seems like it should though doesn't it?*  
 ![option 3 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option3/diagram.png)
@@ -133,7 +133,7 @@ Finally referencing the S3 object once it exists in a way that lets us handle th
 
 There's an explanation of why this doesn't work on the Hashicorp forums here: https://discuss.hashicorp.com/t/create-terraform-resource-s3-bucket-object-if-already-doesnt-exists/24247
 
-## 4) 1+2=4(ish)
+### 4) 1+2=4(ish)
 
 *Sample Code: https://github.com/avaines/terraform_lambda_build_options/tree/main/option4*
 
@@ -145,7 +145,7 @@ A Terraform `archive_file` data resource is responsible for packaging. We check
 
 ![option 4 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option4/graph.png)
 
-### How does that stack up against the requirements I set out at the start?
+#### How does that stack up against the requirements I set out at the start?
 
 **Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.**
 
@@ -165,7 +165,7 @@ Combining a bit of the thought in the broken-option3 solution and invoking a pac
 
 &nbsp;
 
-## 5) Decouple, Separate, & Empower
+### 5) Decouple, Separate, & Empower
 
 *Sample Code: https://github.com/avaines/terraform_lambda_build_options/tree/main/option5*
 
@@ -179,7 +179,7 @@ One script packages up the code and another one does the identification logic to
 
 &nbsp;
 
-# Super, now what?
+### Super, now what?
 
 That's kinda up to you, just don't do option 3- please.
 
