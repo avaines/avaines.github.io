@@ -1,10 +1,10 @@
 {
-  "name": "showfolio",
+  "name": "avaines.github.io",
   "version": "1.0.0",
-  "description": "Modern portfolio theme for your Hugo site.",
+  "description": "Vaines.org Portal Site",
   "main": "index.js",
-  "repository": "https://github.com/apvarun/showfolio",
-  "author": "Varun A P",
+  "repository": "https://github.com/avaines/avaines.github.io",
+  "author": "Aiden Vaines",
   "license": "MIT",
   "scripts": {
     "start": "hugo server --disableFastRender",

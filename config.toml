@@ -5,7 +5,7 @@ paginate = "5"
 summaryLength = "10"
 
 disqusShortname = "vaines-org"
-googleAnalytics = "UA-26350585-1"
+googleAnalytics = "G-RLWH268NSH"
 enableRobotsTXT = true
 
 [outputs]
