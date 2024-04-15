@@ -1,14 +1,16 @@
-+++
-_template = "blog_post"
-author = "Aiden Vaines"
-catagories = ["ops"]
-date = 2022-10-17T19:00:00Z
-featured = true
-image = "/uploads/throubleshooting.png"
-tags = ["ops", "devops", "meta"]
-title = "How I See Troubleshooting"
+---
+draft: false
+title: >-
+  How I See Troubleshooting
+author: Aiden Vaines
+image: /uploads/throubleshooting.png
+featured: true
+tags:
+  - DevOps
+  - OPS
+date: 2022-10-17T19:00:00.000Z
+---
 
-+++
 When I've been involved in an incident or dragged in to one of those "if we get enough people involved one of them might know" calls, one of the first things that usually catches my attention is the lack of solid troubleshooting that's gone on.
 
 Usually this is because the issue had only just occurred or the people who had been involved up to this point had started at step 5, not step 1 of troubleshooting. Frequently it's because the full picture of how the service hangs together wasn't clear to all parties; which admittedly makes troubleshooting significantly harder.

@@ -1,14 +1,16 @@
-+++
-_template = "blog_post"
-author = "Aiden Vaines"
-catagories = ["python", "time"]
-date = 2023-02-20T21:00:00Z
-featured = true
-image = "/uploads/cube-on-table.png"
-tags = ["python"]
-title = "A janky python alternative to Timeular using an Aqara cube from AliExpress"
+---
+draft: false
+title: >-
+  A janky python alternative to Timeular using an Aqara cube from AliExpress
+author: Aiden Vaines
+image: /uploads/cube-on-table.png
+featured: true
+tags:
+  - Python
+  - Jank
+date: 2023-02-20T21:00:00.000Z
+---
 
-+++
 # A janky Timeular alternative using an Aqara cube and an Office365 calendar
 
 This little project stemmed from me seeing what looked like a fun idea but being a tight-arsed Yorkshireman. I'm not paying [£70 for a bit of plastic and £10 a month to use it](https://timeular.com), but I would find some of the features useful, namely, a way of tracking which project I'm currently working on. and for it to be historically referable.

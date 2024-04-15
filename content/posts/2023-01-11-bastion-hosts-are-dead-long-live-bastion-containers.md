@@ -1,14 +1,16 @@
-+++
-_template = "blog_post"
-author = "Aiden Vaines"
-catagories = ["AWS"]
-date = 2023-01-11T00:00:00Z
-featured = true
-image = "/uploads/deathtobastionhosts.png"
-tags = ["AWS"]
-title = "Death to Bastion Hosts, long live Bastion Containers!"
+---
+draft: false
+title: >-
+  Death to Bastion Hosts, long live Bastion Containers!
+author: Aiden Vaines
+image: /uploads/deathtobastionhosts.png
+featured: true
+tags:
+  - Terraform
+  - AWS
+date: 2023-01-11T00:00:00.000Z
+---
 
-+++
 For a long time now most container based workloads and projects I have worked with have needed EC2 Bastion hosts for various reasons; as Fargate in particular has expanded features and general functionality those needs for an EC2 bastion hosts have been in decline.
 
 One of the biggest use-cases has been [tunneling](https://www.ssh.com/academy/ssh/tunneling) through or proxying to services only accessible to the workloads running in container workloads using the `-L` SSH argument. like accessing a backend RDS instance.

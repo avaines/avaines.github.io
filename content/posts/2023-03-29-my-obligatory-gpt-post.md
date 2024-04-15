@@ -1,14 +1,16 @@
-+++
-_template = "blog_post"
-author = "Aiden Vaines"
-catagories = ["bash"]
-date = 2023-03-29T23:00:00Z
-featured = true
-image = "/uploads/gpt-robot-horse-1.png"
-tags = ["gpt", "openai", "bash", "code"]
-title = "My obligatory GPT post"
+---
+draft: false
+title: >-
+  My obligatory GPT post
+author: Aiden Vaines
+image: /uploads/gpt-robot-horse-1.png
+featured: true
+tags:
+  - AI/ML
+  - Bash
+date: 2023-03-29T23:00:00.000Z
+---
 
-+++
 Seemingly everyone must now have a blog post about using ChatGPT, lets get on that band waggon.
 
 Like everything new, there are people and experts expressing concern, worry and condemnation of ML models. A lot of of which seem to be FUD, but some of it seems valid and up for debate. Personally, my only real worry for our new ML overlords is, if GPT3 has been trained using data from circa 2019 and we all just use it like StackOverflow, who is going to be posting questions on forums for the next iteration of ML to learn from? Are we going to have to go back to finding a post from someone with the exact same problem from years ago without an answer?

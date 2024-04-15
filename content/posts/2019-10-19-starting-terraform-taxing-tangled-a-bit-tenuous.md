@@ -1,13 +1,14 @@
-+++
-_template = "blog_post"
-author = "Aiden Vaines"
-catagories = ["Terraform"]
-date = 2019-10-19T23:00:00Z
-featured = false
-image = ""
-tags = ["AWS"]
-title = "Starting with Terraform: Taxing, Tangled & Troublesome"
-+++
+---
+draft: false
+title: >-
+  Starting with Terraform: Taxing, Tangled & Troublesome
+author: Aiden Vaines
+featured: false
+tags:
+  - Terraform
+  - AWS
+date: 2019-10-19T23:00:00.000Z
+---
 One of the first tools I picked up walking in to the DevOps world was Terraform, I found it a bit challenging to get to grips with one major concept. The language itself is easy enough to get to grips with but actually structuring anything slightly complex just didn’t click for me.
 
 When picking up a new technology I like find a book or video series from the tech vendor or a publisher I respect. Usually one of O’Reilly’s and plough through the book. Once I’ve got a somewhat working knowledge of the thing, I will put together a simplified version of whatever it is I’m trying to do or model something I have built in the past using similar technologies.
