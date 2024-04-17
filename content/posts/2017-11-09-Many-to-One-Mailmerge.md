@@ -5,13 +5,8 @@ date: 2017-05-28
 description: "A Office365 AD connection module for my PowerShell Framework"
 featured: false
 # image: "/posts/2017-11-09-Many-to-One-Mailmerge/featured.jpeg"
-catagories: [
-  "Powershell",
-]
-tags: [
-  "code",
-  "powershell",
-]
+catagories:
+  - "Powershell"
 ---
 
 Sometime it's necessary to email an individual about multiple people. Sometimes, its necessary to email loads of people about loads of people.

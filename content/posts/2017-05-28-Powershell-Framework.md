@@ -5,14 +5,8 @@ date: 2017-05-28
 description: "A small PowerShell Framework"
 # image: "/posts/2017-05-powershell-framework/featured.png"
 featured: false
-catagories: [
-  "Powershell",
-]
-tags: [
-  "code",
-  "powershell",
-  "posh-fw",
-]
+catagories:
+  - "Powershell"
 ---
 
 Writing code that can be maintained by multiple people always requires some sort of structure. A lot of the frameworks I have seen are overly complicated for what is still essentially quite small scripts. So I decided to build my own

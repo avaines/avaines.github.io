@@ -4,11 +4,8 @@ title: "PowerShell Framework Module: Connect-AD"
 date: 2017-05-28
 description: "A Active Directory connection module for my PowerShell Framework"
 # featured_image: /blog/2017-10-12-Template-module-Connect-AD/featured.jpeg
-tags: [
-  "code",
-  "powershell",
-  "posh-fw",
-]
+categories:
+  - "Powershell"
 ---
 One of the most common things I use Powershell for requires the ActiveDirectory module. In its self, this isn't an issue, I know I have it installed and that it will import automatically. The problem comes when sending or transferring the script to someone else.
 

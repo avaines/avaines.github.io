@@ -5,7 +5,7 @@ title: >-
 author: Aiden Vaines
 image: /uploads/throubleshooting.png
 featured: true
-tags:
+categories:
   - DevOps
   - OPS
 date: 2022-10-17T19:00:00.000Z

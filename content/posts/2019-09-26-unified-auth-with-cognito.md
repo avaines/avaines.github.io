@@ -5,14 +5,10 @@ description: "Unified authentication with AWS Cognito!"
 date: 2019-09-26
 # image: "posts/2019-09-26-unified-auth-with-cognito/featured.png"
 featured: false
-categories: [
-  "AWS"
-]
-tags: [
-  "aws",
-  "azure",
-  "auth",
-]
+categories:
+  - "AWS"
+  - "Azure"
+  - "Auth"
 ---
 
 Attempts to minimise the number of credentials required is becoming more and more common, particularly with the adoption of social logins. Many well known services are backing off their authentication mechanisms to Google, Facebook, GitHub etc and passing a session token back to the initial site.

@@ -5,7 +5,7 @@ title: >-
 author: Aiden Vaines
 image: /uploads/cube-on-table.png
 featured: true
-tags:
+categories:
   - Python
   - Jank
 date: 2023-02-20T21:00:00.000Z

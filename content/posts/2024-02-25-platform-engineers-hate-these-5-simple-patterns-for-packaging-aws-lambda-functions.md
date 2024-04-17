@@ -5,7 +5,7 @@ title: >-
 author: Aiden Vaines
 image: /posts/2024-02-25-platform-engineers-hate-these-5-simple-patterns-for-packaging-aws-lambda-functions/lambda-packing-patterns.png
 featured: true
-tags:
+categories:
   - Terraform
   - CI/CD
   - AWS

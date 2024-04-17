@@ -45,37 +45,37 @@ export default defineConfig({
         },
         fields: [
           {
-            name: 'draft',
             label: 'Draft',
+            name: 'draft',
             type: 'boolean',
             required: true,
             description: 'If this is checked the post will not be published',
           },
           {
-            name: "title",
             label: "Title",
+            name: "title",
             type: "string",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
-            name: "author",
             label: "Author",
-            type: "string",
+            name: "author",
+            type: "string"
           },
           {
-            name: 'image',
             label: 'Hero image',
-            type: 'image',
+            name: 'image',
+            type: 'image'
           },
           {
+            label: 'Featured',
             name: 'featured',
-            type: 'boolean',
-            label: 'Featured'
+            type: 'boolean'
           },
           {
-            name: "tags",
-            label: "Tags",
+            label: "Categories",
+            name: "categories",
             type: "string",
             list: true
           },
@@ -85,10 +85,10 @@ export default defineConfig({
             type: "datetime"
           },
           {
+            label: "Body",
             type: "rich-text",
             name: "body",
-            label: "Body",
-            isBody: true,
+            isBody: true
           },
         ],
       },

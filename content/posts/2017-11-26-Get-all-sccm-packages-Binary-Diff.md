@@ -5,14 +5,8 @@ date: 2017-11-26
 description: "A Office365 AD connection module for my PowerShell Framework"
 featured: false
 image: "/posts/2017-11-26-Get-all-sccm-packages-Binary-Diff/featured.jpg"
-tags: [
-  "code",
-  "powershell",
-  "sccm",
-]
-catagories: [
-  "Powershell",
-]
+catagories:
+  - "Powershell"
 ---
 
 # Problem

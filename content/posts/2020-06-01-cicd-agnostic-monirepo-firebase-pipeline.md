@@ -5,17 +5,11 @@ description: "Unified authentication with AWS Cognito!"
 date: 2020-06-01
 image: "/posts/2020-06-01-cicd-agnostic-monirepo-firebase-pipeline/featured.png"
 featured: false
-categories: [
-  "CI/CD",
-  "GCP",
-]
-tags: [
-  "firebase",
-  "nodejs",
-  "github-actions",
-  "github",
-  "cicd",
-]
+categories:
+  - "CICD"
+  - "GCP"
+  - "Firebase"
+  - "NodeJS"
 ---
 
 ## Introduction

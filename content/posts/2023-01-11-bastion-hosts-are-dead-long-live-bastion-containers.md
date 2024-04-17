@@ -5,7 +5,7 @@ title: >-
 author: Aiden Vaines
 image: /uploads/deathtobastionhosts.png
 featured: true
-tags:
+categories:
   - Terraform
   - AWS
 date: 2023-01-11T00:00:00.000Z

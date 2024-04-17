@@ -5,13 +5,9 @@ date: 2017-05-28
 description: "A small PowerShell Framework"
 featured: false
 image: "/posts/2017-09-10-Flash-Populate-AD-Lab/featured.jpeg"
-catagories: [
-  "Powershell",
-]
-tags: [
-    "code",
-    "powershell",
-]
+catagories:
+  - "Powershell"
+
 ---
 
 When you need to test Active Directory in a lab with sample users, creating sufficiently realistic test accounts is a time consuming and tedious process. There are a few quick scripts for creating something similar but many of them only create basic users which don’t emulate a production environment very well.

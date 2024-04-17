@@ -5,14 +5,9 @@ date: 2021-09-18
 featured: true
 description: Unified authentication with AWS Cognito"
 image: "/posts/2021-09-18-triggering-cloudflare-cache-purge-from-s3-event/featured.png"
-categories: [
-  "AWS",
-  "Cloudflare"
-]
-tags: [
-  "aws",
-  "cloudflare",
-]
+categories:
+  - "AWS"
+  - "Cloudflare"
 ---
 
 ## The Challenge

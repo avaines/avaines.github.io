@@ -4,7 +4,7 @@ title: >-
   Starting with Terraform: Taxing, Tangled & Troublesome
 author: Aiden Vaines
 featured: false
-tags:
+categories:
   - Terraform
   - AWS
 date: 2019-10-19T23:00:00.000Z
