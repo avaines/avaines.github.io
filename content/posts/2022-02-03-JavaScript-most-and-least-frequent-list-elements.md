@@ -6,7 +6,7 @@ description: Finding the most and least frequent elements in JavaScript"
 image: "/posts/2022-02-03-JavaScript-most-and-least-frequent-list-elements/featured.png"
 featured: true
 categories:
-  - "JS"
+  - "JavaScript"
 ---
 
 ## The Problem

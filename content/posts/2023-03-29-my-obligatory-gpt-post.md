@@ -6,7 +6,7 @@ author: Aiden Vaines
 image: /uploads/gpt-robot-horse-1.png
 featured: true
 categories:
-  - AI/ML
+  - AI ML
   - Bash
 date: 2023-03-29T23:00:00.000Z
 ---

@@ -7,7 +7,6 @@ image: /uploads/throubleshooting.png
 featured: true
 categories:
   - DevOps
-  - OPS
 date: 2022-10-17T19:00:00.000Z
 ---
 

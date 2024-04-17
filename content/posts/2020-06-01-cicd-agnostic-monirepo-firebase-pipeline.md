@@ -8,8 +8,7 @@ featured: false
 categories:
   - "CICD"
   - "GCP"
-  - "Firebase"
-  - "NodeJS"
+  - "JavaScript"
 ---
 
 ## Introduction

@@ -7,7 +7,7 @@ image: /posts/2024-02-25-platform-engineers-hate-these-5-simple-patterns-for-pac
 featured: true
 categories:
   - Terraform
-  - CI/CD
+  - CICD
   - AWS
 date: 2024-02-25T00:00:00.000Z
 ---
