@@ -5,7 +5,7 @@ title: >-
 date: 2017-05-28
 # image: "/posts/2017-05-powershell-framework/featured.png"
 featured: false
-catagories:
+categories:
   - Powershell
 ---
 

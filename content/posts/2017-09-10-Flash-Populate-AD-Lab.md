@@ -5,7 +5,7 @@ title: >-
 date: 2017-05-28
 featured: false
 image: /posts/2017-09-10-Flash-Populate-AD-Lab/featured.jpeg
-catagories:
+categories:
   - Powershell
 ---
 

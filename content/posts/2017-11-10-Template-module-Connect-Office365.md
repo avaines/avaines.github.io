@@ -5,7 +5,7 @@ title: >-
 date: 2017-11-10
 featured: false
 # image: "/blog/2017-11-10-Template-module-Connect-Office365/featured.jpeg"
-catagories:
+categories:
   - Powershell
 ---
 

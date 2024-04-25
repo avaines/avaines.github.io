@@ -5,7 +5,7 @@ title: >-
 date: 2017-05-28
 featured: false
 # image: "/posts/2017-11-09-Many-to-One-Mailmerge/featured.jpeg"
-catagories:
+categories:
   - Powershell
 ---
 

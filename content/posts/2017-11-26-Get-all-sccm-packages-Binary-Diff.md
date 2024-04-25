@@ -5,7 +5,7 @@ title: >-
 date: 2017-11-26
 featured: false
 image: /posts/2017-11-26-Get-all-sccm-packages-Binary-Diff/featured.jpg
-catagories:
+categories:
   - Powershell
 ---
 
