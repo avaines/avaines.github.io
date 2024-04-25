@@ -5,7 +5,7 @@ title: >-
 date: 2022-09-20
 image: /posts/2022-09-20-aws-efs-and-terraform-provider-pagination-issue/featured.png
 featured: true
-catagories:
+categories:
   - AWS
   - Terraform
 ---
