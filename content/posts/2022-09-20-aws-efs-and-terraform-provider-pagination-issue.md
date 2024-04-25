@@ -1,13 +1,13 @@
 ---
-author: "Aiden Vaines"
-title: "An odd AWS EFS & Terraform AWS pagination issue."
+author: Aiden Vaines
+title: >-
+  An odd AWS EFS & Terraform AWS pagination issue
 date: 2022-09-20
-image: "/posts/2022-09-20-aws-efs-and-terraform-provider-pagination-issue/featured.png"
+image: /posts/2022-09-20-aws-efs-and-terraform-provider-pagination-issue/featured.png
 featured: true
 catagories:
-  - "AWS"
-  - "Terraform"
-
+  - AWS
+  - Terraform
 ---
 
 *I know the AWS CLI is different to the AWS CDK used by the provider and the two are not the same. For the sake of this explanation of my issue its good enough*

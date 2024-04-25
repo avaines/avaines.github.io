@@ -1,12 +1,12 @@
 ---
-author: "Aiden Vaines"
-title: "Many to one mailmerge aka Manager mail merge"
+author: Aiden Vaines
+title: >-
+  Many to one mailmerge aka Manager mail merge
 date: 2017-05-28
-description: "A Office365 AD connection module for my PowerShell Framework"
 featured: false
 # image: "/posts/2017-11-09-Many-to-One-Mailmerge/featured.jpeg"
 catagories:
-  - "Powershell"
+  - Powershell
 ---
 
 Sometime it's necessary to email an individual about multiple people. Sometimes, its necessary to email loads of people about loads of people.

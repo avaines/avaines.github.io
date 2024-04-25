@@ -1,12 +1,12 @@
 ---
-author: "Aiden Vaines"
-title: "PowerShell Framework Module: Connect-Office365"
+author: Aiden Vaines
+title: >-
+  PowerShell Framework Module: Connect-Office365
 date: 2017-11-10
-description: "An Office365 connection module for my PowerShell Framework"
 featured: false
 # image: "/blog/2017-11-10-Template-module-Connect-Office365/featured.jpeg"
 catagories:
-  - "Powershell"
+  - Powershell
 ---
 
 One of the most common things I use Powershell for is Office 356, this requires the modules be installed and connecting to one of the Office365 sessions, Skype, Exchange or the Security & Compliance center.
