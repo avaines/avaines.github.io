@@ -48,7 +48,6 @@ export default defineConfig({
             label: 'Draft',
             name: 'draft',
             type: 'boolean',
-            required: true,
             description: 'If this is checked the post will not be published',
           },
           {

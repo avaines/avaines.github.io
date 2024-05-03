@@ -21,9 +21,9 @@ To start off I asked myself what I want;
   1 **Simplicity**; This needs to be simple to read, reproduce and trace issues.
 
   2 **Troubleshooting**; Tracing a script that's run automatically in the background that failed should be just as easy to trace the fault as if I were stepping through the code. Logging will need to be important
-  
+
   3 **Modular**; I want to be able to write other modules that I can just slot in when needed. Re-usable parts from other scripts without having to rewrite bits. Things like a module for connecting to Office 365 or a suite of functions I use often.
-  
+
   4 **Consistency**: Scripts I have written two weeks ago can be difficult follow, one I wrote last year will be unrecognisable. Structure and framework will be important, I should be able to pick up any script and be able to roughly follow it because they all look and feel the same.
 
 ## Structure

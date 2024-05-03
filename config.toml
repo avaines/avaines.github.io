@@ -58,7 +58,7 @@ icon_font = "Font Awesome 5 Free"
 
 ######################## sidebar widgets #########################
 [params.widgets]
-sidebar = ["about-me", "categories", "featured-post", "tags", "social", "subscription"]
+sidebar = ["about-me", "featured-post", "categories", "social", "subscription"]
 # available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription
 
 # preloader
@@ -158,13 +158,13 @@ link = "https://medium.com/@aidenvaines"
 
 ######################## call to action ###############################
 [params.cta]
-enable = true
+enable = false
 image = "hugo-muscot.svg"
 title = "Get the best hugo templates"
 description = "Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
 
 [params.cta.button]
-enable = true
+enable = false
 label = "Visit Here"
 link = "https://gethugothemes.com/shop/"
 
@@ -181,6 +181,11 @@ name = "Posts"
 
 [[Languages.en.menu.main]]
 weight = 3
+url = "categories/talks/"
+name = "Meatspace"
+
+[[Languages.en.menu.main]]
+weight = 4
 url = "about"
 name = "About"
 
