@@ -6,11 +6,7 @@
 {{ $sidebar := site.Params.sidebar }}
 {{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
 {{ $widget:= site.Params.widgets.sidebar }}
-
-<!-- Add Metatag for social share/preview -->
-{{ with .Params.image }}
-  <meta property="og:image" content="{{ . | absURL }}" />
-{{ end }}
+{{ partial "opengraph.html" . }}
 
 <section class="section">
   <div class="container">

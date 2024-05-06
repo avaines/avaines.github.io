@@ -47,29 +47,29 @@ resource "aws_lambda_function" "test_lambda" {
 }
 ```
 
-A very simple chain of resources, Terraform's archive provider ZIPs up the Lambda code, creates a `aws_lambda_function` resource and provides the code bundle.  
+A very simple chain of resources, Terraform's archive provider ZIPs up the Lambda code, creates a `aws_lambda_function` resource and provides the code bundle.
 ![option 1 diagram](https://raw.githubusercontent.com/avaines/terraform_lambda_build_options/main/option1/diagram.png)
 
-The Terraform dependency graph is really simple to follow. We've got some code, a Lambda function and an IAM role all attached.  
+The Terraform dependency graph is really simple to follow. We've got some code, a Lambda function and an IAM role all attached.
 ![option 1 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/graph.png)
 
 #### How does that stack up against the requirements I set out at the start?
 
-**Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.**  
+**Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.**
 Assuming the Lambda code is always in a Git repo and changes are checked in as part of the workflow.
 
 We don't produce any artefacts that other deployments can reuse as the code is bundled at apply-time, we can't promote a Lambda to another stage like Dev to UAT or into production without re-bundling it. If we can't do that we can expect "Well, it worked in my environment" to be whispered from the shadows at some point.
 
 &nbsp;
 
-**The code a function is running should be identifiable and retrievable for analysis.**  
+**The code a function is running should be identifiable and retrievable for analysis.**
 We'd need to add something like the commit ID as a resource tag and we would have to rely on the AWS Lambda 'versioning' to retrieve old versions as not every commit to the repo would be a change to the running code.
 
 We could tag the Lambda with a commit ID- in theory the specific commit can be checked out. However, if you wanted to know what code was running on a previous version of the lambda, the tags wouldn't help.
 
 &nbsp;
 
-**Functions should not be replaced unless a change has occurred.**  
+**Functions should not be replaced unless a change has occurred.**
 Big fail.
 
 If the project is small and there isn't any CI/CD to speak of and deployments are done from one's laptop, two sequential runs of the `terraform apply` command wouldn't cause the Lambda functions to be re-deployed. However, [ZIP files have an annoying header](http://en.wikipedia.org/wiki/Zip_%28file_format%29) which includes the last modification date & time, any ZIP file created, even from identical files, at the byte level will always end up with a different checksum value.
@@ -92,7 +92,7 @@ By adding a hash and a commit-id tag to the files we upload and the `source_code
 
 &nbsp;
 
-![option 2 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/diagram.png)  
+![option 2 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/diagram.png)
 ![option 2 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option2/graph.png)
 
 #### How does that stack up against the requirements I set out at the start?
@@ -101,13 +101,13 @@ By adding a hash and a commit-id tag to the files we upload and the `source_code
 
 This now works a bit smoother, the code we build is being decoupled from the code that deploys it meaning that if we build the code and tag the bundles properly they are promotable, versioned artefacts we can reuse. Hurray!
 
-&nbsp;  
+&nbsp;
 **The code a function is running should be identifiable and retrievable for analysis.**
 
-By running something like the example script found here: https://github.com/avaines/terraform_lambda_build_options/blob/main/src/helper_scripts/get-version-sha-sums.sh we can retrieve the SHA sums for all previous builds and the commits they came from.  
+By running something like the example script found here: https://github.com/avaines/terraform_lambda_build_options/blob/main/src/helper_scripts/get-version-sha-sums.sh we can retrieve the SHA sums for all previous builds and the commits they came from.
 ![versions by commits](/posts/2024-02-25-platform-engineers-hate-these-5-simple-patterns-for-packaging-aws-lambda-functions/code-version-helper.png)
 
-These will all correspond nicely with what the AWS Lambda console will display about a given function version. We now have an auditable set of infrastructure. *Well... this function anyway.*  
+These will all correspond nicely with what the AWS Lambda console will display about a given function version. We now have an auditable set of infrastructure. *Well... this function anyway.*
 ![code bundle version](/posts/2024-02-25-platform-engineers-hate-these-5-simple-patterns-for-packaging-aws-lambda-functions/code-bundle-hashes.png)
 
 &nbsp;
@@ -120,7 +120,7 @@ Because the `source_code_hash` field is now the trigger for the resource to be r
 
 ### 3) The Lie
 
-This one doesn't really work, sorry. *Seems like it should though doesn't it?*  
+This one doesn't really work, sorry. *Seems like it should though doesn't it?*
 ![option 3 diagram](https://github.com/avaines/terraform_lambda_build_options/raw/main/option3/diagram.png)
 
 I've included it even though it's broken, as it seems like the obvious next step from Option 2. Having Terraform trigger the packaging script if the object doesn't exist in S3 using a combination of `data`, `null` and `external` resources to achieve the goal. Terraform is ultimately a declarative tool and the statement "if the file exists in S3, reference it with a data resource; otherwise run this script to create it" is imperative and therefore bad Terraform-ju-ju.
