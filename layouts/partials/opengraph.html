@@ -38,9 +38,9 @@
 
 <!-- Use the Hero image rather than trying to looping through page images -->
 {{ with .Params.image }}
-  <meta property="og:image" content="{{ . | absURL }}" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:image" content="{{ . | absURL }}" />
+  <meta property="og:image" content="{{ . | absURL }}">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="{{ . | absURL }}">
 {{ end }}
 
 <!-- {{- with partial "_funcs/get-page-images" . }}
