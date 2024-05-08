@@ -1,6 +1,6 @@
 {{ "<!-- about me -->" | safeHTML }}
 <div class="widget widget-about">
-  {{ with site.Params.about_me }}
+  {{ with site.Params.about }}
   <h5 class="widget-title">{{ .Title }}</h5>
   <p>{{ .bio | markdownify }}</p>
   {{ end }}
@@ -11,5 +11,5 @@
     {{ end }}
   </ul>
   {{ end }}
-  <a href="{{`about/` | absLangURL }}" class="btn btn-transparent rounded-0 mb-2">{{ i18n "about_me" }}</a>
+  <a href="{{`about/` | absLangURL }}" class="btn btn-transparent rounded-0 mb-2">{{ i18n "about" }}</a>
 </div>
