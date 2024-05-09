@@ -4,7 +4,7 @@ title: >-
   My obligatory GPT post
 author: Aiden Vaines
 image: /uploads/gpt-robot-horse-1.png
-featured: true
+featured: false
 categories:
   - AI ML
   - Bash

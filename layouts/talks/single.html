@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<!-- checking blog -->
-{{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
+<!-- checking talk -->
+{{ if or (eq .Section "talk") (eq .Section "talks") }}
 
 {{ $sidebar := site.Params.sidebar }}
 {{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
@@ -38,8 +38,16 @@
 
           <div class="content mb-5">
             {{ .Content }}
-            test
           </div>
+
+          <div class="content mb-5">
+            {{ if .Params.eventLink }}
+              <a href="{{ .Params.eventLink }}" target="_blank">
+                <button type="button" class="btn btn-primary btn-lg btn-block ">Sign up for the event here</button>
+              </a>
+            {{ end }}
+          </div>
+
           <div class="mb-3 post-meta">
             {{range .Params.Tags }} <a class="bg-light py-2 px-3" href="{{ `tags/` | absLangURL}}{{ . | urlize | lower }}">#{{ . | title }}</a>
             {{ end }}

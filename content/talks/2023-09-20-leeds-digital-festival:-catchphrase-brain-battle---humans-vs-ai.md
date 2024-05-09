@@ -6,6 +6,7 @@ image: /20240921AICatchphrase.jpeg
 categories:
   - talks
 date: 2023-09-20T23:00:00.000Z
+eventLink: "https://www.eventbrite.co.uk/e/exploring-ai-with-itv-networking-and-gameshow-fun-tickets-692381159687"
 ---
 
 I'll be talking at this year's Leeds Digitial Festival; We've taught Microsoft's AI and ML services to play the ITV classic, Catchphrase.
@@ -17,4 +18,9 @@ I'll be talking at this year's Leeds Digitial Festival; We've taught Microsoft's
 > ➡️ Bringing iconic ITV footage to life using AI.
 > ➡️ Putting our 'Catchphrase' AI model to the test against a live studio audience!
 
-Come join the audience and see if you can be the Catchphrase-bot [https://www.eventbrite.co.uk/e/exploring-ai-with-itv-networking-and-gameshow-fun-tickets-692381159687](https://www.eventbrite.co.uk/e/exploring-ai-with-itv-networking-and-gameshow-fun-tickets-692381159687) 
+
+**The session was recorded and split in to two segments**
+
+*Catchphrase Brain Battle - The Breakdown:* https://www.youtube.com/watch?v=1U90QrkSKBI&pp=ygUUTERGIGNhdGNocGhyYXNlIGJqc3M%3D
+
+*Catchphrase Brain Battle - Gameshow Segment:* https://www.youtube.com/watch?v=dwMgEszTJeY&t=51s&pp=ygUUTERGIGNhdGNocGhyYXNlIGJqc3M%3D

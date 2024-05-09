@@ -63,7 +63,7 @@ export default defineConfig({
             type: "string"
           },
           {
-            label: 'Hero image',
+            label: 'Hero Image',
             name: 'image',
             type: 'image'
           },
@@ -82,6 +82,84 @@ export default defineConfig({
             label: "Date",
             name: "date",
             type: "datetime"
+          },
+          {
+            label: "Body",
+            type: "rich-text",
+            name: "body",
+            isBody: true
+          },
+        ],
+      },
+      {
+        name: "talks",
+        label: "Talks",
+        path: "content/talks",
+        format: 'md',
+        defaultItem: () => {
+          return {
+            author: 'Aiden Vaines',
+          }
+        },
+        ui: {
+          filename: {
+            slugify: (values) => {
+              const postDate = values.date ? new Date(values.date) : new Date();
+              return `${postDate.toISOString().split("T")[0]}-${values?.title
+                ?.toLowerCase()
+                .replace(/ /g, '-')}`
+            },
+          },
+        },
+        fields: [
+          {
+            label: 'Draft',
+            name: 'draft',
+            type: 'boolean',
+            description: 'If this is checked the post will not be published',
+          },
+          {
+            label: "Title",
+            name: "title",
+            type: "string",
+            isTitle: true,
+            required: true
+          },
+          {
+            label: "Author",
+            name: "author",
+            type: "string"
+          },
+          {
+            label: 'Hero Image',
+            name: 'image',
+            type: 'image'
+          },
+          {
+            label: 'Featured',
+            name: 'featured',
+            type: 'boolean'
+          },
+          {
+            label: "Categories",
+            name: "categories",
+            type: "string",
+            list: true
+          },
+          {
+            label: "Date",
+            name: "date",
+            type: "datetime"
+          },
+          {
+            label: "Event Date",
+            name: "eventDate",
+            type: "datetime"
+          },
+          {
+            label: "Event Link",
+            name: "eventLink",
+            type: "string"
           },
           {
             label: "Body",
