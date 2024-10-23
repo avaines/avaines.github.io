@@ -38,7 +38,6 @@
 
           <div class="content mb-5">
             {{ .Content }}
-            test
           </div>
           <div class="mb-3 post-meta">
             {{range .Params.Tags }} <a class="bg-light py-2 px-3" href="{{ `tags/` | absLangURL}}{{ . | urlize | lower }}">#{{ . | title }}</a>
@@ -58,7 +57,7 @@
           {{ end }}
         </div>
 
-        {{ if site.DisqusShortname}}
+        {{ if .Site.Config.Services.Disqus.Shortname}}
         <div class="block shadow mt-4">
           <!-- comments -->
           {{ template "_internal/disqus.html" . }}
@@ -93,6 +92,13 @@
   </div>
 </section>
 
+{{ end }}
+
+{{ if .Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 {{ end }}
 
 {{ end }}
