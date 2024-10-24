@@ -65,7 +65,7 @@ Integrating Square’s API was a bit of a learning curve, especially since JavaS
 
 One tricky part of using Square was the way the API handles payment links. When you create a catalog item in Square, there’s a handy button to generate a payment link, great. However, this link isn’t retrievable via the API (confirmed by support), which caused a bit of head-scratching. Originally, I considered storing the link as a custom attribute in the product catalog, but that felt too messy. Instead, I ended up caching the links in the Cloudflare KV once they created then checking there first and generating one if not. Since relating a created payment link back to a specific product seems pretty difficult this worked out great.
 
-*I did have a worry that once a payment link is used it would no longer be valid but since my products are one-offs, I don't really care and didn't investigate this in any way. If you're reading this and do plan on selling several of the same item, check this works properly as you might need to explore a different approach.*
+*I did have a worry that once a payment link is used it would no longer be valid but since my products are one-offs. If you're reading this and do plan on selling several of the same item, you'll need to explore a different approach, probably creating the payment link on the fly through a second worker function.*
 
 ![ooo-graphs](/uploads/shop_ecom_workers_ooo_graphs.png)
 
