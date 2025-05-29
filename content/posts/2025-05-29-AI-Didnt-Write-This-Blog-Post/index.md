@@ -1,9 +1,9 @@
 ---
 author: Aiden Vaines
 title: >-
-  This blog post was **not** written by AI
+  This blog post was not written by AI
 date: 2025-05-29
-image: "/posts/2025-05-29-AI-Didnt-Write-This-Blog-Post/hero.jpeg"
+image: "/posts/2025-05-29-ai-didnt-write-this-blog-post/hero.jpeg"
 featured: true
 categories:
   - AI
