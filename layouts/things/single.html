@@ -1,0 +1,126 @@
+{{ define "main" }}
+
+<!-- checking things -->
+{{ if or (eq .Section "thing") (eq .Section "things") }}
+
+{{ $sidebar := site.Params.sidebar }}
+{{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
+{{ $widget:= site.Params.widgets.sidebar }}
+{{ partial "opengraph.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- left sidebar -->
+      {{ if eq $sidebar "left" }}
+      <aside class="col-lg-4 order-2 order-lg-1">
+        <div class="{{ if eq $sidebar `left` }}pl-lg-4{{ end }}{{ if eq $sidebar `right` }}pr-lg-4{{ end }}">
+          {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
+        </div>
+      </aside>
+      {{ end }}
+      <!-- /left sidebar -->
+
+      <div class="{{ if $has_sidebar }}col-lg-8{{ else }}col-lg-10{{ end }} {{ if eq $sidebar `left` }}order-1 order-lg-2{{ end }}">
+        <div class="block shadow mb-4">
+          <h2>{{ .Title | markdownify }}</h2>
+          <div class="mb-4 mt-3 post-meta">
+            <a href="{{ `author/` | absLangURL }}{{ .Params.Author | urlize | lower }}">{{ .Params.Author | title }}</a>
+            <span class="mx-2">|</span>
+            {{ .PublishDate.Format "Jan 2, 2006" }}
+            <span class="mx-2">|</span>
+            {{ range .Params.Categories }}
+              <a href="{{ `categories/` | absLangURL }}{{ . | urlize | lower }}">{{ . | title }}</a>
+            {{ end }}
+          </div>
+
+          <!-- Links section as buttons at the top -->
+          {{ if or .Params.app_url .Params.code_url .Params.blog_url }}
+          <div class="mb-4">
+            <div class="d-flex justify-content-around" role="group" aria-label="Post Links">
+              {{ if .Params.app_url }}
+                <a href="{{ .Params.app_url }}" target="_blank" class="btn btn-success">Visit It</a>
+              {{ end }}
+              {{ if .Params.code_url }}
+                <a href="{{ .Params.code_url }}" target="_blank" class="btn btn-info">The Code</a>
+              {{ end }}
+              {{ if .Params.blog_url }}
+                <a href="{{ .Params.blog_url }}" target="_blank" class="btn btn-warning">Related Blog Post</a>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+
+          {{ if .Params.Image }}
+            <img loading="lazy" src="{{ .Params.Image | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+          {{ end }}
+
+          <div class="content mb-5">
+            {{ .Content }}
+          </div>
+
+          <div class="content mb-5">
+            {{ if .Params.eventLink }}
+              <a href="{{ .Params.eventLink }}" target="_blank">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Sign up for the event here</button>
+              </a>
+            {{ end }}
+          </div>
+
+          <div class="mb-3 post-meta">
+            {{ range .Params.Tags }}
+              <a class="bg-light py-2 px-3" href="{{ `tags/` | absLangURL }}{{ . | urlize | lower }}">#{{ . | title }}</a>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="block shadow">
+          {{ $related := site.RegularPages.Related . | first 5 }}
+          {{ with $related }}
+            <h3 class="mb-3">See Also</h3>
+            <ul class="list-unstyled related-post-list">
+              {{ range . }}
+                <li><a class="d-inline-block py-1 text-dark" href="{{ .RelPermalink }}"><small class="fas fa-external-link-alt mr-2"></small>{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </div>
+
+        {{ if site.Config.Services.Disqus.Shortname }}
+        <div class="block shadow mt-4">
+          <!-- comments -->
+          {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ end }}
+      </div>
+
+      <!-- right sidebar -->
+      {{ if eq $sidebar "right" }}
+      <aside class="col-lg-4 mt-5 mt-lg-0">
+        <div class="{{ if eq $sidebar `left` }}pr-lg-4{{ end }}{{ if eq $sidebar `right` }}pl-lg-4{{ end }}">
+          {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
+        </div>
+      </aside>
+      {{ end }}
+      <!-- /right sidebar -->
+    </div>
+  </div>
+</section>
+
+{{ else }}
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ end }}

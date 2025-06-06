@@ -9,7 +9,7 @@ categories:
   - JavaScript
 ---
 
-## The Problem
+### The Problem
 I love working through the [Advent of Code](https://adventofcode.com) puzzles, this year I decided it was a good opportunity to learn some JavaScript. Having only ever done some very basic stuff with JS before, there's no time like the present
 
 I quickly found some things ive become used to in Python were just not a thing in this foreign land.

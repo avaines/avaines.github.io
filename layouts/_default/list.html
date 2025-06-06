@@ -12,7 +12,16 @@
         <div class="bg-white shadow block">
           {{ $paginator := .Paginate (where .Data.Pages "Section" "in" site.Params.mainSections ) }}
           {{ range $paginator.Pages }}
-          {{ .Render "article" }}
+          <div class="row mb-4">
+            <div class="col-md-4">
+              {{ with .Params.image }}
+                <img src="{{ . }}" alt="{{ $.Title }}" class="img-fluid">
+              {{ end }}
+            </div>
+            <div class="col-md-8">
+              {{ .Render "article" }}
+            </div>
+          </div>
           {{ end }}
           <!-- pagination -->
           <div class="mt-5">

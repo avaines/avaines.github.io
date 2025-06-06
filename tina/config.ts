@@ -169,6 +169,84 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "things",
+        label: "Things",
+        path: "content/things",
+        format: 'md',
+        defaultItem: () => {
+          return {
+            author: 'Aiden Vaines',
+          }
+        },
+        ui: {
+          filename: {
+            slugify: (values) => {
+              const postDate = values.date ? new Date(values.date) : new Date();
+              return `${postDate.toISOString().split("T")[0]}-${values?.title
+                ?.toLowerCase()
+                .replace(/ /g, '-')}`
+            },
+          },
+        },
+        fields: [
+          {
+            label: 'Draft',
+            name: 'draft',
+            type: 'boolean',
+            description: 'If this is checked the post will not be published',
+          },
+          {
+            label: "Title",
+            name: "title",
+            type: "string",
+            isTitle: true,
+            required: true
+          },
+          {
+            label: "Author",
+            name: "author",
+            type: "string"
+          },
+          {
+            label: 'Hero Image',
+            name: 'image',
+            type: 'image'
+          },
+          {
+            label: "Categories",
+            name: "categories",
+            type: "string",
+            list: true
+          },
+          {
+            label: "Date",
+            name: "date",
+            type: "datetime"
+          },
+          {
+            label: "app_url",
+            name: "appUrl",
+            type: "string"
+          },
+          {
+            label: "code_url",
+            name: "codeUrl",
+            type: "string"
+          },
+          {
+            label: "blog_url",
+            name: "blogUrl",
+            type: "string"
+          },
+          {
+            label: "Body",
+            type: "rich-text",
+            name: "body",
+            isBody: true
+          },
+        ],
+      },
     ],
   },
   search: {
