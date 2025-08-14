@@ -1,0 +1,17 @@
+<div class="timeline-container">
+  <div class="date">{{ .Get "year" }}</div>
+  <div class="content">
+    <div style="display: flex; align-items: center; gap: 0.5em;">
+      {{ with .Get "icon" }}
+        <img src="{{ . }}" alt="" style="height:1.5em; vertical-align:middle;">
+      {{ end }}
+      <span class="title">{{ .Get "title" }}</span>
+    </div>
+    <div class="body">{{ .Inner }}</div>
+    {{ with .Get "link" }}
+      <div style="margin-top:0.5em;">
+        <a href="{{ . }}" target="_blank" rel="noopener">Read more</a>
+      </div>
+    {{ end }}
+  </div>
+</div>
