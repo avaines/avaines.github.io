@@ -4,7 +4,7 @@
   {{ with .Params.background_shape}}
   <img class="background_shape" src="{{ . | absURL }}" alt="background shape">
   {{ end }}
-  
+
   <div class="container">
     <div class="row justify-content-center align-items-center text-center text-lg-left">
       {{ with .Params.image }}
@@ -55,6 +55,82 @@
 {{ end }}
 {{ end }}
 
+{{ if .Params.generic_timeline.enable }}
+{{ with .Params.generic_timeline }}
+<section class="experiences">
+  <div class="container bg-light">
+    <div class="row experiences-items justify-content-between">
+      {{ $counter := 0 }}
+      {{ range .generic_timelines }}
+      {{ $counter = add $counter 1 }}
+      <div class="col-lg-5 experiences-item">
+        <div class="card border-0 rounded-0 bg-white" data-item="{{if lt $counter 9}}0{{$counter}}{{else}}{{$counter}}{{end}}">
+          <div class="card-header bg-transparent border-0 d-flex align-items-center">
+            {{ if .icon }}
+              <img src="{{ .icon }}" alt="" class="timeline-icon mr-3" style="width:32px;height:32px;">
+            {{ end }}
+            <h5 class="border-bottom pb-3 mb-0">{{ .title | markdownify }}</h5>
+          </div>
+          <div class="card-body py-0 pr-5">
+            {{ if .description }}
+              <p class="mb-2">{{ .description | markdownify }}</p>
+            {{ end }}
+            <ul class="list-unstyled mb-1">
+              {{ if .date }}
+                <li class="d-flex mb-2">
+                  <span class="text-primary font-weight-bold mr-3">Date:</span>{{ .date | markdownify }}
+                </li>
+              {{ end }}
+              {{ if .link }}
+                <li class="d-flex mb-2">
+                  <span class="text-primary font-weight-bold mr-3">Link:</span>
+                  <a href="{{ .link }}" target="_blank">{{ .link }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ if .Params.my_education.enable }}
+{{ with .Params.my_education }}
+<section class="experiences">
+  <div class="container bg-light">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center mb-5 pb-5">
+        <h2>{{ .title | markdownify }}</h2>
+        {{/*  <p>{{ .description | markdownify }}</p>  */}}
+      </div>
+    </div>
+    <div class="row experiences-items justify-content-between">
+      {{ $counter := 0 }}
+      {{ range .education_items }}
+      {{ $counter = add $counter 1 }}
+      <div class="col-lg-5 experiences-item">
+        <div class="card border-0 rounded-0 bg-white" data-item="{{if lt $counter 9}}0{{$counter}}{{else}}{{$counter}}{{end}}">
+          <div class="card-header bg-transparent border-0">
+            <h5 class="border-bottom pb-3">{{ .title | markdownify }}</h5>
+          </div>
+          <div class="card-body py-0 pr-5">
+            <ul class="list-unstyled mb-1">
+              <li class="d-flex mb-2"><span class="text-primary font-weight-bold mr-3">{{ i18n `requisition` }}:</span>{{ .requisition | markdownify }}</li>
+              <li class="d-flex mb-2"><span class="text-primary font-weight-bold mr-3">{{ i18n `time_period` }}:</span>{{ .time_period | markdownify }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
 
 {{ if .Params.my_education.enable }}
 {{ with .Params.my_education }}

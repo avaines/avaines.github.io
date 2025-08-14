@@ -1,7 +1,7 @@
 baseURL = 'https://www.vaines.org/'
 title = ""
 theme = "northendlab"
-paginate = "5"
+pagination.pagerSize = "5"
 summaryLength = "10"
 
 disqusShortname = "vaines-org"
@@ -162,13 +162,27 @@ name = "Things I Made"
 
 [[Languages.en.menu.main]]
 weight = 4
-url = "about"
-name = "About"
+hasChildren = true
+name = "Other"
 
-[[Languages.en.menu.main]]
-weight = 5
-url = "contact"
-name = "Contact"
+    [[Languages.en.menu.main]]
+    parent = "Other"
+    name = "About Me"
+    url = "about"
+    weight = 1
+
+    [[Languages.en.menu.main]]
+    parent = "Other"
+    name = "Contact"
+    url = "contact"
+    weight = 3
+
+    [[Languages.en.menu.main]]
+    parent = "Other"
+    name = "Cursed Knowledge"
+    url = "cursed"
+    weight = 2
+
 
 [[Languages.en.menu.footer]]
 weight = 1

@@ -12,9 +12,13 @@ my_experiences:
   # description: "This is what I have been up to"
 
   experiences_item:
+  - title: "CGI"
+    requisition: "Director Consulting Expert"
+    time_period: "2025 - Current"
+
   - title: "BJSS"
     requisition: "Principal Technologist"
-    time_period: "2019 - Current"
+    time_period: "2019 - 2025"
 
   - title: "Oriium Consulting"
     requisition: "Datacentre Manager"
