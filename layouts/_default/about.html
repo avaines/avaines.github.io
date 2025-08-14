@@ -81,12 +81,10 @@
                   <span class="text-primary font-weight-bold mr-3">Date:</span>{{ .date | markdownify }}
                 </li>
               {{ end }}
-              {{ if .link }}
-                <li class="d-flex mb-2">
-                  <span class="text-primary font-weight-bold mr-3">Link:</span>
-                  <a href="{{ .link }}" target="_blank">{{ .link }}</a>
-                </li>
-              {{ end }}
+              <li class="d-flex mb-2">
+                <span class="text-primary font-weight-bold mr-3">Link:</span>
+                <a href="{{ .link }}" target="_blank" class="break-link">{{ .link }}</a>
+              </li>
             </ul>
           </div>
         </div>

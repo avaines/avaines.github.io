@@ -321,6 +321,11 @@
 
 // experiences
 .experiences {
+  .break-link {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
   .container {
     padding: 100px;
     padding-bottom: 50px;
