@@ -6,6 +6,12 @@ draft: false
 generic_timeline:
   enable: true
   generic_timelines:
+    - title: Standard Unix tools on Macs are cursed
+      description: That the BSD version of Grep, Sed etc are not the same as the GNU versions of the same tools and important args don't always exist. Leading to your scripts either checking for ggrep gsed etc, or checking to see if its the GNU one and failing if not or some other arcane nonsense.
+      date: 2019-06-15
+      icon: /icons/tools.svg
+      link: https://unix.stackexchange.com/questions/352977/why-does-this-bsd-grep-result-differ-from-gnu-grep
+
     - title: Fetch inside Cloudflare Workers is cursed
       description: Fetch requests in Cloudflare Workers use http by default, even if you explicitly specify https, which can often cause redirect loops.
       date: 2025-04-09
@@ -19,14 +25,14 @@ generic_timeline:
       link: https://github.com/avaines/isitvickysbirthday.github.io/blob/main/script.js
 
     - title: Cisco ASA NAT rules are cursed
-      description: The Cisco ASA firmware upgrade from 8.2 to 8.4, despite being a minor version, contains a breaking change and fundamentally changed NAT.
+      description: The Cisco ASA firmware upgrade from 8.2 to 8.3, despite being a minor version, contains a breaking change and fundamentally changed NAT.
       date: 2014-08-10
       icon: /icons/network.svg
       link: https://community.cisco.com/t5/security-knowledge-base/asa-pre-8-3-to-8-3-nat-configuration-examples/ta-p/3116375
 ---
 
 ## Cursed Knowledge
-#### Cursed knowledge i've been unfortunate to learn
+#### Cursed knowledge I've been unfortunate to learn
 
 The creators of the Immich photo hosting app have a page for [Cursed Knowledge](https://immich.app/cursed-knowledge/) and the concept really resonated with me. In particular two really stood out, the JavaScript Dates indexing, and the Cloudflare workers redirect loop problem. I have without any shame ripped off that concept and intend to add to it as I go along in my journey.
 
