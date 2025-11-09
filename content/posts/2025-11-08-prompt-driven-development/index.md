@@ -14,9 +14,9 @@ date: 2025-11-08T23:00:00.000Z
 
 Every few years the industry seems to come back to the same idea with a fresh lick of paint. Behaviour-Driven Development (BDD) was all the rage when I entered Platform Engineering, what feels like forever ago. With Cucumber, Gherkin, SpecFlow and the rest, the plan was to write tests in something approaching natural human language: Given … Then … When. It is not far from the familiar As a … I want … So that … format we use in user stories.
 
-BDD taught us to describe intent rather than implementation. Now, with AI-assisted development tools, we seem to be going back to that with a new flavour. This time its a language model rather than a test framework that handles the statements.
+BDD taught us to describe intent rather than implementation. Now, with AI-assisted development tools, we seem to be going back to that with a new flavour. This time it's a language model rather than a test framework that handles the statements.
 
-Its not quite history repeating itself, but it certainly rhymes. The same challenges remain: how do we express intent clearly enough for someone else to act on it, whether thats a developer or an AI service?
+It's not quite history repeating itself, but it certainly rhymes. The same challenges remain: how do we express intent clearly enough for someone else to act on it, whether that's a developer or an AI service?
 
 ### Prompt Club: The First Rule Is, You Always Tweak the Prompt
 
@@ -24,7 +24,7 @@ The current pattern across Cursor, GitHub Copilot, Duet, ChatGPT/Codex, or a loc
 
 If you are deep into prompt design you may have an [Agents.md](https://agents.md/) file where you state the role, tone and tooling instructions. Maybe you're getting really fancy with advanced prompt techniques like “apes strong together”, which can bizarrely nudges a cooperative, and energetic vibe in your AI chat. My favourite of these is including *“I’ll tip you £200”* with some researchers found to improve benchmark scores ([Li et al.](https://arxiv.org/abs/2307.11760v7)). Make of that what you will.
 
-Developing with AI now feels like briefing a junior colleague. Most of the time and effort goes into refining tasks and thinking about how the ask will be interpreted. Your plan goes away with your bright eyed and bushy tailed colleague....and code happens. You then review, which some times takes longer than if you had done the task in the first place. Sometimes you have to go slow to go fast. In reviewing, you can fix-up the obvious bits, and clarify the request where you were vague or over-ambitious. At some point you realise you are writing feature scenarios and user stories again.....oh no.
+Developing with AI now feels like briefing a junior colleague. Most of the time and effort goes into refining tasks and thinking about how the ask will be interpreted. Your plan goes away with your bright eyed and bushy tailed colleague....and code happens. You then review, which sometimes takes longer than if you had done the task in the first place. Sometimes you have to go slow to go fast. In reviewing, you can fix-up the obvious bits, and clarify the request where you were vague or over-ambitious. At some point you realise you are writing feature scenarios and user stories again.....oh no.
 
 ### Shift Left-ier
 
@@ -37,7 +37,7 @@ Teams have been moving critical tasks earlier in the Software Development Lifecy
 
 In modern IDEs with AI plugins, the chat pane interprets our intent. If BDD helped less technical colleagues express testing intent, prompts do something similar. In most cases they are easier for those same people to read and write. After decades of formalising syntax and keywords for machines, we now have machines that tolerate our informal syntax.... more or less.
 
-There's still a gap. BDD gave you explicit structure where as LLMs rely on implied understanding. Given some of the prompts i've seen people type into ChatGPT though the rigid constraints of BDD DSLs actually seem rather sensible.
+There's still a gap. BDD gave you explicit structure where as LLMs rely on implied understanding. Given some of the prompts I've seen people type into ChatGPT, the rigid constraints of BDD DSLs actually seem rather sensible.
 
 ### Contracts and Prompts
 
@@ -67,7 +67,7 @@ SpecKit shows how natural-language specs can produce scaffolds. It is not magic.
 
 There are some downsides to this PDD approach though. The current AI tooling we have access to has known challenges, the biggest one is that it produces lowest common denominator code. All the models are trained on whats in Github, StackOverflow and similar, then its homogenised and regurgitated. If you picture AI as a room with infinite ~~monkeys~~ junior developers with infinite ~~typewriters~~ IDE's and target the tasks as you would for such an audience you tend to get better solutions. Clear, short, and well defined tasks get the best results. This same challenge is going to be very relevant when declaring prompts for our contract of intent.
 
-Then theres all the bizarre stuff like hallucinations, post-rationalisation, context window escaping, invisible priors, glazing, model-poisoning, and training biases which we have to acknowledge and accept as the price of doing business with our new overlords. There are things we can do like well defined prompts, guardrails, and in depth code reviews. Not to mention the silly phrases that can drastically change the quality or direction of output I mentioned earlier.
+Then there's all the bizarre stuff like hallucinations, post-rationalisation, context window escaping, invisible priors, glazing, model-poisoning, and training biases which we have to acknowledge and accept as the price of doing business with our new overlords. There are things we can do like well defined prompts, guardrails, and in depth code reviews. Not to mention the silly phrases that can drastically change the quality or direction of output I mentioned earlier.
 
 There is another thing I've noticed with code written by AI which doesn't seem widely acknowledged and that's the love of the game. Solving problems, learning new techniques and ways to solve things is fun for those of us wired to enjoy this sort of thing. Solving a problem you've been banging against for a few hours releases a lovely little dopamine hit right through you, solving the same problems with AI tools does not do that, its like someone giving you the answers to a crossword, the puzzle gets done but you don't get the sense of achievement. I hope that embedding a pattern like Prompt Based Development in conjunction to more traditional TDD and just straight up writing code helps elevate the boring bits and save the hard gnarly parts that AI is poor at for us. Abstraction is a fine thing until it abstracts out the satisfaction.
 
