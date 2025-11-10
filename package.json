@@ -8,9 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "hugo server --disableFastRender",
-    "build": "NODE_ENV=production hugo --gc",
-    "tina-dev": "tinacms dev -c \"hugo server -D\"",
-    "tina-build": "tinacms build && hugo"
+    "build": "NODE_ENV=production hugo --gc"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
@@ -18,8 +16,7 @@
     "autoprefixer": "^10.2.5",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.1",
-    "tailwindcss": "^2.1.1",
-    "tinacms": "^1.5.28"
+    "tailwindcss": "^2.1.1"
   },
   "browserslist": [
     "last 1 version",
@@ -28,7 +25,6 @@
     "not dead"
   ],
   "devDependencies": {
-    "@tinacms/cli": "^1.5.39",
     "@types/node": "^20.11.17",
     "postcss": "^8.4.14"
   }
