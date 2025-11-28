@@ -9,7 +9,7 @@ googleAnalytics = "G-RLWH268NSH"
 enableRobotsTXT = true
 
 [outputs]
-home = ["HTML", "AMP", "RSS", "JSON"]
+home = ["html", "amp", "rss", "json"]
 [markup.goldmark.renderer]
 unsafe = true
 
