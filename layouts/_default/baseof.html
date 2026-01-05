@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ with site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+{{- partial "head.html" . -}}
+
+<head>
+  {{ partial "head.html" . }}
+  {{ partialCached "style.html" . }}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4546884587701577" crossorigin="anonymous"> </script>
+</head>
+
+<body>
+  {{- partial "preloader.html" . -}}
+  {{- partial "header.html" . -}}
+	{{ partial "gtm-noscript.html" . }}
+  {{- block "main" . }}
+  {{- end }}
+  {{ partialCached "footer.html" . }}
+  {{ partialCached "script.html" . }}
+
+  {{ if .Store.Get "hasMermaid" }}
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  {{ end }}
+  {{ partial "carousel.html" . }}
+</body>
+
+</html>

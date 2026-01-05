@@ -118,6 +118,9 @@ link = "https://linkedin.com/in/aidenvaines/"
 icon = "fab fa-github"
 link = "https://github.com/avaines"
 [[params.social]]
+icon = "fas fa-mug-hot"
+link = "https://buymeacoffee.com/u6zv4r45ct"
+[[params.social]]
 icon = "fas fa-store"
 link = "https://shop.vaines.org"
 [[params.social]]
@@ -193,6 +196,12 @@ name = "About"
 weight = 2
 url = "privacy/"
 name = "Privacy"
+
+[[Languages.en.menu.footer]]
+weight = 9
+url = "https://buymeacoffee.com/u6zv4r45ct"
+name = "Buy me a coffee"
+
 
 
 [[params.social_profile]]

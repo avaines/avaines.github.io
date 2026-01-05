@@ -11,7 +11,7 @@ categories:
 date: 2024-10-22T23:00:00.000Z
 ---
 
-I accidently picked up a new hobby after my partner gifted my dad and I a wood turning course/experience thing for Christmas 2023. After talking to a colleague about it, it turned out she had a lathe in her garage that was going unused; after borrowing that for a bit it's quickly taken over my spare time (and most of my house). With wooden bowls, pens, and all sorts of other creations piling up, I need a way to offload these one of a kind, priceless artefacts to recoup the costs of wood, oil, and sandpaper.
+I accidentally picked up a new hobby after my partner gifted my dad and I a wood turning course/experience thing for Christmas 2023. After talking to a colleague about it, it turned out she had a lathe in her garage that was going unused; after borrowing that for a bit it's quickly taken over my spare time (and most of my house). With wooden bowls, pens, and all sorts of other creations piling up, I need a way to offload these one of a kind, priceless artefacts to recoup the costs of wood, oil, and sandpaper.
 
 [You can help by buying them](https://shop.vaines.org/)
 

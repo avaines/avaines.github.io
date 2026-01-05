@@ -56,7 +56,8 @@
           {{ end }}
 
           <div class="content mb-5">
-            {{ .Content }}
+            <!-- {{ .Content }} -->
+            {{ partial "list-to-carousel.html" .Content }}
           </div>
 
           <div class="content mb-5">
