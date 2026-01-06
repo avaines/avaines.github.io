@@ -61,14 +61,25 @@ my_education:
 
 # About info
 about_info:
-  enable: false
+  enable: true
   item:
-  - name: "My Approach"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisdf bicing elit. Quas offiscs cuque, harum dicta neces sitatrrthr thrth iujhs reprehenderit, delsectsus molesdtiae, impedit alias adipi thsci distinctio volusd ptas. Tempora modi amet volufy jnfyp tatlje  provide nsdv sdvt solusfta consequatur. oresaam ipsum dolor sit amhet, consec dassetur  facere tempore soluta Lorsgem ipsum shghu ugisdvg srgvsrgv vswrgv srgt lias adipi thsci distiio voslusd"
+  - name: "What I Do"
+    content: >
+      I work on cloud platforms, infrastructure, and delivery problems.
+      Some times that means helping teams design, build, and run systems that have to keep working long after the initial excitement has worn off.
+      I tend to get involved where things are slightly messy, complex, or not well defined.
 
-  - name: "My Skills"
-    content: "Lorem ipsum dolor sit amet, consectetur adipisdf bicing elit. Quas offiscs cuque, harum dicta neces sitatrrthr thrth iujhs reprehenderit, delsectsus molesdtiae, impedit alias adipi thsci distinctio volusd ptas. Tempora modi amet volufy jnfyp tatlje  provide nsdv sdvt solusfta consequatur. oresaam ipsum dolor sit amhet, consec dassetur  facere tempore soluta Lorsgem ipsum shghu ugisdvg srgvsrgv vswrgv srgt lias adipi thsci distiio voslusd"
+  - name: "How I Work"
+    content: >
+      I spend a lot of time looking at how things fail rather than how they’re supposed to work.
+      I review designs, ask awkward questions, and try to make trade-offs explicit before they turn into surprises later.
+      I’m generally suspicious of solutions that look clever but are hard to operate.
 
+  - name: "Why This Site Exists"
+    content: >
+      This site is mostly somewhere to write things down.
+      It’s a mix of experiments, half-formed ideas, and notes from trying things that seemed sensible at the time.
+      If nothing else, it helps me remember what I was thinking when I made a decision.
 
 # # Compatibility
 compatibility:
@@ -82,7 +93,10 @@ compatibility:
 
 ## I’m Aiden Vaines <br> <strong>A Digital Plumber and Tech Lead</strong>
 
-I've been working in the IT field for the last 15+ years starting out as a field support engineer, through that time I have gained varied experience across a number of verticals and managed implementations from pre-sales through delivery and completion.
+I’ve been working in IT for a bit over twenty years. I started out doing infrastructure and operations work and gradually took on more responsibility around design, delivery, and technical direction.
 
-I'm a committed, reliable and adaptable technical lead with extensive Cloud, Virtualisation, Windows, Linux, and networking experience. I'm quick to assimilate new ideas, concepts and practices with excellent communication and interpersonal skills.
+I like to spend time fixing awkward problems, joining the dots between systems, and stopping small issues from becoming bigger ones later on. Some days that’s cloud platforms and automation. Other days it’s reviewing designs, unblocking teams, or pointing out where something probably won’t work in practice.
 
+I’m currently a Director Consulting Expert at CGI, and before that I was a Principal Technologist at BJSS. The role sits somewhere between hands-on engineering and helping teams make technical decisions they can live with once things are in production.
+
+This site is mostly where I write things down as I go. It’s a mix of experiments, notes, and the occasional reminder that some ideas sound better before you try them.

@@ -136,7 +136,7 @@ weight = 1
 
 [Languages.en.params.about]
 title = "Hi, I'm Aiden"
-bio = "I’ve been working in the IT field and filling various roles for the the last 15+ years and I try write up interesting things I've been doing. I am very bad at doing so; but its nice to try get things down every now and then."
+bio = "I’ve been working in IT for a bit over twenty years. I started out doing infrastructure and operations work and gradually took on more responsibility around design, delivery, and technical direction. <br> <br> This site is mostly where I write things down as I go. It’s a mix of experiments, notes, and the occasional reminder that some ideas sound better before you try them."
 
 [Languages.en.params.banner]
 bg_image = "banner-shape.png"
