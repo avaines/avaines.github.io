@@ -1,0 +1,48 @@
+<!-- AdSense Gutter Ads -->
+<style>
+  .ad-gutter-left,
+  .ad-gutter-right {
+    position: fixed;
+    top: 150px;
+    width: 160px;
+    z-index: 100;
+  }
+
+  .ad-gutter-left {
+    left: 10px;
+  }
+
+  .ad-gutter-right {
+    right: 10px;
+  }
+
+  /* Hide gutter ads on smaller screens */
+  @media (max-width: 1400px) {
+    .ad-gutter-left,
+    .ad-gutter-right {
+      display: none;
+    }
+  }
+</style>
+
+<!-- Left Gutter Ad -->
+<div class="ad-gutter-left">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:160px;height:600px"
+       data-ad-client="ca-pub-4546884587701577"
+       data-ad-slot="left-gutter"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+<!-- Right Gutter Ad -->
+<div class="ad-gutter-right">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:160px;height:600px"
+       data-ad-client="ca-pub-4546884587701577"
+       data-ad-slot="right-gutter"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>

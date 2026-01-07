@@ -3,6 +3,8 @@
 <!-- checking blog -->
 {{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
 
+{{ partial "adsense-gutter.html" . }}
+
 {{ $sidebar := site.Params.sidebar }}
 {{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
 {{ $widget:= site.Params.widgets.sidebar }}
@@ -16,6 +18,18 @@
       <aside class="col-lg-4 order-2 order-lg-1">
         <div class="{{ if eq $sidebar `left` }}pl-lg-4{{ end }}{{ if eq $sidebar `right` }}pr-lg-4{{ end }}">
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
+          <!-- AdSense - Below Sidebar -->
+          <div class="widget mb-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4546884587701577"
+                 data-ad-slot="sidebar-bottom"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
         </div>
       </aside>
       {{ end }}
@@ -63,6 +77,20 @@
           {{ template "_internal/disqus.html" . }}
         </div>
         {{ end }}
+
+        <!-- AdSense - Below Comments -->
+        <div class="mt-4">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-4546884587701577"
+               data-ad-slot="below-comments"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <!-- /AdSense -->
       </div>
 
       <!-- right sidebar -->
@@ -70,6 +98,18 @@
       <aside class="col-lg-4 mt-5 mt-lg-0">
         <div class="{{ if eq $sidebar `left` }}pr-lg-4{{ end }}{{ if eq $sidebar `right` }}pl-lg-4{{ end }}">
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
+          <!-- AdSense - Below Sidebar -->
+          <div class="widget mb-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4546884587701577"
+                 data-ad-slot="sidebar-bottom"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
         </div>
       </aside>
       {{ end }}
