@@ -16,7 +16,7 @@ unsafe = true
 ######################### Default Parameters ###########################
 [params]
 logo = "logo.png"
-favicon = "favicon.png"
+favicon = "favicon.ico"
 author = "Aiden Vaines"
 description = "A Digital Plumber and Tech Lead"
 

@@ -38,9 +38,23 @@
 
 <!-- Use the Hero image rather than trying to looping through page images -->
 {{ with .Params.image }}
-  <meta property="og:image" content="{{ . | absURL }}">
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:image" content="{{ . | absURL }}">
+  {{ $img := . }}
+  {{ if and (not (hasPrefix $img "http")) (not (hasPrefix $img "/")) }}
+    {{ $res := $.Resources.GetMatch $img }}
+    {{ if $res }}
+      <meta property="og:image" content="{{ $res.Permalink }}">
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:image" content="{{ $res.Permalink }}">
+    {{ else }}
+      <meta property="og:image" content="{{ $img | absURL }}">
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:image" content="{{ $img | absURL }}">
+    {{ end }}
+  {{ else }}
+    <meta property="og:image" content="{{ $img | absURL }}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="{{ $img | absURL }}">
+  {{ end }}
 {{ end }}
 
 <!-- {{- with partial "_funcs/get-page-images" . }}

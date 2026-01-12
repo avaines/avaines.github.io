@@ -2,7 +2,7 @@
 draft: false
 title: 'Prompt Driven Development; BDD but shift-left-y-er'
 author: Aiden Vaines
-image: /posts/2025-11-08-prompt-driven-development/hero.png
+image: featured.png
 featured: true
 categories:
   - Thought Leadership
@@ -10,7 +10,7 @@ categories:
 date: 2025-11-08T23:00:00.000Z
 ---
 
-### Déjà Vu in the IDE
+#### Déjà Vu in the IDE
 
 Every few years the industry seems to come back to the same idea with a fresh lick of paint. Behaviour-Driven Development (BDD) was all the rage when I entered Platform Engineering, what feels like forever ago. With Cucumber, Gherkin, SpecFlow and the rest, the plan was to write tests in something approaching natural human language: Given … Then … When. It is not far from the familiar As a … I want … So that … format we use in user stories.
 
@@ -18,7 +18,7 @@ BDD taught us to describe intent rather than implementation. Now, with AI-assist
 
 It's not quite history repeating itself, but it certainly rhymes. The same challenges remain: how do we express intent clearly enough for someone else to act on it, whether that's a developer or an AI service?
 
-### Prompt Club: The First Rule Is, You Always Tweak the Prompt
+#### Prompt Club: The First Rule Is, You Always Tweak the Prompt
 
 The current pattern across Cursor, GitHub Copilot, Duet, ChatGPT/Codex, or a local agent is similar. Start a chat. Describe what you are trying to do in a couple of paragraphs. Press *Go* and see what happens. After a few rounds you find a flow that works. I often start with COSTAR. Others I see a lot are RACE, RISEN, CRAFT and APE. They all point in the same direction: set context, pick a role to narrow focus, relate inputs, and describe the output.
 
@@ -26,7 +26,7 @@ If you are deep into prompt design you may have an [Agents.md](https://agents.md
 
 Developing with AI now feels like briefing a junior colleague. Most of the time and effort goes into refining tasks and thinking about how the ask will be interpreted. Your plan goes away with your bright eyed and bushy tailed colleague....and code happens. You then review, which sometimes takes longer than if you had done the task in the first place. Sometimes you have to go slow to go fast. In reviewing, you can fix-up the obvious bits, and clarify the request where you were vague or over-ambitious. At some point you realise you are writing feature scenarios and user stories again.....oh no.
 
-### Shift Left-ier
+#### Shift Left-ier
 
 BDD grew out of Test-Driven Development (TDD) from the late '90s. The idea was to help everyone on the team, including non-technical stakeholders, share the same view of the requirements. The move from TDD to BDD shifted focus from “prove it works” to “agree what it should do”. It turned tests into a contract and cut down on ambiguity.
 
@@ -39,7 +39,7 @@ In modern IDEs with AI plugins, the chat pane interprets our intent. If BDD help
 
 There's still a gap. BDD gave you explicit structure where as LLMs rely on implied understanding. Given some of the prompts I've seen people type into ChatGPT, the rigid constraints of BDD DSLs actually seem rather sensible.
 
-### Contracts and Prompts
+#### Contracts and Prompts
 
 Imagine the “Hello, World” of cloud apps, the **an image-resizing service**, you can write clean BDD scenarios and you can also phrase the same behaviour as AI-readable prompts for a coding assistant. Collected together, those prompts start to look like a **behavioural contract**.
 
@@ -51,7 +51,7 @@ Imagine the “Hello, World” of cloud apps, the **an image-resizing service**,
 | Handling invalid uploads | `Given the user tries to upload a non-image file <br>When the upload request is made <br>Then the system should reject the file <br>And display an appropriate error message.`                          | If the file isn’t an image (e.g. PDF or text), reject it gracefully and return “Unsupported file type. Please upload a valid image format.”                                          |
 | Performance expectation  | `Given a valid image is uploaded <br>When it is resized <br>Then the response should be completed within 3 seconds.`                                                                                    | The resizing process should complete within roughly 3 seconds for typical image sizes (< 5 MB). Optimise where possible to meet that target.                                         |
 
-### Spec as Contract
+#### Spec as Contract
 
 If tests, scenarios or prompts act as an executable agreement, the code must meet them. Written as prompts, your agent should generate code that satisfies the agreement. The prompt set becomes a catalogue of statements. Slight wording changes alter behaviour. Different models and different days produce different code. If the contract holds, the app should still work.
 
@@ -63,7 +63,7 @@ What counts as “passing” when the contract is probabilistic? Real systems ar
 
 SpecKit shows how natural-language specs can produce scaffolds. It is not magic. It does, however, get close to **executable intent**, or design as contract.
 
-### Our Infinite Monkeys Exclusively Use Neovim
+#### Our Infinite Monkeys Exclusively Use Neovim
 
 There are some downsides to this Prompt Driven Design (PDD) approach, for which I'm coining as as a thing. The current AI tooling we have access to has known challenges, the biggest one is that it produces lowest common denominator code. All the models are trained on whats in Github, StackOverflow and similar, then its homogenised and regurgitated. If you picture AI as a room with infinite ~~monkeys~~ junior developers with infinite ~~typewriters~~ IDE's and target the tasks as you would for such an audience you tend to get better solutions. Clear, short, and well defined tasks get the best results. This same challenge is going to be very relevant when declaring prompts for our contract of intent.
 

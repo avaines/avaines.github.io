@@ -2,7 +2,7 @@
 draft: false
 author: Aiden Vaines
 title: AI Site Generator - Outsourcing (Too Much) Responsibility to AI
-image: /things/2026-01-04-ai-site-generator/hero.png
+image: hero.png
 featured: true
 categories:
   - ai

@@ -45,7 +45,18 @@
             {{ end }}
           </div>
           {{ if .Params.Image }}
-          <img loading="lazy" src="{{ .Params.Image | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+            {{ $img := .Params.Image }}
+            {{/* If the image is a simple filename and the page is a page bundle, try to find it in page resources */}}
+            {{ if and (not (hasPrefix $img "http")) (not (hasPrefix $img "/")) }}
+              {{ $res := .Resources.GetMatch $img }}
+              {{ if $res }}
+                <img loading="lazy" src="{{ $res.RelPermalink }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+              {{ else }}
+                <img loading="lazy" src="{{ $img | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+              {{ end }}
+            {{ else }}
+              <img loading="lazy" src="{{ $img | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+            {{ end }}
           {{ end }}
 
           {{/*  <img src="{{ .Params.image | absURL }}">  */}}

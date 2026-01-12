@@ -1,7 +1,7 @@
 ---
 title: This blog post was not written by AI
 author: Aiden Vaines
-image: /posts/2025-05-29-ai-didnt-write-this-blog-post/hero.jpeg
+image: featured.jpeg
 featured: true
 categories:
   - AI
