@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
           });
           const scrolllength = carousel.querySelector('ul li:nth-child(2)').offsetLeft - carousel.querySelector('ul li:nth-child(1)').offsetLeft;
           const nthchild = (Math.round((ele.scrollLeft/scrolllength)+1));
-          carousel.querySelector('ol li:nth-child('+nthchild+')').classList.add('selected'); 
-          carousel.querySelector('ul li:nth-child('+nthchild+')').classList.add('selected'); 
+          carousel.querySelector('ol li:nth-child('+nthchild+')').classList.add('selected');
+          carousel.querySelector('ul li:nth-child('+nthchild+')').classList.add('selected');
           if(carousel.parentElement.parentElement.querySelector('.dynamictitle')) {
-              const title = carousel.querySelector('ul li:nth-child('+nthchild+') img').getAttribute('title'); 
+              const title = carousel.querySelector('ul li:nth-child('+nthchild+') img').getAttribute('title');
               if(title) carousel.parentElement.parentElement.querySelector('.dynamictitle').innerHTML = title;
           }
       }
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
           event.preventDefault();
           ele.scrollLeft = ele.querySelector(this.getAttribute('href')).offsetLeft;
       }
-      
+
       const nextSlide = function() {
           if(!carousel.querySelector('ol li:last-child').classList.contains('selected')) {
               carousel.querySelector('ol li.selected').nextElementSibling.querySelector('a').click();
@@ -63,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
               carousel.querySelector('ol li:last-child a').click();
           }
       }
-      
+
       const setInteracted = function() {
         ele.classList.add('interacted');
       }
-          
+
       // Attach the handlers
       ele.addEventListener("scroll", debounce(setSelected));
       ele.addEventListener("touchstart", setInteracted);
@@ -118,14 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       //setInterval for autoplay
       if(carousel.getAttribute('duration')) {
-        setInterval(function(){ 
+        setInterval(function(){
           if (ele != document.querySelector(".auto-carousel:hover ul") && ele.classList.contains('interacted')==false) {
             nextarrow.click();
           }
         }, carousel.getAttribute('duration'));
       }
-    
-    
+
+
   }); //end foreach
 
 }); //end onload

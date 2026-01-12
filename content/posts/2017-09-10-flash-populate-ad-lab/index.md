@@ -55,7 +55,7 @@ LAB.local
         ```
         # Departments and their sub positions users could be part of
         # Departments and associated job titles to assign to the users
-        $Departments = ( 
+        $Departments = (
                   @{"Name" = "Finance & Accounting"; Positions = ("Manager", "Accountant", "Data Entry")},
                   @{"Name" = "Human Resources"; Positions = ("Manager", "Administrator", "Officer", "Coordinator")},
                   @{"Name" = "Sales"; Positions = ("Manager", "Representative", "Consultant")},

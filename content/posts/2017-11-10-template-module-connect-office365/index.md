@@ -29,7 +29,7 @@ This script simply puts some belts and braces around importing the Office 365 mo
 The module can be called for each service (Connect-ExOnline, Connect-SFBOnline, Connect-SCCOnline) or as a single command to connect all services (connect-office365). Assuming you go with the connect all services option it works something like this.
 
 Connect-Office365 calls a number of other functions,
-First Connect-ExOnline to connect to most Office 365 interfaces then Connect-SFBOnline for the Skype for Business interface and finally Connect-SCCOnline for the security and compliance service. 
+First Connect-ExOnline to connect to most Office 365 interfaces then Connect-SFBOnline for the Skype for Business interface and finally Connect-SCCOnline for the security and compliance service.
 
 Because each can run independently the first task each sub-function completes is to check if credentials have been provided and the initial connection has been made to the MSOL service. If not this gets completed and the script prompts for credentials and attempts to connect.
 

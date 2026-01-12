@@ -139,6 +139,3 @@ None of this is really an indictment of StrandsAgents or AgentCore themselves. S
 The idea was a bit silly from the outset. Replacing a static site generator with a non-deterministic, twenty-minute, money-burning build step was never going to be sensible. But it was fun, and I learned a lot. There are clearly useful workflows where dynamically generating code on the fly makes sense, particularly where variability is a feature rather than a liability. This just isn’t one of them.
 
 I’m not planning on switching this site over to this process any time soon and thanks to [Siddharth](https://www.linkedin.com/in/siddharth-nair-161b65a8/) for tinkering on this with me.
-
-
-

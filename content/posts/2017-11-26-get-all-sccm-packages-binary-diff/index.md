@@ -90,4 +90,3 @@ Finally, we add the object for this package to the object created in the first s
 We can then just output this to a grid view (or to csv or similar)
 
     $Status | Out-GridView
-

@@ -11,8 +11,8 @@ eventLink: 4940000247?aff=oddtdtcreator
 
 I spoke at and helped design a workshop for this years Leeds Digital Festival; everyone seems to be talking about AI but very little actual hands on opportunities are available for engineers to get down and dirty with the services.
 
-> Dive into AI with our hands-on workshop. Build a knowledge 
-> management tool to boost productivity, demo new AI tools, and enhance 
+> Dive into AI with our hands-on workshop. Build a knowledge
+> management tool to boost productivity, demo new AI tools, and enhance
 > workflows.
 
 Recording link coming soon

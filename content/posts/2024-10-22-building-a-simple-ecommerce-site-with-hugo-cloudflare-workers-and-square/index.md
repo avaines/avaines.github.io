@@ -35,7 +35,7 @@ I implemented caching for the worker using **Cloudflare KV storage** to reduce t
 
 ```mermaid
   sequenceDiagram
-      actor User 
+      actor User
       User->>Static Site:Loads Page
       Static Site->>Cloudflare Worker: Poll for items
       Cloudflare Worker-->>Cloudflare KV:Check KV for cache

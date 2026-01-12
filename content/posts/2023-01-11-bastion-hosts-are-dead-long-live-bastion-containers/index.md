@@ -51,8 +51,8 @@ Firstly set up a couple of variables, one for the name of the ECS cluster, one f
 Next there are a few variables to assemble by looking up the AWS services
 
     AWS_TASK_ARN=$(aws ecs list-tasks --cluster ${ECS_CLUSTER_NAME} | jq -r '.taskArns[]')
-    AWS_TASK=$(aws ecs describe-tasks \ 
-        --cluster ${ECS_CLUSTER_NAME} \ 
+    AWS_TASK=$(aws ecs describe-tasks \
+        --cluster ${ECS_CLUSTER_NAME} \
         --tasks ${AWS_TASK_ARN}
      )
      AWS_TASK_RUNTIME_ID=$(echo ${AWS_TASK} | jq -r '.tasks[0].containers[0].runtimeId')
