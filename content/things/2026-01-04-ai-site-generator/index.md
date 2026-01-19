@@ -10,6 +10,16 @@ categories:
   - aws
 date: 2026-01-05T00:00:00.000Z
 code_url: "https://github.com/avaines/ai-site-generator-blog"
+
+tags:
+    - ai
+    - static site generator
+    - hugo
+    - bedrock
+    - strandsagents
+    - automation
+    - python
+    - aws
 ---
 
 **Static Site Generators are good, but what if they were more gooder?**

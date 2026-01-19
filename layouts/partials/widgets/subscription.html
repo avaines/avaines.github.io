@@ -1,0 +1,17 @@
+{{ "<!-- Search -->" | safeHTML }}
+{{ if site.Params.subscription.enable }}
+{{ with site.Params.subscription }}
+<div class="widget">
+  <h5 class="widget-title"><span>Subscribe for updates</span></h5>
+  <form action="{{ .mailchimp_form_action }}" method="post" name="mc-embedded-subscribe-form" target="_blank"
+    class="widget-search">
+    <input class="mb-3 form-control rounded-0" id="EMAIL" name="EMAIL" type="email" placeholder="Email Address">
+    <i class="ti-email"></i>
+    <button type="submit" class="btn btn-primary btn-block rounded-0" name="subscribe">Subscribe</button>
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+      <input type="email" name="{{ .mailchimp_form_name }}" id="{{ .mailchimp_form_name }}" tabindex="-1">
+    </div>
+  </form>
+</div>
+{{ end }}
+{{ end }}

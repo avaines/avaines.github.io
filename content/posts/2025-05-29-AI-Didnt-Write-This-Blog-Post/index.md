@@ -6,6 +6,14 @@ featured: true
 categories:
   - AI
 date: 2025-05-29T00:00:00.000Z
+
+tags:
+  - ai
+  - writing
+  - opinion
+  - prompt engineering
+  - copilot
+  - technology
 ---
 
 I read [this piece from the BBC](https://www.bbc.co.uk/news/articles/c15q5qzdjqxo) and [Sabine Zetteler's](https://www.zetteler.co.uk/) words — *"Why would I bother to read something someone couldn't be bothered to write"* — really resonated with me. I've long felt that when AI is used to generate content, it often becomes effortless and as a result, thoughtless and empty.

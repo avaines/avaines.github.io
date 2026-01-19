@@ -58,22 +58,19 @@ icon_font = "Font Awesome 5 Free"
 
 ######################## sidebar widgets #########################
 [params.widgets]
-sidebar = ["about-me", "featured-post", "social", "subscription"]
+sidebar = ["about-me", "subscription", "featured-post", "social", "categories","tags"]
 # available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription
 
 # preloader
 [params.preloader]
-enable = false
-preloader = "" # use png, jpg, svg or gif format
+enable = true
+preloader = "png" # use png, jpg, svg or gif format
 
 # Subscription
 [params.subscription]
-enable = false
-# mailchimp subsciption
-mailchimp_form_action = "https://gmail.us4.list-manage.com/subscribe/post?u=463ee871f45d2d93748e77cad&amp;id=a0a2c6d074" # replace this url with yours
-mailchimp_form_name = "b_463ee871f45d2d93748e77cad_a0a2c6d074"                                                           # replace this code with yours
-title = "Subscribe for our monthly newsletter."
-input_placeholder = "Enter your email"
+enable = true
+mailchimp_form_action = "https://vaines.us4.list-manage.com/subscribe/post?u=816cfed85a7e08d93186e83b5&id=ff4da5c399"
+mailchimp_form_name = "b_email"
 
 # cookies
 [params.cookies]

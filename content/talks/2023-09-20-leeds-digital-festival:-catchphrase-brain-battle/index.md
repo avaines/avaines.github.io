@@ -7,6 +7,14 @@ categories:
   - talks
 date: 2023-09-20T23:00:00.000Z
 eventLink: "https://www.eventbrite.co.uk/e/exploring-ai-with-itv-networking-and-gameshow-fun-tickets-692381159687"
+
+tags:
+  - ai
+  - gameshow
+  - catchphrase
+  - event
+  - itv
+  - machine learning
 ---
 
 I'll be talking at this year's Leeds Digitial Festival; We've taught Microsoft's AI and ML services to play the ITV classic, Catchphrase.

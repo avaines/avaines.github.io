@@ -9,6 +9,14 @@ categories:
   - Python
   - Jank
 date: 2023-02-20T21:00:00.000Z
+
+tags:
+  - python
+  - automation
+  - hardware
+  - time tracking
+  - homeassistant
+  - fastapi
 ---
 
 This little project stemmed from me seeing what looked like a fun idea but being a tight-arsed Yorkshireman. I'm not paying [£70 for a bit of plastic and £10 a month to use it](https://timeular.com), but I would find some of the features useful, namely, a way of tracking which project I'm currently working on. and for it to be historically referable.

@@ -4,15 +4,25 @@ author: Aiden Vaines
 title: A Unix Tree command - but for S3!
 image: hero.gif
 categories:
-  - thing
-  - javascript
-  - code
-  - cli
+  - tool
+  - project
   - aws
+  - cli
+  - javascript
 date: 2025-06-06T00:00:00.000Z
 app_url: "https://www.npmjs.com/package/s3tree-cli"
 code_url: "https://github.com/avaines/s3tree"
 blog_url: "#"
+
+tags:
+  - aws
+  - s3
+  - cli
+  - javascript
+  - visualization
+  - npm
+  - open source
+
 ---
 
 I was trying to visualise some S3 buckets for a cost optimisation exercise and wanted to be able to run a Tree command on it, obviously thats not a thing the Unix command can do ... and I've been playing with JavaScript recently.

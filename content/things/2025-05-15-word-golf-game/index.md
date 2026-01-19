@@ -11,6 +11,15 @@ date: 2025-05-15T00:00:00.000Z
 app_url: "https://golf.vaines.org"
 # code_url: "#"
 # blog_url: "#"
+
+tags:
+    - game
+    - javascript
+    - react
+    - word game
+    - synonyms
+    - webapp
+
 ---
 
 I've been trying to think of a small game idea I could build as a way of playing with React and came up with a small game about guessing synonyms.

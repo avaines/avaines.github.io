@@ -7,8 +7,14 @@ image: featured.png
 categories:
   - Powershell
 code_url: "https://github.com/avaines/Powershell-Template"
----
 
+tags:
+  - powershell
+  - framework
+  - scripting
+  - automation
+  - code structure
+---
 Writing code that can be maintained by multiple people always requires some sort of structure. A lot of the frameworks I have seen are overly complicated for what is still essentially quite small scripts. So I decided to build my own
 
 My requirements were for a small, extensible framework I can use for quick scripts, everything I found online was overly complicated. All I needed was a simple framework so all my scripts are a similar format, work in a similar way, can be moved around without too much fuss and can be easily debugged by someone else should they have issues.

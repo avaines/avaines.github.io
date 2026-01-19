@@ -10,6 +10,14 @@ categories:
 date: 2023-06-16T00:00:00.000Z
 eventDate: 2023-07-27T18:00:00.000Z
 eventLink: "https://www.meetup.com/aws-leeds-user-group/events/294618073/"
+
+tags:
+  - aws
+  - lambda
+  - serverless
+  - architecture
+  - microservices
+  - api
 ---
 
 My colleague Dan Yip and I will be talking at the Leeds AWS User Group on 'Why you are doing Lambda functions wrong'
