@@ -44,6 +44,22 @@
             <a href="{{ `categories/` | absLangURL }}{{ . | urlize | lower }}">{{ . | title }}</a>
             {{ end }}
           </div>
+
+          <!-- Links section as buttons at the top -->
+          {{ if or .Params.app_url .Params.code_url .Params.blog_url }}
+          <div class="mb-4">
+            <div class="d-flex justify-content-around" role="group" aria-label="Post Links">
+              {{ if .Params.app_url }}
+                <a href="{{ .Params.app_url }}" target="_blank" class="btn btn-success">Visit It</a>
+              {{ end }}
+              {{ if .Params.code_url }}
+                <a href="{{ .Params.code_url }}" target="_blank" class="btn btn-info">The Code</a>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+
+
           {{ if .Params.Image }}
             {{ $img := .Params.Image }}
             {{/* If the image is a simple filename and the page is a page bundle, try to find it in page resources */}}
@@ -61,14 +77,63 @@
 
           {{/*  <img src="{{ .Params.image | absURL }}">  */}}
 
+
           <div class="content mb-5">
             {{ .Content }}
           </div>
+
+
+          <!-- Links section as buttons at the bottom too -->
+          {{ if or .Params.app_url .Params.code_url .Params.blog_url }}
+          <div class="mb-4">
+            <div class="d-flex justify-content-around" role="group" aria-label="Post Links">
+              {{ if .Params.app_url }}
+                <a href="{{ .Params.app_url }}" target="_blank" class="btn btn-success">Visit It</a>
+              {{ end }}
+              {{ if .Params.code_url }}
+                <a href="{{ .Params.code_url }}" target="_blank" class="btn btn-info">The Code</a>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+
+
+          {{ if .Params.references }}
+          <div class="references mb-5" style="font-size: 0.95em; color: #555; border-top: 1px solid #eee; margin-top: 2.5rem; padding-top: 1.2rem;">
+            <h4 style="font-size: 1.1em; font-weight: normal; color: #888; margin-bottom: 0.6em;">References</h4>
+            <ul style="list-style-type: decimal; margin-left: 1.5em;">
+              {{ range .Params.references }}
+                <li style="margin-bottom: 0.2em;">
+                  <a href="{{ . }}" target="_blank" rel="noopener" class="reference-link">{{ . }}</a>
+                </li>
+              {{ end }}
+            </ul>
+            <style>
+              .reference-link {
+                color: #666;
+                text-decoration: none;
+                border-bottom: 1px dotted #bbb;
+                transition: color 0.2s, border-bottom 0.2s;
+              }
+              .reference-link:visited {
+                color: #888;
+              }
+              .reference-link:hover, .reference-link:focus {
+                color: #333;
+                text-decoration: underline;
+                border-bottom: 1px solid #888;
+              }
+            </style>
+          </div>
+          {{ end }}
+
+
           <div class="mb-3 post-meta">
             {{range .Params.Tags }} <a class="bg-light py-2 px-3" href="{{ `tags/` | absLangURL}}{{ . | urlize | lower }}">#{{ . | title }}</a>
             {{ end }}
           </div>
         </div>
+
 
         <!-- <div class="block shadow">
           {{ $related := site.RegularPages.Related . | first 5 }}
