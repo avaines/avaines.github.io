@@ -157,7 +157,7 @@ name = "Meatspace"
 
 [[Languages.en.menu.main]]
 weight = 3
-url = "things"
+url = "categories/things/"
 name = "Things I Made"
 
 [[Languages.en.menu.main]]

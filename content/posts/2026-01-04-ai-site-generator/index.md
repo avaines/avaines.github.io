@@ -4,13 +4,15 @@ author: Aiden Vaines
 title: AI Site Generator - Outsourcing (Too Much) Responsibility to AI
 image: hero.png
 featured: true
+aliases:
+  - /things/2026-01-04-ai-site-generator/
 categories:
   - ai
-  - python
   - aws
+  - python
+  - things
 date: 2026-01-05T00:00:00.000Z
 code_url: "https://github.com/avaines/ai-site-generator-blog"
-
 tags:
     - ai
     - static site generator

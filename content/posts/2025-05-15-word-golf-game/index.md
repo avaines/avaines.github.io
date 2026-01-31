@@ -3,15 +3,14 @@ draft: false
 author: Aiden Vaines
 title: A sort of golf related game about synonyms.
 image: hero.png
+aliases:
+  - /things/2025-05-15-word-golf-game/
 categories:
-  - thing
+  - things
   - javascript
   - code
 date: 2025-05-15T00:00:00.000Z
 app_url: "https://golf.vaines.org"
-# code_url: "#"
-# blog_url: "#"
-
 tags:
     - game
     - javascript

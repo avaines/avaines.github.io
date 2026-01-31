@@ -3,17 +3,19 @@ draft: false
 author: Aiden Vaines
 title: A Unix Tree command - but for S3!
 image: hero.gif
+aliases:
+  - /things/2025-06-06-s3tree/
 categories:
-  - tool
-  - project
   - aws
   - cli
   - javascript
+  - project
+  - things
+  - tool
 date: 2025-06-06T00:00:00.000Z
 app_url: "https://www.npmjs.com/package/s3tree-cli"
 code_url: "https://github.com/avaines/s3tree"
 blog_url: "#"
-
 tags:
   - aws
   - s3
