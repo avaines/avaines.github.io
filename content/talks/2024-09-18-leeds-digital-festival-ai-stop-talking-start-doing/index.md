@@ -2,7 +2,7 @@
 title: 'Leeds Digital Festival: AI: Stop Talking, Start Doing!'
 author: Aiden Vaines
 image: LDF24-ai-stop-talking-start-doing.png
-featured: true
+featured: false
 categories:
   - talks
 date: 2024-09-18T23:00:00.000Z

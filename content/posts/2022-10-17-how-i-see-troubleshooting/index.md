@@ -4,7 +4,7 @@ title: >-
   How I See Troubleshooting
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 categories:
   - DevOps
 date: 2022-10-17T19:00:00.000Z

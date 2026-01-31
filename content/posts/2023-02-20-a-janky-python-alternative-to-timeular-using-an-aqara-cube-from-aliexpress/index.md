@@ -4,7 +4,7 @@ title: >-
   A janky python alternative to Timeular using an Aqara cube from AliExpress
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 categories:
   - Python
   - Jank

@@ -4,7 +4,7 @@ title: 'Cursed Knowledge'
 author: Aiden Vaines
 url: cursed
 image: featured.png
-featured: true
+featured: false
 date: 2025-08-13T23:00:00.000Z
 ---
 

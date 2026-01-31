@@ -4,7 +4,7 @@ title: >-
     Finding the most and least frequent list elements in JavaScript
 date: 2022-02-03
 image: featured.png
-featured: true
+featured: false
 categories:
   - JavaScript
 ---

@@ -2,7 +2,7 @@
 title: This blog post was not written by AI
 author: Aiden Vaines
 image: featured.jpeg
-featured: true
+featured: false
 categories:
   - AI
 date: 2025-05-29T00:00:00.000Z

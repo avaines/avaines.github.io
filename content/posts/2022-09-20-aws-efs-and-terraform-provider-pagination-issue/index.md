@@ -4,7 +4,7 @@ title: >-
   An odd AWS EFS & Terraform AWS pagination issue
 date: 2022-09-20
 image: featured.png
-featured: true
+featured: false
 categories:
   - AWS
   - Terraform

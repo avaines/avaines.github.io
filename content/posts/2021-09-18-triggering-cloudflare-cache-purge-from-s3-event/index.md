@@ -3,7 +3,7 @@ author: Aiden Vaines
 title: >-
   Triggering a Cloudflare Cache Purge from S3 Object Events
 date: 2021-09-18
-featured: true
+featured: false
 image: featured.png
 categories:
   - AWS
