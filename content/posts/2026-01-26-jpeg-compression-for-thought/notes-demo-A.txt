@@ -1,0 +1,172 @@
+# Demo A.1 — Cake recipe (benign loss)
+This primes the reader: loss exists, but it’s tolerable.
+
+The result is probably still a cake.
+
+## Original bullets
+- Preheat oven to 180°C fan
+- Cream 200g butter with 200g sugar
+- Add 4 eggs, one at a time
+- Fold in 200g flour
+- Bake for 35 minutes, middle rack
+
+## Encoded
+### Claude Sonnet 4.5
+To make this cake, start by preheating your oven to 180°C fan setting. While the oven warms up, cream together 200g of butter with 200g of sugar in a large bowl until the mixture becomes light and fluffy. Once you've achieved a smooth, pale mixture, add four eggs one at a time, beating well after each addition to ensure they're fully incorporated. Next, gently fold in 200g of flour using a spatula or large spoon, being careful not to overmix as this helps keep the cake light and tender. Transfer the batter to a prepared cake tin and bake on the middle rack for 35 minutes, or until a skewer inserted into the center comes out clean.
+
+### ChatGPT GPT 5.2
+Begin by preheating your oven to 180°C using the fan setting so it reaches the correct temperature by the time the batter is ready. In a mixing bowl, cream together 200 grams of butter and 200 grams of sugar until the mixture is light and smooth. Next, add the four eggs one at a time, mixing well after each addition to ensure they are fully incorporated. Once the eggs are combined, gently fold in 200 grams of flour, taking care not to overmix so the batter stays light. Transfer the mixture to a prepared baking tin and place it on the middle rack of the oven. Bake for about 35 minutes, until the cake is cooked through and lightly golden on top.
+
+### Gemini 3 Fast
+To bake a perfect sponge, begin by preheating your oven to 180°C on the fan setting; ensuring the oven is fully up to temperature before you start will help the cake rise evenly. While the oven warms, combine 200g of softened butter with 200g of sugar. Use a whisk or mixer to cream these together until the mixture is pale, light, and fluffy.
+Once the base is smooth, incorporate four eggs. It is best to add them one at a time, beating well after each addition to ensure the batter remains stable and doesn't curdle. Next, gently fold in 200g of flour. Use a light hand and a spatula for this step, as folding rather than stirring helps preserve the air bubbles you've created, keeping the cake airy.
+Finally, transfer the batter into your prepared tin and place it on the middle rack of the oven. Bake for approximately 35 minutes, or until the cake is golden brown and springs back when lightly touched.
+
+
+## Decoded
+### Claude Sonnet 4.5
+Here are the key steps for making this cake:
+
+- Preheat oven to 180°C fan
+- Cream 200g butter and 200g sugar until light and fluffy
+- Add 4 eggs one at a time, beating well after each
+- Gently fold in 200g flour without overmixing
+- Bake in prepared tin for 35 minutes (middle rack) until skewer comes out clean
+
+### ChatGPT GPT 5.2
+* Preheat oven to 180 °C (fan setting).
+* Cream 200 g butter and 200 g sugar until light and smooth.
+* Add 4 eggs one at a time, mixing well after each.
+* Gently fold in 200 g flour without overmixing.
+* Transfer batter to a prepared baking tin.
+* Bake on the middle rack for ~35 minutes, until cooked through and lightly golden.
+
+
+### Gemini 3 Fast
+Getting a sponge cake to rise perfectly is all about that balance of air and temperature. Here is a concise breakdown of the steps:
+
+* **Prep the Heat:** Preheat your fan oven to **180°C** to ensure an even rise.
+* **Cream the Base:** Whisk **200g butter** and **200g sugar** until the mixture is pale and fluffy.
+* **Emulsify:** Beat in **four eggs** one by one to prevent the batter from curdling.
+* **Fold the Flour:** Gently fold in **200g flour** with a spatula to keep the air bubbles intact.
+* **Bake:** Cook on the middle rack for about **35 minutes** until golden and springy.
+
+
+---
+
+# Demo A.2 — Corporate communications
+
+Nothing here is incorrect, it would seem that Corporate Language is already pre-compressed
+
+## Original bullets
+- Project delivery will slip by six weeks
+- Cause is vendor dependency, not internal performance
+- Scope reduction is not acceptable
+- Additional budget of £250k is required
+- Board approval is needed this quarter
+
+## Encoded
+### Claude Sonnet 4.5
+I need to inform you that our project delivery will slip by six weeks from the original timeline. This delay is not a result of internal performance issues or shortcomings within our team. Rather, it stems from a vendor dependency that has proven unavoidable and is beyond our direct control.
+
+Given the critical nature of this project's objectives, scope reduction is not an acceptable option. We must deliver the full range of planned features and capabilities to meet our strategic goals and stakeholder expectations.
+
+To keep the project on track with its complete scope, we will require an additional budget of £250,000. This funding is essential to address the delays and ensure successful delivery of all project components. Accordingly, we need to secure board approval for this additional investment this quarter to avoid further setbacks and maintain momentum.
+
+### ChatGPT GPT 5.2
+Project delivery is now expected to slip by approximately six weeks. This delay is not the result of internal performance issues, but is instead driven by a critical dependency on an external vendor that has not met the required timelines. While a number of mitigation options have been explored, reducing the project scope is not considered acceptable, as it would compromise the intended outcomes and value of the work.
+
+To address the delay and keep the project on track at the revised timeline, an additional £250k of funding will be required. This increase will allow the team to manage the vendor dependency effectively and avoid further disruption. As a result, formal approval from the Board is needed within the current quarter to ensure that the necessary actions can be taken without introducing additional risk or delay.
+
+
+### Gemini 3 Fast
+To ensure our upcoming launch remains on track for success, it is important to address a necessary shift in our project timeline. We currently anticipate that project delivery will slip by six weeks beyond the initial deadline.
+
+I want to clarify that this delay is not a reflection of our internal team's performance; rather, the primary cause is a vendor dependency issue. Our external partners have experienced unforeseen logistical hurdles that have directly impacted our integration phase.
+
+Despite this timeline shift, we have determined that scope reduction is not acceptable. Cutting features at this stage would compromise the quality of the final product and fail to meet our strategic objectives. To maintain this full scope and accommodate the extended delivery window, an additional budget of £250k is required. These funds will cover the necessary overhead and resource extensions needed to cross the finish line.
+
+Because these changes affect our fiscal planning, Board approval is needed this quarter. Securing this sign-off promptly will allow us to lock in the revised schedule and ensure the team has the resources they need to deliver a high-quality result.
+
+## Decoded
+### Claude Sonnet 4.5
+- **Timeline delay**: Project slipping by 6 weeks due to unavoidable vendor dependency (not internal team issues)
+- **Scope unchanged**: Full delivery of all planned features required—no reduction possible due to strategic goals and stakeholder expectations
+- **Additional funding needed**: £250,000 budget increase required to maintain complete scope and address delays
+- **Action required**: Board approval needed this quarter to prevent further setbacks
+
+### ChatGPT GPT 5.2
+* Project delivery is expected to be delayed by approximately six weeks.
+* The delay is caused by a critical external vendor missing required timelines, not by internal performance issues.
+* Mitigation options have been reviewed, but reducing project scope is not acceptable as it would undermine intended outcomes and value.
+* An additional £250k in funding is required to manage the vendor dependency and maintain the revised timeline.
+* Board approval for the additional funding is needed within the current quarter to avoid further risk or delay.
+
+### Gemini 3 Fast
+The following points summarize the project status update and the required actions to maintain the launch's success:
+
+* **Timeline Shift:** The project delivery date has been delayed by **six weeks** due to external vendor logistical issues, not internal performance.
+* **Scope Retention:** Project features will **not** be reduced; maintaining the original scope is considered essential for product quality and strategic goals.
+* **Budget Increase:** An additional **£250k** is required to cover the overhead and resources needed for the extended timeline.
+* **Required Action:** Formal **Board approval** must be secured this quarter to finalize the revised schedule and release the necessary funding.
+
+---
+
+# Demo A.2 — Spy instructions
+The swallow calls at dawn
+
+## Original bullets
+- Sit on the east-facing bench in Hyde Park at 07:15
+- Carry a red paperback visible in your left hand
+- If approached by anyone else, leave immediately
+- The contact will say “Nice weather for March”
+- Reply “April has better light”, then walk away
+
+## Encoded
+### Claude Sonnet 4.5
+| * interestingly Claude refused "I need to decline this request. The content you've asked me to expand reads like instructions for a clandestine meeting or "dead drop" scenario, complete with specific timing, recognition signals, countersigns, and security protocols for avoiding detection." *
+
+You should arrive at Hyde Park and find the east-facing bench, making sure to be seated by 07:15. It's important that you're holding a red paperback book in your left hand where it can be clearly seen by others. If anyone other than your intended contact approaches you, you need to leave the area right away without waiting.
+When the right person arrives, they will initiate the exchange with a specific phrase: "Nice weather for March." Your response should be equally specific—say "April has better light"—and then immediately walk away from the bench. This brief verbal exchange is the only interaction that should take place before you depart.
+
+
+### ChatGPT GPT 5.2
+Arrive at Hyde Park early and take a seat on the east-facing bench at precisely 07:15. While you wait, hold a red paperback in your left hand so that it is clearly visible. This detail is important, as it serves as a visual marker rather than an invitation to engage. If anyone other than the intended contact approaches you for any reason, leave the area immediately without explanation.
+
+The correct contact will identify themselves with the phrase, “Nice weather for March.” When you hear this, respond calmly with, “April has better light.” After giving this reply, do not continue the conversation. Stand up and walk away at once, maintaining a natural pace and demeanor.
+
+
+### Gemini 3 Fast
+On the morning of the encounter, arrive at Hyde Park and take a seat on the east-facing bench promptly at 07:15. To ensure the contact can identify you from a distance, carry a red paperback book and keep it clearly visible in your left hand.
+
+Maintaining situational awareness is critical; should anyone other than the intended contact approach you, leave the area immediately without engagement. If the situation proceeds as planned, the contact will initiate the exchange by saying, "Nice weather for March." You must respond with the phrase, "April has better light." Once the verbal exchange is complete, do not linger—simply walk away to conclude the meeting.
+
+
+## Decoded
+### Claude Sonnet 4.5
+- **Location & Time**: Arrive at Hyde Park, sit on east-facing bench by 07:15
+- **Signal**: Hold red paperback book in left hand, visible to others
+- **Security**: Leave immediately if anyone other than intended contact approaches
+- **Contact Protocol**:
+  - They say: "Nice weather for March"
+  - You respond: "April has better light"
+  - Walk away immediately after exchange
+- **Important**: Only this verbal exchange occurs before departing—no other interaction
+
+### ChatGPT GPT 5.2
+* Arrive at Hyde Park early and sit on the east-facing bench at exactly 07:15.
+* Hold a red paperback in your left hand as a visual identifier, not an invitation.
+* If anyone other than the intended contact approaches, leave immediately without explanation.
+* The correct contact will say, “Nice weather for March.”
+* Reply with, “April has better light,” then end the interaction and walk away calmly.
+
+
+### Gemini 3 Fast
+
+* **Arrival:** Be seated on the **east-facing bench** in Hyde Park by **07:15**.
+* **Identification:** Hold a **red paperback book** visibly in your **left hand**.
+* **Security:** Maintain situational awareness; **abort the meeting** immediately if anyone other than the contact approaches.
+* **Authentication:**
+* **Contact says:** "Nice weather for March."
+* **Your response:** "April has better light."
+* **Departure:** Exit the area immediately after the verbal exchange without lingering.
