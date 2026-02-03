@@ -39,9 +39,18 @@
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | html }}</description>
       {{ range .Params.categories }}<category>{{ . }}</category>{{ end }}
+      {{ $page := . }}
       {{ with .Params.image }}
-      <media:content url="{{ . | absURL }}" medium="image">
-        <media:title type="html">{{ $.Title }}</media:title>
+      {{ $imageUrl := . }}
+      {{ if hasPrefix . "http" }}
+        {{ $imageUrl = . }}
+      {{ else if hasPrefix . "/" }}
+        {{ $imageUrl = . | absURL }}
+      {{ else }}
+        {{ $imageUrl = printf "%s%s" $page.Permalink . }}
+      {{ end }}
+      <media:content url="{{ $imageUrl }}" medium="image">
+        <media:title type="html">{{ $page.Title }}</media:title>
       </media:content>
       {{ end }}
     </item>
