@@ -13,7 +13,7 @@ references:
   - https://johnowhitaker.dev/misc/2024-06-20-steg.html
   - https://www.techtarget.com/searchenterpriseai/definition/AI-watermarking
   - https://en.wikipedia.org/wiki/Steganography
-  - https://en.wikipedia.org/wiki/Histiaus
+  - https://en.wikipedia.org/wiki/Histiaeus
   - https://daniellerch.me/stego/text/chatgpt-en/
   - https://www.atlasobscura.com/articles/the-founder-of-the-boy-scouts-hid-maps-in-insect-drawings
   - https://avestura.dev/blog/hide-a-photo-inside-another-photo
@@ -135,7 +135,7 @@ The "Expand -> Summarise" loop works in the sense that it produces fluent text, 
 
 I read [this post](https://daniellerch.me/stego/text/chatgpt-en/) while ago and it never really satisfied me, the secrets being hidden didnt feel hidden enough.
 
-[Steganography](https://en.wikipedia.org/wiki/Steganography) (*Which still sounds like a type of dinosaur*) is the art of concealing information in other information. Classic examples include invisible ink or [tattooing someones head and waiting for the hair to grow back](https://en.wikipedia.org/wiki/Histiaus). Famously [Lord Robert Baden-Powell encoded maps and plans of enemy bases in drawings of insects and leaves whilst posing as a naturalist](https://www.atlasobscura.com/articles/the-founder-of-the-boy-scouts-hid-maps-in-insect-drawings).
+[Steganography](https://en.wikipedia.org/wiki/Steganography) (*Which still sounds like a type of dinosaur*) is the art of concealing information in other information. Classic examples include invisible ink or [tattooing someones head and waiting for the hair to grow back](https://en.wikipedia.org/wiki/Histiaeus). Famously [Lord Robert Baden-Powell encoded maps and plans of enemy bases in drawings of insects and leaves whilst posing as a naturalist](https://www.atlasobscura.com/articles/the-founder-of-the-boy-scouts-hid-maps-in-insect-drawings).
 
 I'd been exposed to this previously hiding an image in another image by flipping least-significant bits ([detailed explanation here](https://avestura.dev/blog/hide-a-photo-inside-another-photo)). That idea kept nagging at me: if LLM output is built out of tiny probabilistic choices, is there equivalent "bit" you can flip in the in text.
 

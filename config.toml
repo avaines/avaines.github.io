@@ -74,7 +74,7 @@ mailchimp_form_name = "b_email"
 
 # cookies
 [params.cookies]
-enable = true
+enable = false
 expire_days = 2
 
 ########################## Plugins ######################################
