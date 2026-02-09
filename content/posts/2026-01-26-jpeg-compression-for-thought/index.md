@@ -28,7 +28,7 @@ Meanwhile, readers are using AI to summarise those same blocks of prose back int
 
 What we have here is person A talking to person B via the worst version of the Telephone Game, just one that involves burning a couple of trees before your turn.
 
-This kinda sounds like a lossy compression but for thought. It raises the obvious question: 'If you couldn't be bothered writing it, why would you expect someone to bother reading it'. Especially when the expansion is done without review or consideration..
+This kinda sounds like a lossy compression but for thought. It raises the obvious question: 'If you couldn't be bothered writing it, why would you expect someone to bother reading it'. Especially when the expansion is done without review or consideration.
 
 For those who are not huge nerds and are unfamiliar with how JPEG compression works; it's an intentionally lossy process designed around human perception. Rather than preserving an image *exactly*, JPEG optimises for what the eye is most sensitive to. It prioritises brightness over colour, converts the image into a frequency representation, and then aggressively discards high-frequency detail like the fine texture and sharp edges we're least likely to notice. This information is 'quantised', rounded, and approximated, and what remains is encoded efficiently. At high quality settings the loss is barely visible; at lower settings, or after repeated saves, the artefacts become obvious. The image still looks broadly correct, but precision has been traded away in favour of size and convenience.
 

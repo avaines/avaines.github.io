@@ -449,9 +449,14 @@
   }
 
   ul {
-    padding-left: 0;
+    padding-left: 20px;
     li {
-      list-style-type: none;
+      list-style-type: disc;
+      margin-bottom: 5px;
+      
+      &::marker {
+        color: $text-color;
+      }
     }
   }
 
