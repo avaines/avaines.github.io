@@ -9,3 +9,12 @@ content/test/
 hugo_stats.json
 node_modules
 .env
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+test-results.json/
+test-output.log
+full-test-output.txt
+.DS_Store

@@ -1,0 +1,7 @@
+default: true
+
+# MD051/link-fragments Link fragments should be valid
+MD051: false
+
+# MD013/line-length Line length
+MD013: false
