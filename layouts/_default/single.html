@@ -59,6 +59,12 @@
           </div>
           {{ end }}
 
+          <!-- Banner section: info, warning, danger, success -->
+          {{ if .Params.banner }}
+          <div class="alert alert-{{ .Params.banner.type | default "info" }} mb-4" role="alert">
+            {{ .Params.banner.message | markdownify }}
+          </div>
+          {{ end }}
 
           {{ if .Params.Image }}
             {{ $img := .Params.Image }}

@@ -9,6 +9,9 @@ categories:
   - Terraform
   - AWS
 date: 2019-10-19T23:00:00.000Z
+banner:
+  type: info
+  message: "I wrote an [update](/posts/2026-03-01-terraform-six-years-on) to this post after using Terraform for six years.<br>[Read it here](/posts/2026-03-01-terraform-six-years-on)"
 ---
 One of the first tools I picked up walking in to the DevOps world was Terraform, I found it a bit challenging to get to grips with one major concept. The language itself is easy enough to get to grips with but actually structuring anything slightly complex just didn’t click for me.
 
@@ -18,7 +21,21 @@ When trying to learn Terraform I followed this same pattern, looking through You
 
 If you have not done anything with Terraform before its essentially a way of documenting the desired state of your infrastructure so it can be repeatable.he There’s a lot more to it than that obviously but that’s the gist. There are many other tools for doing this like AWS’s own CloudFormation or Ansible does a decent job too.
 
-Terraform differs in that it has support for many different ‘providers’ and you describe your infrastructure using Hashicorp’s HCL, it’s a bit like JSON and Ruby.. sort of. It looks something like this:![](awsProvider.png)
+Terraform differs in that it has support for many different ‘providers’ and you describe your infrastructure using Hashicorp’s HCL, it’s a bit like JSON and Ruby.. sort of. It looks something like this:
+
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "example" {
+  ami = "ami-408c7f28"
+  instance_type = "t2-micro"
+  tags {
+    Name = "terraform-example"
+  }
+}
+```
 
 When you want to make the stuff you have written in to something real, the Terraform binaries take your code, analyse what you have written and work out how badly you’ve written it and throws up some error messages. Or hopefully tells you what is going to be changed or created as a result.
 
@@ -26,7 +43,25 @@ When trying to learn something new you are going to run in to tones of issues an
 
 The immediate challenge is learning the new language, syntax, structure, referencing and everything. The O’Reilly book took care of most of this and give a pretty good overview of how to write it and assemble files, modules and so on. The book also assumes you are going to write Terraform in a specific way, which is fine for learning but the second I took this and tried to scale it up in to something useful I ran in to some immediate issues with keeping things DRY (Don’t Repeat Yourself).
 
-![](moduleDirStruct.png)
+```text
+├── dev.tfvars
+├── prod.tfvars
+├── myplatform
+│   ├── modules.tf
+│   ├── providers.tf
+│   ├── terraform.tf
+│   └── variables.tf
+└── modules
+    ├── key_pair
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    ├── web_server
+    │   ├── ec2.tf
+    │   ├── security_groups.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+```
 
 The book recommends you structure your project sort of like this, where you have a ‘component’ which references a number of modules.
 
@@ -46,7 +81,30 @@ When looking through StackOverflow for the solutions to some of the issues I was
 
 I figured a quick YouTube series or two would should be enough to fill in some blanks.
 
-![](moduleDirStruct2.png)
+```text
+├── dev-myplatform
+│   ├── terraform.tfvars
+│   ├── modules.tf
+│   ├── providers.tf
+│   ├── terraform.tf
+│   └── variables.tf
+├── prod-myplatform
+│   ├── terraform.tfvars
+│   ├── modules.tf
+│   ├── providers.tf
+│   ├── terraform.tf
+│   └── variables.tf
+└── modules
+    ├── key_pair
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    ├── web_server
+    │   ├── ec2.tf
+    │   ├── security_groups.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+```
 
 I found a couple of series of videos, which I have completely lost other wise I would include links, where they structured the project something like this. Keeping the above example in mind we still have two modules and a ‘myplatform’ component.
 
@@ -58,7 +116,7 @@ This is fine but continues to be a bit of a pain for anything complicated, with 
 
 I had the chance to work on an existing project where they had got some complicated infrastructure and needed to resolve the challenges I had seen up to this point.
 
-![](moduleDirStruct3.png)
+![module structure with symlinks](moduleDirStruct3.png)
 
 I have simplified the teams setup continuing from the previous examples.
 

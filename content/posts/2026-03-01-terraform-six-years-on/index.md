@@ -18,9 +18,9 @@ Back in 2019 when I started at BJSS as a fairly junior Platform Engineer I was f
 
 I immediately found myself surrounded by patterns, wrappers, and opinions that solved problems I didn't yet understand. [I wrote about that confusion at the time](/posts/2019-10-19-starting-terraform-taxing-tangled-a-bit-tenuous/), trying to articulate why Terraform felt chaotic.
 
-Six years on, I like to think I’m reasonably proficient. I’ve built, maintained and supported multiple services across multiple programmes where Terraform is the sole method for declaring infrastructure. I mentor engineers who are where I once was. I’ve broken things, refactored things, migrated state, inherited other people’s *creative* directory structures, I've even [solved Advent of Code puzzles with Terraform Locals](https://github.com/avaines/advent_of_code/blob/main/2022/Day%201%20Calorie%20Counting/day1_but_in_terraform.tf), which is either a sign of confidence, or poor life choices.
+Six years on, I like to think I’m reasonably proficient. I’ve built, maintained and supported multiple services across multiple programmes where Terraform is the sole method for declaring infrastructure. I mentor engineers who are where I once was. I’ve broken things, refactored things, migrated state, inherited other people’s *creative* directory structures, I've even [solved Advent of Code puzzles with Terraform Locals](https://github.com/avaines/advent_of_code/blob/main/2022/Day%201%20Calorie%20Counting/day1_but_in_terraform.tf); which is either a sign of confidence, or poor life choices.
 
-One of the things, which I still think is poorly explained, is how to structure a good Terraform project. And by good, I mean multiple environments, minimal drift, and clear enough someone joining the team can understand it without archaeology. In 2019 this was a hugh mental knot for me: how do you keep environments separate, avoid sharing state disasters, stay reasonably [DRY][dry] and not disappear into abstraction?
+One of the things which I still think is poorly explained is how to structure a good Terraform project. And by good I mean multiple environments, minimal drift, and clear enough that someone joining the team can understand it without archaeology. In 2019 this was a huge mental knot for me: how do you keep environments separate, avoid sharing state disasters, stay reasonably [DRY][dry] and not disappear into abstraction?
 
 Early on I felt Terraform was powerful but was a bit feral. It would do exactly what you asked; including the things you didn’t mean.
 
@@ -30,11 +30,11 @@ These days I start with the most boring solution possible.
 
 Ignore the urge, to abstract, and prematurely optimise for [DRY][dry] principles, but remember why  [DRY][dry]  exists and balance it against cognitive load. I want something close to "Change a tfvars file and go" not a checklist of things I have to remember.
 
-Environments like 'dev', 'prod' and whatever sits between live in an `envs` folder. A `modules` directory contains the reusable building blocks, ive used `network`, `observability`, and `service` in teh example below. These modules then get composed together like Lego, passing variables in and outputs along the the chain
+Environments like 'dev', 'prod' and whatever sits between live in an `envs` folder. A `modules` directory contains the reusable building blocks, I've used `network`, `observability`, and `service` in the example below. These modules then get composed together like Lego; passing variables in and outputs along the the chain.
 
 I lean on `auto.tfvars` files in each of the `env` folders because they slightly simplify each CLI invocation, and reduces a risk of me forgetting. The difference between the environments now should just be backend and the values in the `auto.tfvars` file. All the conditional logic is down in the modules.
 
-This was the crux of my original confusions. I was convinced duplication of the `.tf` files across environments was a mistake, and that drift was inevitable. I wanted only a `backend.tf` and a set of `.tfvars` files per environment, with everything else shared. I was, and still am, adamant that no two environments should ever share a state file (looking up outputs is fine). I hung so many of my original worries and concerns on these two things I was essentially stuck thinking in circles.
+This was the crux of my original confusions. I was convinced duplication of the `.tf` files across environments was a mistake and that drift was inevitable. I wanted only a `backend.tf` and a set of `.tfvars` files per environment with everything else shared. I was - and still am - adamant that no two environments should ever share a state file (looking up outputs is fine). I hung so many of my original worries and concerns on these two things I was essentially stuck thinking in circles.
 
 ```text
 └── infra
@@ -68,11 +68,11 @@ This was the crux of my original confusions. I was convinced duplication of the 
             └── variables.tf
 ```
 
-If you share one `envs` folder and switch between `.tfvars` files, you quickly hit the backend problem, in that you can't use variables inside `backend.tf` (I know you can do this in OpenTufu now). Separating state then requires a bunch of scripts, templating, or increasingly *creative* patterns. In trying to optimise for  [DRY][dry] , I was introducing complexity.
+If you share one `envs` folder and switch between `.tfvars` files, you quickly hit the backend problem in that you can't use variables inside `backend.tf` (I know you can do this in OpenTufu now). Separating state then requires a bunch of scripts, templating, or increasingly *creative* patterns. In trying to optimise for [DRY][dry], I was introducing complexity.
 
 Rather than trying to achieve perfect [DRY][dry] principals, I'm instead going for [KISS][kiss]. The extra cognitive burden of clever indirection rarely pays for itself. Most teams do not need the architectural gymnastics required to keep Terraform [DRY][dry] to manage a handful of environments.
 
-I know I said I didn't want to abstract things but to avoid missing arguments or badly typed commands. I use a little wrapper script to ensure some consistency `make terraform-apply env=dev` and away it goes.
+I know I said I didn't want to abstract things but to avoid missing arguments or badly typed commands I use a little wrapper script to ensure some consistency `make terraform-apply env=dev` and away it goes.
 
 ```Makefile
 .PHONY: terraform-init terraform-plan terraform-apply terraform-destroy
@@ -112,11 +112,11 @@ terraform-destroy:
     $(call run_terraform,destroy)
 ```
 
-When I was first learning Terraform, [Workspaces](https://developer.hashicorp.com/terraform/language/state/workspaces) had just been introduced. At the time, the guidance around CLI usage was to avoid it unless you were a Terraform Enterprise Cloud user. Workspaces, however, exists to solve exactly the backend/state namespacing problem that caused my early confusion.
+When I was first learning Terraform, [Workspaces](https://developer.hashicorp.com/terraform/language/state/workspaces) had just been introduced. At the time, the guidance around CLI usage was to avoid it unless you were a Terraform Enterprise Cloud user. Workspaces however, exists to solve exactly the backend/state namespacing problem that caused my early confusion.
 
-I still feel slightly odd about workspaces. I know they are fine, and I know they are stable, and well supported, but I just can't bring my self to use it in anger. That said, theres no reason you should be stuck with my hang ups, and when I'm feeling fruity I can achieve some more of those [DRY][dry] principals I desired.
+I still feel slightly odd about Workspaces. I know they are fine, and I know they are stable and well supported, but I just can't bring myself to use it in anger. That said, theres no reason you should be stuck with my hang ups and when I'm feeling fruity I can achieve some more of those [DRY][dry] principals I desired.
 
-By smushing the environments together into one folder and moving from `auto.tfvars` files to just `environment.tfvars` it's done. Workspaces needs you need to remember to switch the workspace accordingly in order to select the right statefile, which I think is where I worry about the risks of being in the wrong Workspace. Worries aside, separate Workspaces fixes the `backend.tf` problems and indecisions which sparked my original problems.
+By smushing the environments together into one folder and moving from `auto.tfvars` files to just `environment.tfvars` it's done. Workspaces needs you need to remember to switch the workspace accordingly in order to select the right statefile, which I think is where I worry about the risks of being in the wrong workspace. Worries aside, separate Workspaces fixes the `backend.tf` problems and indecisions which sparked my original problems.
 
 Using a Workspace can look like this:
 
@@ -176,21 +176,19 @@ terraform-destroy:
     $(call run_terraform,destroy)
 ```
 
-Logically, both approaches solve the same problem. One leans on filesystem separation, the other leans on a Terraform feature, my reservations are not germane to the choice you make.
+Logically both approaches solve the same problem: one leans on filesystem separation, the other leans on a Terraform feature. My reservations are not germane to the choice you make.
 
 ## Things have changed since 2019
 
-Over the last six years Terraform hasn't really changed that much, sure there has been plenty of maturity and [QoL][qol] improvements. The 0.13/1.0 release marking the end of the craziness before.
-
-When writing this I had a flick through the last 6 years of major release notes:
+Over the last six years Terraform hasn't really changed that much. Sure, there has been plenty of maturity and [QoL][qol] improvements. The 0.13/1.0 release marking the end of the craziness before. When writing this I had a flick through the last 6 years of major release notes:
 
 - **0.12 (2019)**: HCL2 introduced the major language overhaul which needed the horrible state change palava. This is when the switch from `name = "${local.string}"` to `name = local.string` came in.
 
-- **0.13 (2020)**: Explicit provider source addresses and improved module handling creating `versions.tf` became useful
+- **0.13 (2020)**: Explicit provider source addresses and improved module handling creating `versions.tf` became useful.
 - **0.14 (2020)**: Dependency lock file `.terraform.lock.hcl`, bringing reproducibility closer to what `package-lock.json` does in the JavaScript ecosystem.
-- **1.0 (2021)**: Stability promise and semantic versioning commitment, "No breaking changes between major versions, we promise, Scouts honor." - Hashicorp 2021
+- **1.0 (2021)**: Stability promise and semantic versioning commitment, "No breaking changes between major versions, we promise, Scouts honour." - Hashicorp 2021
 - **1.1 (2021)**: *[moved](https://developer.hashicorp.com/terraform/language/block/moved)* blocks, allowing refactors without manual state surgery.
-- **1.2 (2022)**: Pre-conditions and postconditions for safer assumptions in configuration.
+- **1.2 (2022)**: Pre-conditions and post-conditions for safer assumptions in configuration.
 - **1.5 (2023)**: *[import](https://developer.hashicorp.com/terraform/language/block/import)* blocks.
 - **1.6 (2023)**: [terraform test](https://developer.hashicorp.com/terraform/language/tests), introducing a first-party testing workflow.
 - **1.7 (2023)**: [Stacks](https://developer.hashicorp.com/terraform/language/stacks) looks like a move towards higher-level orchestration of multiple stateful components, though with it being a HCP (Hashicorp Cloud) only feature, I have not played with this yet.
