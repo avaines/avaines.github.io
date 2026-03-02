@@ -16,28 +16,30 @@ If the device running the script doesn't have some modules installed or availabl
 
 This script simply puts some belts and braces around importing the ActiveDirectory module inline with the [Powershell Framework](/posts/2017-05-28-powershell-framework/)
 
-# Setup
+## Setup
+
 * Create a project using the [Powershell Framework](/posts/2017-05-28-powershell-framework/)
 * Clone the [Connect-AD1.ps1](https://github.com/avaines/Powershell-Template-Modules/blob/master/Connect-AD/Connect-AD.ps1) to the "Modules" folder of the template
-*  When the "Driver.ps1" is run, it will dot-source the Connect-AD functions and check for an RSAT installation then attempt to import the ActiveDirectory module
+* When the "Driver.ps1" is run, it will dot-source the Connect-AD functions and check for an RSAT installation then attempt to import the ActiveDirectory module
 
 
-# How does it work?
+## How does it work?
+
 The script will check for an RSAT installation
 
 ![Flow](psh-tmp-adconnect-flow.png)
 
-
 The logs produced should look like this
-```
+
+```text
 *************************************************************
 Started logging at [11/10/2017 15:46:01].
 *************************************************************
 *************************************************************
 
 [11/10/2017 15:46:01] Loading Module: Connect-AD
-[11/10/2017 15:46:01] 	Importing AD Modules
+[11/10/2017 15:46:01]     Importing AD Modules
 [11/10/2017 15:46:01] Checking for ActiveDirectory Module
-[11/10/2017 15:46:01] 		ActiveDirectory module is already loaded
+[11/10/2017 15:46:01]         ActiveDirectory module is already loaded
 ...
 ```

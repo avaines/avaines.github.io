@@ -8,7 +8,11 @@
   "license": "MIT",
   "scripts": {
     "start": "hugo server --disableFastRender",
-    "build": "NODE_ENV=production hugo --gc"
+    "build": "NODE_ENV=production hugo --gc",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
@@ -25,6 +29,7 @@
     "not dead"
   ],
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/node": "^20.11.17",
     "postcss": "^8.4.14"
   }

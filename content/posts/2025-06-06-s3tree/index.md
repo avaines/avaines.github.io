@@ -32,6 +32,7 @@ I was trying to visualise some S3 buckets for a cost optimisation exercise and w
 Earlier in the week I had used a tool which was installed from NPM as a global package, rather than defaulting to Python as I might usually have done I instead opted to do a bit of JavaScript which ive been trying to teach myself more of since [the time it ruined Christmas](posts/2022-02-03-javascript-most-and-least-frequent-list-elements) and [it funds my hobbies](posts/2024-10-22-building-a-simple-ecommerce-site-with-hugo-cloudflare-workers-and-square/) ([*please buy my wares*](https://shop.vaines.org))
 
 So, off I went, pulled the arguments the Unix Tree command lists in the Man pages, removed the ones that where too complicated for me to think about and started writing code the features I ended up with can be boiled down in to 4 categories:
+
 * Visualizes S3 bucket contents as a directory tree
 * Supports filtering, sorting, and formatting options
 * Supports AWS region and role assumption
@@ -42,4 +43,4 @@ Python is my default language for things more anything more complicated than BAS
 I even wrote Unit tests! Jest seems way easier than Pytest to use, write, execute and debug.
 
 It's even got badges when the workflow runs - if that sort of thing on a new project doesn't give you the warm-fuzzies, nothing will.
-[![Status](https://github.com/avaines/s3tree/actions/workflows/main.yml/badge.svg)](https://github.com/avaines/s3tree/actions/workflows/main.yml)
+![Status](https://github.com/avaines/s3tree/actions/workflows/main.yml/badge.svg)

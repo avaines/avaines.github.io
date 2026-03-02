@@ -13,6 +13,11 @@ repos:
   - id: pretty-format-json
   - id: trailing-whitespace
 
+- repo: https://github.com/DavidAnson/markdownlint-cli2
+  rev: v0.21.0
+  hooks:
+  - id: markdownlint-cli2
+
 exclude: |
   (?x)^(
     .*/?package.json |
