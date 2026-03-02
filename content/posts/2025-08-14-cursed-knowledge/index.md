@@ -3,6 +3,8 @@ draft: false
 title: 'Cursed Knowledge'
 author: Aiden Vaines
 url: cursed
+aliases:
+  - /posts/2025-08-14-cursed-knowledge/
 image: featured.png
 featured: false
 date: 2025-08-13T23:00:00.000Z

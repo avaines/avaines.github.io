@@ -11,8 +11,6 @@ categories:
   - JavaScript
 ---
 
-#### Introduction
-
 I have been trying to teach myself how to build a simple Node.JS API with a NoSQL backend. A few of my colleagues mentioned that Google’s Firebase is probably the easiest place to start and off I went.
 
 In my day to day life I’m more in with the Ops side of the DevOps culture; I mostly focus on watering and feeding infrastructure, building pipelines for deploying stuff our devs have written or tinkering with existing workflows. I’m by no means a programmer, I dabble at best, my usual tooling is Python, Bash, PowerShell, Ansible and a lot of Terraform.
@@ -23,8 +21,7 @@ One of the biggest problems I faced in getting from zero to a deployable applica
 
 I wanted to try solving the complexity issue for myself and wrote up my experience, hopefully it could help someone else following the same road I travelled.
 
-
-#### The problem
+## The problem
 
 With Google Firebase specifically the documentation doesn’t particularly cover how you get your code from a super function that puts some text in a database to a CI pipeline. Of course not, there’s a million ways to skin that cat…but none of them seem to be sensibly cover it that didn’t seem crazily complicated.
 
@@ -42,8 +39,8 @@ As for structure my repo will look like this:
 
 Now we’ve got the basics it’s time to initialise the Frontend and Backend folders and set up the rudiments of the basic codebase.
 
-
 ## Lets Build a Backend Firebase Function
+
 I’ll start with the backend as that’s the bit I was interested in learning, the Frontend was just to see if I could.
 
 The first learning point was that in Firebase if you want to host a function AND a ‘website’ you have to create two web projects. The UI may change from time to time, but I had to create something like this:
@@ -58,7 +55,7 @@ In the ‘BE’ folder initialise a new firebase project. This is covered by pre
 
 I built a little Express API for the initial testing, my index.js looks like this:
 
-```
+```yaml
 name: Make - Back End
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -100,7 +97,7 @@ jobs:
 
 I created a ‘utils’ folder that contains my logic for connecting to the Firebase database. The main file is is this utils/dbconn.js file which looks like this:
 
-```
+```js
 // utils/dbconn.js
 const admin = require("firebase-admin");
 const loadEnvVars = require("./dbConfiguration");
@@ -140,7 +137,7 @@ In the end I decided that I would stick to using Environmental Variables as the 
 
 I didn’t want to have to faff about with switching these things around either so I wrote this series of functions which will source the variables the right way. All it does is look for that Environmental Variable, check it and then load the appropriate thing. Meaning I don’t have to do anything with this ever again, perfect.
 
-```
+```js
 // utils/dbConfiguration.js
 let functions = require("firebase-functions");
 function pullFromFunctionsConfig() {
@@ -200,43 +197,43 @@ The format of that ‘flat-packing’ could be a Makefile, dockerfile, docker-co
 
 In this example I wanted to be able to, from the ‘BE’ folder, run a command to bring up development, and another to deploy the thing. This is what I settled on:
 
-```
+```bash
 # BE/Makefile
 debug:
-	$(info Debugging)
-	cd functions && export APP_CONFIG_TYPE=PERMISSIONS_JSON && npm run serve
+    $(info Debugging)
+    cd functions && export APP_CONFIG_TYPE=PERMISSIONS_JSON && npm run serve
 
 build:
-	$(info Install npm dependancies from the functions folder)
-	cd functions && npm install
+    $(info Install npm dependancies from the functions folder)
+    cd functions && npm install
 
-	$(info Install firebase-tools globally)
-	sudo npm install -g firebase-tools
+    $(info Install firebase-tools globally)
+    sudo npm install -g firebase-tools
 
 deploy:
-	# Firebase functions don't currently supported targeted deployment
-	# $(info Set the Firebase target for the BE function)
-	# firebase target:apply hosting dev-firebase-pipeline
+    # Firebase functions don't currently supported targeted deployment
+    # $(info Set the Firebase target for the BE function)
+    # firebase target:apply hosting dev-firebase-pipeline
 
-	$(info Set the firebase config)
-	firebase functions:config:set \
-	app.type="service_account" \
-	app.project_id="$$FIREBASE_PROJECT_ID" \
-	app.private_key_id="$$FIREBASE_SA_PRIVATE_KEY_ID" \
-	app.private_key="$$FIREBASE_SA_PRIVATE_KEY" \
-	app.client_email="$$FIREBASE_SA_CLIENT_EMAIL" \
-	app.client_id="$$FIREBASE_SA_CLIENT_ID"
-	firebase functions:config:get
+    $(info Set the firebase config)
+    firebase functions:config:set \
+    app.type="service_account" \
+    app.project_id="$$FIREBASE_PROJECT_ID" \
+    app.private_key_id="$$FIREBASE_SA_PRIVATE_KEY_ID" \
+    app.private_key="$$FIREBASE_SA_PRIVATE_KEY" \
+    app.client_email="$$FIREBASE_SA_CLIENT_EMAIL" \
+    app.client_id="$$FIREBASE_SA_CLIENT_ID"
+    firebase functions:config:get
 
-	$(info Deploy to Firebase project)
-	firebase deploy - token ${FIREBASE_TOKEN} - only functions
+    $(info Deploy to Firebase project)
+    firebase deploy - token ${FIREBASE_TOKEN} - only functions
 ```
 
 The debug section is pretty simple,
 
 In the BE folder you can now run `make debug` and it’ll go away, change directories to the `functions` folder, export the Environmental Variable which tells the function we wrote above to use the `permissions.json` file and finally run ‘npm run serve’.
 
-This could quite easily not include the `cd functions && ` bit and use `firebase emulators:start` either works fine and the ‘npm run serve’ method let me use breakpoints in VS Code _which I couldn't get working with firebase emulators_
+This could quite easily not include the `cd functions &&` bit and use `firebase emulators:start` either works fine and the ‘npm run serve’ method let me use breakpoints in VS Code _which I couldn't get working with firebase emulators_
 
 Happy development process, low effort for repeatability and nice experience makes for a happy learning environment.
 
@@ -250,35 +247,36 @@ Also, notice the comment section in `deploy`. As briefly mentioned somewhere abo
 
 There’s reference here to a ‘FIREBASE_TOKEN’ variable, this should be the output of `firebase login:ci`. This is just like the regular login command but it gives you a token that can be used for subsequent logins without needing to authenticate manually using the browser redirect. Ideal for CI/CD deployment.
 
-#### Quick Frontend
+### Quick Frontend
+
 We care a bit less about the front end, Mostly because i’ve not quite gotten to learning that bit beyond `hello world` just yet.
 
 In the `FE` folder, initialise a Vue.js or React project (or whatever else you wish to use) and make sure it’s functional. Again, there are tons of projects on the basic preparation of this sort of thing.
 
 Once we are happy with the basic frontend app, it’s time for another Makefile. Similar structure, there’s a `make debug` option and the steps to build and deploy:
 
-```
+```bash
  FE/Makefile
 debug:
-	$(info Debugging)
-	npm run serve
+    $(info Debugging)
+    npm run serve
 
 build:
-	$(info Install npm dependancies from the functions folder)
-	npm install
+    $(info Install npm dependancies from the functions folder)
+    npm install
 
-	$(info Build package)
-	npm run build
+    $(info Build package)
+    npm run build
 
-	$(info Install firebase-tools globally)
-	sudo npm install -g firebase-tools
+    $(info Install firebase-tools globally)
+    sudo npm install -g firebase-tools
 
 deploy:
-	$(info Set the Firebase target for the Web function)
-	firebase target:apply hosting web dev-firebase-pipeline-web
+    $(info Set the Firebase target for the Web function)
+    firebase target:apply hosting web dev-firebase-pipeline-web
 
-	$(info Deploy to Firebase)
-	firebase deploy - only hosting:web - token ${FIREBASE_TOKEN}
+    $(info Deploy to Firebase)
+    firebase deploy - only hosting:web - token ${FIREBASE_TOKEN}
 ```
 
 This time when we get down to the deployment phase, we need to ensure the ‘FE’ gets deployed to the ‘web’ target. To make sure this sticks there’s also an update to the `firebase.json` file in the `FE` folder that needs to be made.
@@ -287,13 +285,13 @@ Add a `target` element to the `hosting` parent, which matches the target we spec
 
 ![ide_json](ide_json.png)
 
+### String It All Together
 
-#### String It All Together
 Now we have two separate projects, each with their own development and deployment process. We need a way to make these executable from the root folder to make CI/CD setup nice and simple.
 
 In the root of the repository we have, you guessed it, another Makefile:
 
-```
+```bash
 ## SETUP ##
 # Get Git revision from the repository
 REV:=$(shell git rev-parse HEAD | cut -c1–7)
@@ -307,23 +305,23 @@ fe: fe/build fe/deploy
 ## IMPLEMENTATION ##
 # BE
 be/debug:
-	@$(MAKE) -C BE debug
+    @$(MAKE) -C BE debug
 
 be/build:
-	@$(MAKE) -C BE build
+    @$(MAKE) -C BE build
 
 be/deploy:
-	@$(MAKE) -C BE deploy
+    @$(MAKE) -C BE deploy
 
 # FE
 web/debug:
-	@$(MAKE) -C FE debug
+    @$(MAKE) -C FE debug
 
 web/build:
-	@$(MAKE) -C FE build
+    @$(MAKE) -C FE build
 
 web/deploy:
-	@$(MAKE) -C FE deploy
+    @$(MAKE) -C FE deploy
 ```
 
 Now we can run `make be/debug` and it’ll kick off the `debug` for the Backend or just `make be` which will run the build and deployment commands for the Backend and it should build and deploy the back end. Not much more to it than that.
@@ -332,8 +330,8 @@ The `$(MAKE) -C` part essentially just re-runs the `make` command in the target 
 
 ![makefile_all_the_things](makefile_all_the_things.png)
 
+### A test CI: Github Actions
 
-#### A test CI: Github Actions
 To test all this out, I figured Github actions was the place to start, it’s just 2 clicks away on the same repository where my code lives, what could be easier.
 
 I want a build to happen every time I push code to the `Master` branch of my repository, but I don’t want it to build the BackEnd when I push code to the FrontEnd folder as that would just be pointless and potentially disruptive.
@@ -343,7 +341,8 @@ I want a build to happen every time I push code to the `Master` branch of my rep
 Create a folder in the `.github` folder in the root of the repository called `workflows` and create two `.yml` files. This is the folder that GitHub actions looks in for action workflows
 
 **BE.yml**
-```
+
+```yaml
 name: Make - Back End
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -384,7 +383,8 @@ jobs:
 ```
 
 **FE.yml**
-```
+
+```yaml
 name: Make - Front End
 
 # Controls when the action will run. Triggers the workflow on push or pull request

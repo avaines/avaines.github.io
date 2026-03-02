@@ -19,13 +19,13 @@ Everything I'm about to whine on about has working code examples here: https://g
 
 I've set out some basic requirements which I would want to achieve with a workflow of anything at scale. These are:
 
-1.  Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.
-2.  The code a function is running should be identifiable and retrievable for analysis.
-3.  Functions should not be replaced unless a change has occurred.
+1. Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.
+2. The code a function is running should be identifiable and retrievable for analysis.
+3. Functions should not be replaced unless a change has occurred.
 
 &nbsp;
 
-### 1) The Classic: copy-&-paste from the docs
+## 1) The Classic: copy-&-paste from the docs
 
 *Sample Code: https://github.com/avaines/terraform_lambda_build_options/tree/main/option1*
 
@@ -51,9 +51,9 @@ A very simple chain of resources, Terraform's archive provider ZIPs up the Lambd
 ![option 1 diagram](https://raw.githubusercontent.com/avaines/terraform_lambda_build_options/main/option1/diagram.png)
 
 The Terraform dependency graph is really simple to follow. We've got some code, a Lambda function and an IAM role all attached.
-![option 1 terraform graph](https://github.com/avaines/terraform_lambda_build_options/raw/main/option1/graph.png)
+![option 1 terraform graph](https://raw.githubusercontent.com/avaines/terraform_lambda_build_options/main/option1/graph.png)
 
-#### How does that stack up against the requirements I set out at the start?
+### How does that stack up against the requirements I set out at the start?
 
 **Lambda function code should be versioned, promotable, and targetable. An environment should be able to use a specific code version.**
 Assuming the Lambda code is always in a Git repo and changes are checked in as part of the workflow.

@@ -9,7 +9,7 @@ categories:
   - IAC
   - Terraform
   - Retrospective
-date: 2026-01-26T00:00:00.000Z
+date: 2026-03-02T00:00:00.000Z
 references:
   - /posts/2019-10-19-starting-terraform-taxing-tangled-a-bit-tenuous/
 ---
