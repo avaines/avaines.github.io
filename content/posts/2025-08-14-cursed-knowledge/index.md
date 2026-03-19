@@ -13,6 +13,16 @@ date: 2025-08-13T23:00:00.000Z
 The creators of the Immich photo hosting app have a page for [Cursed Knowledge](https://immich.app/cursed-knowledge/) and the concept really resonated with me. In particular two really stood out, the JavaScript Dates indexing, and the Cloudflare workers redirect loop problem. I have without any shame ripped off that concept and intend to add to it as I go along in my journey.
 
 {{< timeline >}}
+  {{% event
+    title="MS Dynamics version control system is cursed"
+    year="2026"
+    icon="icons/tools.svg"
+    link="https://www.microsoft.com/en-us/download/details.aspx?id=57777"
+  %}}
+Dynamics has a version control system where version numbers don’t control versions, the system doesn’t reconcile changes based on version lineage. It just stacks them and shows you whatever is on top.
+
+You don’t get history. You get sediment.
+  {{% /event %}}
 
   {{% event
     title="Fetch inside Cloudflare Workers is cursed"
