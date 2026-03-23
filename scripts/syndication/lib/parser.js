@@ -61,7 +61,11 @@ async function getChangedPosts() {
         const post = await parsePost(file);
         posts.push(post);
       } catch (error) {
-        console.warn(`Failed to parse ${file}:`, error.message);
+        if (error.code === 'ENOENT') {
+          console.warn(`Skipping ${file}: file no longer exists (likely renamed or deleted)`);
+        } else {
+          console.warn(`Failed to parse ${file}:`, error.message);
+        }
       }
     }
 

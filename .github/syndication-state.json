@@ -16,5 +16,23 @@
       "url": "https://bsky.app/profile/drsausages.bsky.social/post/3mhqyxwg7pe2p",
       "syndicatedAt": "2026-03-23T21:29:44.987Z"
     }
+  },
+  "/content/posts/2026-03-23-preparing-for-quantum-computers-that-may-or-may-not-exist/index.md": {
+    "bluesky": {
+      "url": "https://bsky.app/profile/drsausages.bsky.social/post/3mhr4aqxdnf2d",
+      "syndicatedAt": "2026-03-23T22:28:22.468Z"
+    },
+    "devto": {
+      "url": "https://dev.to/avaines/preparing-for-quantum-computers-that-may-or-may-not-exist-30k4",
+      "syndicatedAt": "2026-03-23T22:28:22.678Z"
+    },
+    "hashnode": {
+      "url": "https://vaines.hashnode.dev/preparing-for-quantum-computers-that-may-or-may-not-exist-1-1-1-1",
+      "syndicatedAt": "2026-03-23T22:28:23.632Z"
+    },
+    "mastodon": {
+      "url": "https://mastodon.social/@avaines/116280846190478518",
+      "syndicatedAt": "2026-03-23T22:28:24.205Z"
+    }
   }
 }
