@@ -117,7 +117,21 @@ describe('converter', () => {
       expect(Array.isArray(result.content)).toBe(true);
       expect(result.content.length).toBeGreaterThan(0);
       expect(result.content[0]).toContain('Test Post');
+      expect(result.content[0]).not.toContain('Originally published at');
       expect(result.content[result.content.length - 1]).toContain('https://www.vaines.org');
+    });
+
+    it('should avoid extra blank lines when summary is empty', () => {
+      const postWithLeadingBlank = {
+        ...mockPost,
+        content: '\n\nRead more section body only'
+      };
+
+      const result = convertContent(postWithLeadingBlank, 'mastodon', mockConfig);
+      const combined = result.content.join('\n\n');
+
+      expect(combined).not.toContain('\n\n\n');
+      expect(result.content[0]).toContain('Test Post');
     });
   });
 

@@ -17,49 +17,36 @@ async function publish(post, config) {
 
   const converted = convertContent(post, 'mastodon', config);
   const isDryRun = process.env.SYNDICATION_DRY_RUN === 'true';
+  const canonicalUrl = converted.metadata.url;
+  const text = [
+    converted.metadata.title,
+    canonicalUrl ? `Read more: ${canonicalUrl}` : undefined
+  ]
+    .filter(Boolean)
+    .join('\n\n')
+    .trim();
 
   if (isDryRun) {
     console.log('[DRY RUN] Would publish to Mastodon:', {
       instance,
       title: converted.metadata.title,
-      thread: converted.content
+      post: text
     });
     return { url: `https://${instance}/@preview/${Date.now()}` };
   }
 
-  // Post as a thread
-  let previousTootId;
-  let firstTootUrl;
-
-  for (const text of converted.content) {
-    const params = {
-      status: text
-    };
-
-    if (previousTootId) {
-      params.in_reply_to_id = previousTootId;
-    }
-
-    const response = await axios.post(
-      `https://${instance}/api/v1/statuses`,
-      params,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'Content-Type': 'application/json'
-        }
+  const response = await axios.post(
+    `https://${instance}/api/v1/statuses`,
+    { status: text },
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
       }
-    );
-
-    const data = response.data;
-
-    if (!firstTootUrl) {
-      firstTootUrl = data.url;
     }
-    previousTootId = data.id;
-  }
+  );
 
-  return { url: firstTootUrl };
+  return { url: response.data.url };
 }
 
 module.exports = { publish };

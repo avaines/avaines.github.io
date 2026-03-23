@@ -121,7 +121,7 @@ npm run syndicate:disable
 npm run syndicate:enable
 
 # Run tests
-npm run test:syndication
+npm run test:unit:coverage
 ```
 
 ## Configuration
@@ -193,13 +193,13 @@ Syndication state is tracked in `.github/syndication-state.json` to prevent dupl
 Run the test suite:
 
 ```bash
-npm run test:syndication
+npm run test:unit
 ```
 
 With coverage:
 
 ```bash
-npm run test:syndication -- --coverage
+npm run test:unit:coverage
 ```
 
 ## Troubleshooting

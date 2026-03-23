@@ -53,11 +53,10 @@ describe('Bluesky service', () => {
     expect(result.url).toContain('test.bsky.social');
   });
 
-  it('should create thread posts', async () => {
+  it('should create a single post', async () => {
     const mockLogin = jest.fn().mockResolvedValue({});
     const mockPostMethod = jest.fn()
-      .mockResolvedValueOnce({ uri: 'at://did/post1', cid: 'cid1' })
-      .mockResolvedValueOnce({ uri: 'at://did/post2', cid: 'cid2' });
+      .mockResolvedValueOnce({ uri: 'at://did/post1', cid: 'cid1' });
 
     BskyAgent.mockImplementation(() => ({
       login: mockLogin,
@@ -70,15 +69,14 @@ describe('Bluesky service', () => {
       identifier: 'test.bsky.social',
       password: 'test-password'
     });
-    expect(mockPostMethod).toHaveBeenCalledTimes(2); // Thread with 2 posts
+    expect(mockPostMethod).toHaveBeenCalledTimes(1);
     expect(result.url).toContain('bsky.app/profile/test.bsky.social/post/');
   });
 
-  it('should create thread with reply structure', async () => {
+  it('should include external embed metadata in single post', async () => {
     const mockLogin = jest.fn().mockResolvedValue({});
     const mockPostFn = jest.fn()
-      .mockResolvedValueOnce({ uri: 'at://did/post1', cid: 'cid1' })
-      .mockResolvedValueOnce({ uri: 'at://did/post2', cid: 'cid2' });
+      .mockResolvedValueOnce({ uri: 'at://did/post1', cid: 'cid1' });
 
     BskyAgent.mockImplementation(() => ({
       login: mockLogin,
@@ -87,19 +85,8 @@ describe('Bluesky service', () => {
 
     await publish(mockPost, mockConfig);
 
-    // First post should not have reply
-    expect(mockPostFn).toHaveBeenNthCalledWith(1, expect.objectContaining({
+    expect(mockPostFn).toHaveBeenCalledWith(expect.objectContaining({
       text: expect.any(String),
-      reply: undefined
-    }));
-
-    // Second post should reply to first
-    expect(mockPostFn).toHaveBeenNthCalledWith(2, expect.objectContaining({
-      text: expect.any(String),
-      reply: expect.objectContaining({
-        root: expect.objectContaining({ uri: 'at://did/post1' }),
-        parent: expect.objectContaining({ uri: 'at://did/post1' })
-      }),
       embed: expect.objectContaining({
         $type: 'app.bsky.embed.external',
         external: expect.objectContaining({

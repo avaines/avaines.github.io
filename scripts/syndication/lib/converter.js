@@ -9,12 +9,8 @@ function convertContent(post, platform, config) {
   const { content, frontmatter, permalink } = post;
   const canonicalUrl = `${config.baseUrl}${permalink}`;
 
-  // Add canonical note at the top
-  const canonicalNote = config.defaults.canonicalNote.replace('{{url}}', canonicalUrl);
-  const contentWithNote = `> ${canonicalNote}\n\n${content}`;
-
-  // Convert relative image paths to absolute URLs
-  const contentWithAbsoluteImages = contentWithNote.replace(
+  // Convert relative image paths to absolute URLs on original content
+  const contentWithAbsoluteImages = content.replace(
     /!\[(.*?)\]\(((?!http)[^)]+)\)/g,
     (match, alt, imagePath) => {
       // Handle both ./image.png and image.png
@@ -24,16 +20,20 @@ function convertContent(post, platform, config) {
     }
   );
 
+  // Add canonical note at the top
+  const canonicalNote = config.defaults.canonicalNote.replace('{{url}}', canonicalUrl);
+  const contentWithCanonicalNote = `> ${canonicalNote}\n\n${contentWithAbsoluteImages}`;
+
   // Platform-specific conversions
   switch (platform) {
     case 'devto':
-      return convertToDevTo(contentWithAbsoluteImages, frontmatter, canonicalUrl);
+      return convertToDevTo(contentWithCanonicalNote, frontmatter, canonicalUrl);
 
     case 'substack':
-      return convertToLongform(contentWithAbsoluteImages, frontmatter, canonicalUrl);
+      return convertToLongform(contentWithCanonicalNote, frontmatter, canonicalUrl);
 
     case 'hashnode':
-      return convertToHashnode(contentWithAbsoluteImages, frontmatter, canonicalUrl);
+      return convertToHashnode(contentWithCanonicalNote, frontmatter, canonicalUrl);
 
     case 'twitter':
     case 'mastodon':
@@ -42,7 +42,7 @@ function convertContent(post, platform, config) {
 
     default:
       return {
-        content: contentWithAbsoluteImages,
+        content: contentWithCanonicalNote,
         metadata: { canonicalUrl }
       };
   }
@@ -107,15 +107,27 @@ function convertToHashnode(content, frontmatter, canonicalUrl) {
  * Convert to microblog format (Twitter, Mastodon, Bluesky)
  */
 function convertToMicroblog(content, frontmatter, canonicalUrl) {
-  // Extract first paragraph or create summary
-  const firstPara = content.split('\n\n')[0].replace(/^>\s.*\n\n/, '').trim();
-  const summary = firstPara.length > 200
-    ? firstPara.substring(0, 200) + '...'
-    : firstPara;
+  // Extract first non-empty paragraph and sanitize common markdown prefix
+  const firstPara = content
+    .split('\n\n')
+    .map(p => p.trim())
+    .find(Boolean) || '';
+
+  const normalizedFirstPara = firstPara
+    .replace(/^#{1,6}\s+/, '')
+    .trim();
+
+  const summary = normalizedFirstPara.length > 200
+    ? normalizedFirstPara.substring(0, 200) + '...'
+    : normalizedFirstPara;
+
+  const firstPost = summary
+    ? `${frontmatter.title}\n\n${summary}`
+    : frontmatter.title;
 
   // Create thread-style post
   const thread = [
-    `${frontmatter.title}\n\n${summary}`,
+    firstPost,
     `Read more: ${canonicalUrl}`
   ];
 

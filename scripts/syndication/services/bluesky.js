@@ -17,11 +17,19 @@ async function publish(post, config) {
 
   const converted = convertContent(post, 'bluesky', config);
   const isDryRun = process.env.SYNDICATION_DRY_RUN === 'true';
+  const canonicalUrl = converted.metadata.url;
+  const text = [
+    converted.metadata.title,
+    canonicalUrl ? `Read more: ${canonicalUrl}` : undefined
+  ]
+    .filter(Boolean)
+    .join('\n\n')
+    .trim();
 
   if (isDryRun) {
     console.log('[DRY RUN] Would publish to Bluesky:', {
       title: converted.metadata.title,
-      thread: converted.content
+      post: text
     });
     return { url: `https://bsky.app/profile/${handle}/post/preview` };
   }
@@ -29,42 +37,22 @@ async function publish(post, config) {
   const agent = new BskyAgent({ service: 'https://bsky.social' });
   await agent.login({ identifier: handle, password });
 
-  // Post as a thread
-  const posts = [];
-  const canonicalUrl = converted.metadata.url;
+  const postData = { text };
 
-  for (let i = 0; i < converted.content.length; i++) {
-    const text = converted.content[i];
-    const postData = {
-      text,
-      reply: posts.length > 0 ? {
-        root: posts[0],
-        parent: posts[posts.length - 1]
-      } : undefined
+  // Add link card embed
+  if (canonicalUrl) {
+    postData.embed = {
+      $type: 'app.bsky.embed.external',
+      external: {
+        uri: canonicalUrl,
+        title: converted.metadata.title,
+        description: converted.metadata.title
+      }
     };
-
-    // Add link card embed to the last post
-    if (i === converted.content.length - 1 && canonicalUrl) {
-      postData.embed = {
-        $type: 'app.bsky.embed.external',
-        external: {
-          uri: canonicalUrl,
-          title: converted.metadata.title,
-          description: text
-        }
-      };
-    }
-
-    const response = await agent.post(postData);
-    posts.push({
-      uri: response.uri,
-      cid: response.cid
-    });
   }
 
-  // Return URL to the first post in the thread
-  const firstPostUri = posts[0].uri;
-  const postId = firstPostUri.split('/').pop();
+  const response = await agent.post(postData);
+  const postId = response.uri.split('/').pop();
   return { url: `https://bsky.app/profile/${handle}/post/${postId}` };
 }
 
