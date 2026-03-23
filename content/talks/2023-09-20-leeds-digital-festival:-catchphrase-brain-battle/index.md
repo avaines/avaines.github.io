@@ -17,9 +17,9 @@ tags:
   - machine learning
 ---
 
-I'll be talking at this year's Leeds Digitial Festival; We've taught Microsoft's AI and ML services to play the ITV classic, Catchphrase.
+I'll be talking at this year's Leeds Digital Festival; We've taught Microsoft's AI and ML services to play the ITV classic, Catchphrase.
 
-> Join [BJSS]() and guests from [ITV](https://www.linkedin.com/company/itv/) in this exclusive evening of food, drinks, entertainment and demos all focused on how AI can free up time, resources, and budget to optimise your business operations.
+> Join BJSS and guests from [ITV](https://www.linkedin.com/company/itv/) in this exclusive evening of food, drinks, entertainment and demos all focused on how AI can free up time, resources, and budget to optimise your business operations.
 >
 > We will be:
 > ➡️ Sharing practical techniques for building and integrating AI-based software

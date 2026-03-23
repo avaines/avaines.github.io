@@ -22,5 +22,6 @@ exclude: |
   (?x)^(
     .*/?package.json |
     .*/?package-lock.json |
+    .github/syndication-state.json |
     ^themes/northendlab/.*
   )$

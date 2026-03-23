@@ -19,8 +19,6 @@ syndicate:
   - twitter
 ---
 
-# Sample Blog Post
-
 This is a sample blog post used for testing the syndication system.
 
 ## Introduction
