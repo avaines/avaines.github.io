@@ -17,6 +17,12 @@ references:
   - https://daniellerch.me/stego/text/chatgpt-en/
   - https://www.atlasobscura.com/articles/the-founder-of-the-boy-scouts-hid-maps-in-insect-drawings
   - https://avestura.dev/blog/hide-a-photo-inside-another-photo
+syndicate:
+  - bluesky
+  - devto
+  - hashnode
+  - mastodon
+  - substack
 ---
 
 
@@ -51,6 +57,7 @@ In order to demonstrate the concept I've committed arson to a few trees and enco
 - Bake for 35 minutes, middle rack
 
 #### Encoded:
+
 > Begin by preheating your oven to 180°C using the fan setting so it reaches the correct temperature by the time the batter is ready. In a mixing bowl, cream together 200 grams of butter and 200 grams of sugar until the mixture is light and smooth. Next, add the four eggs one at a time, mixing well after each addition to ensure they are fully incorporated. Once the eggs are combined, gently fold in 200 grams of flour, taking care not to overmix so the batter stays light. Transfer the mixture to a prepared baking tin and place it on the middle rack of the oven. Bake for about 35 minutes, until the cake is cooked through and lightly golden on top.
 
 #### Decoded

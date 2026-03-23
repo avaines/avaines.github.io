@@ -1,0 +1,9 @@
+# Environment variables (contain API keys)
+.env
+.env.local
+
+# Node modules (if ever installed here)
+node_modules/
+
+# Test coverage
+coverage/

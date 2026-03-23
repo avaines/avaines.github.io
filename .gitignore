@@ -9,7 +9,7 @@ content/test/
 hugo_stats.json
 node_modules
 .env
-
+coverage/
 # Playwright
 /test-results/
 /playwright-report/

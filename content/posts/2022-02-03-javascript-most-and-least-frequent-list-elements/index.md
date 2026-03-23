@@ -9,16 +9,18 @@ categories:
   - JavaScript
 ---
 
-#### The Problem
+## The Problem
+
 I love working through the [Advent of Code](https://adventofcode.com) puzzles, this year I decided it was a good opportunity to learn some JavaScript. Having only ever done some very basic stuff with JS before, there's no time like the present
 
 I quickly found some things ive become used to in Python were just not a thing in this foreign land.
 
 Mild Spoiler Alert:
 Day 3 requires a number of inputs to be processed to figure out both the mode elements in a list, for example:
-~~~
+
+```text
 [1, 1, 2, 3, 4, 5, 5]
-~~~
+```
 
 The first part of the puzzle needed you to figure out the largest modal value and other want the lowest modal value. The example list contains both two 1's and two 5's. Clearly I needed a function to get me the modal values in a list, sort it and voila. First element is the lowest (my_list[0]), first element is the largest (my_list[-1]). Job done.
 
@@ -28,11 +30,12 @@ Job not done :(
 Then came the kicker, you also needed the anti-mode(?) or the least frequent element in the list. That example would show one 2, 3 and 4, and again the lowest and highest values accordingly (so 2 and 4).
 
 
-#### The Challenge
+## The Challenge
+
 I feel like I scoured the internet for hours to find something which would work and (most importantly) didn't require a lot of JavaScript knowledge which I clearly don't have. After Stack Overflow failed me, I came across [this post on 'tutorialspoint'](https://www.tutorialspoint.com/get-the-item-that-appears-the-most-times-in-an-array-javascript) which did something close.
 
 
-#### My Solution
+## My Solution
 
 One step forward, I now have some code which for a given list will return another list of the most common elements.
 
@@ -43,7 +46,7 @@ I took apart Amit's code, learning quite a lot in the process and came up with t
 Having solved the Day 3 puzzle with it I hope someone can make further use of it in future.
 
 
-~~~ javascript
+```javascript
 function getFrequent(array, leastFrequent=false) {
   if (array.length == 0) return null;
 
@@ -99,4 +102,4 @@ console.log( getFrequent(myList) );
 // Get the least frequent elements in the list
 // Outputs '[1]'
 console.log( getFrequent(myList, true) );
-~~~
+```
