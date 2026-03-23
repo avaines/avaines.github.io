@@ -17,6 +17,14 @@ references:
   - https://daniellerch.me/stego/text/chatgpt-en/
   - https://www.atlasobscura.com/articles/the-founder-of-the-boy-scouts-hid-maps-in-insect-drawings
   - https://avestura.dev/blog/hide-a-photo-inside-another-photo
+syndicate:
+  - bluesky
+  - devto
+  - hashnode
+  - mastodon
+  - medium
+  - substack
+  - twitter
 ---
 
 
