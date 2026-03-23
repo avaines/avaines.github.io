@@ -17,13 +17,13 @@ npm run start
 Run Playwright tests to validate pages and links:
 
 ```bash
-npm test
+npm run test:e2e
 ```
 
 Run syndication unit tests:
 
 ```bash
-npm run test:syndication
+npm run test:unit
 ```
 
 ## Content Syndication

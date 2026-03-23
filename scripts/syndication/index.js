@@ -117,7 +117,7 @@ async function main() {
       // Check if already syndicated
       if (isSyndicated(state, postPath, target)) {
         const existing = getSyndication(state, postPath, target);
-        console.log(`   ✓ ${target} (already syndicated: ${existing.url})`);
+        console.log(`   ✓ ${target} (already syndicated: ${existing.url} )`);
         skipCount++;
         continue;
       }

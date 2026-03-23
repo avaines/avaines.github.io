@@ -54,34 +54,21 @@ describe('Mastodon service', () => {
     expect(result.url).toContain('mastodon.social');
   });
 
-  it('should create thread posts', async () => {
+  it('should create a single status post', async () => {
     axios.post
       .mockResolvedValueOnce({
         data: { id: 'toot1', url: 'https://mastodon.social/@user/toot1' }
-      })
-      .mockResolvedValueOnce({
-        data: { id: 'toot2', url: 'https://mastodon.social/@user/toot2' }
       });
 
     const result = await publish(mockPost, mockConfig);
 
-    expect(axios.post).toHaveBeenCalledTimes(2);
-    expect(axios.post).toHaveBeenNthCalledWith(
-      1,
+    expect(axios.post).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalledWith(
       'https://mastodon.social/api/v1/statuses',
       { status: expect.any(String) },
       expect.objectContaining({
         headers: expect.objectContaining({ Authorization: 'Bearer test-token' })
       })
-    );
-    expect(axios.post).toHaveBeenNthCalledWith(
-      2,
-      'https://mastodon.social/api/v1/statuses',
-      expect.objectContaining({
-        status: expect.any(String),
-        in_reply_to_id: 'toot1'
-      }),
-      expect.any(Object)
     );
     expect(result.url).toBe('https://mastodon.social/@user/toot1');
   });
