@@ -1,4 +1,4 @@
-const Mastodon = require('mastodon-api');
+const axios = require('axios');
 const { convertContent } = require('../lib/converter');
 
 /**
@@ -27,11 +27,6 @@ async function publish(post, config) {
     return { url: `https://${instance}/@preview/${Date.now()}` };
   }
 
-  const M = new Mastodon({
-    access_token: accessToken,
-    api_url: `https://${instance}/api/v1/`
-  });
-
   // Post as a thread
   let previousTootId;
   let firstTootUrl;
@@ -45,17 +40,23 @@ async function publish(post, config) {
       params.in_reply_to_id = previousTootId;
     }
 
-    const response = await new Promise((resolve, reject) => {
-      M.post('statuses', params, (err, data) => {
-        if (err) reject(err);
-        else resolve(data);
-      });
-    });
+    const response = await axios.post(
+      `https://${instance}/api/v1/statuses`,
+      params,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    const data = response.data;
 
     if (!firstTootUrl) {
-      firstTootUrl = response.url;
+      firstTootUrl = data.url;
     }
-    previousTootId = response.id;
+    previousTootId = data.id;
   }
 
   return { url: firstTootUrl };

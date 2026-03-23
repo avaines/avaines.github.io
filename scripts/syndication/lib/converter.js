@@ -1,9 +1,7 @@
-const path = require('path');
-
 /**
  * Convert Hugo markdown content to platform-specific format
  * @param {object} post - Post object with frontmatter and content
- * @param {string} platform - Target platform (devto, medium, etc.)
+ * @param {string} platform - Target platform (devto, substack, etc.)
  * @param {object} config - Syndication config from package.json
  * @returns {object} - Converted content and metadata
  */
@@ -31,8 +29,8 @@ function convertContent(post, platform, config) {
     case 'devto':
       return convertToDevTo(contentWithAbsoluteImages, frontmatter, canonicalUrl);
 
-    case 'medium':
-      return convertToMedium(contentWithAbsoluteImages, frontmatter, canonicalUrl);
+    case 'substack':
+      return convertToLongform(contentWithAbsoluteImages, frontmatter, canonicalUrl);
 
     case 'hashnode':
       return convertToHashnode(contentWithAbsoluteImages, frontmatter, canonicalUrl);
@@ -72,10 +70,9 @@ function convertToDevTo(content, frontmatter, canonicalUrl) {
 }
 
 /**
- * Convert to Medium format
+ * Convert to longform article format
  */
-function convertToMedium(content, frontmatter, canonicalUrl) {
-  // Medium uses HTML-like format
+function convertToLongform(content, frontmatter, canonicalUrl) {
   return {
     content,
     metadata: {

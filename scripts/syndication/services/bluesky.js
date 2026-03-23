@@ -31,14 +31,31 @@ async function publish(post, config) {
 
   // Post as a thread
   const posts = [];
-  for (const text of converted.content) {
-    const response = await agent.post({
+  const canonicalUrl = converted.metadata.url;
+
+  for (let i = 0; i < converted.content.length; i++) {
+    const text = converted.content[i];
+    const postData = {
       text,
       reply: posts.length > 0 ? {
         root: posts[0],
         parent: posts[posts.length - 1]
       } : undefined
-    });
+    };
+
+    // Add link card embed to the last post
+    if (i === converted.content.length - 1 && canonicalUrl) {
+      postData.embed = {
+        $type: 'app.bsky.embed.external',
+        external: {
+          uri: canonicalUrl,
+          title: converted.metadata.title,
+          description: text
+        }
+      };
+    }
+
+    const response = await agent.post(postData);
     posts.push({
       uri: response.uri,
       cid: response.cid

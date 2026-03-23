@@ -49,18 +49,19 @@ describe('Hashnode service', () => {
   });
 
   it('should publish via GraphQL API', async () => {
-    nock('https://api.hashnode.com')
+    nock('https://gql.hashnode.com')
       .post('/', (body) => {
-        expect(body.query).toContain('mutation CreatePost');
+        expect(body.query).toContain('mutation PublishPost');
         expect(body.variables.input.title).toBe('Test Post');
-        expect(body.variables.input.canonicalUrl).toBe('https://www.vaines.org/posts/test-post/');
+        expect(body.variables.input.publicationId).toBe('pub123');
+        expect(body.variables.input.originalArticleURL).toBe('https://www.vaines.org/posts/test-post/');
         return true;
       })
       .reply(200, {
         data: {
-          createPublicationStory: {
+          publishPost: {
             post: {
-              slug: 'test-post',
+              id: 'post-123',
               url: 'https://blog.hashnode.dev/test-post'
             }
           }
@@ -72,7 +73,7 @@ describe('Hashnode service', () => {
   });
 
   it('should handle GraphQL errors', async () => {
-    nock('https://api.hashnode.com')
+    nock('https://gql.hashnode.com')
       .post('/')
       .reply(200, {
         errors: [
@@ -84,7 +85,7 @@ describe('Hashnode service', () => {
   });
 
   it('should convert categories to tag format', async () => {
-    nock('https://api.hashnode.com')
+    nock('https://gql.hashnode.com')
       .post('/', (body) => {
         const tags = body.variables.input.tags;
         expect(Array.isArray(tags)).toBe(true);
@@ -94,7 +95,7 @@ describe('Hashnode service', () => {
       })
       .reply(200, {
         data: {
-          createPublicationStory: {
+          publishPost: {
             post: { url: 'https://blog.hashnode.dev/test' }
           }
         }

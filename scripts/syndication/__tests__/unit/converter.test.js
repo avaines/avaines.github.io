@@ -76,19 +76,19 @@ describe('converter', () => {
     });
   });
 
-  describe('convertToMedium', () => {
+  describe('convertToLongform', () => {
     it('should set draft status correctly', () => {
       const draftPost = {
         ...mockPost,
         frontmatter: { ...mockPost.frontmatter, draft: true }
       };
 
-      const result = convertContent(draftPost, 'medium', mockConfig);
+      const result = convertContent(draftPost, 'substack', mockConfig);
       expect(result.metadata.publishStatus).toBe('draft');
     });
 
     it('should set public status for non-draft posts', () => {
-      const result = convertContent(mockPost, 'medium', mockConfig);
+      const result = convertContent(mockPost, 'substack', mockConfig);
       expect(result.metadata.publishStatus).toBe('public');
     });
   });

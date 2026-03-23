@@ -50,9 +50,6 @@ jobs:
           MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
           MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
 
-          # Medium
-          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
-
           # Substack (optional)
           SUBSTACK_API_KEY: ${{ secrets.SUBSTACK_API_KEY }}
           SUBSTACK_PUBLICATION_ID: ${{ secrets.SUBSTACK_PUBLICATION_ID }}

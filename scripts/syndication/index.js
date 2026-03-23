@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('dotenv').config({ path: __dirname + '/.env' });
+
 const path = require('path');
 const packageJson = require('../../package.json');
 const { getChangedPosts, getAllPosts } = require('./lib/parser');
@@ -11,7 +13,6 @@ const services = {
   devto: require('./services/devto'),
   hashnode: require('./services/hashnode'),
   mastodon: require('./services/mastodon'),
-  medium: require('./services/medium'),
   substack: require('./services/substack'),
   twitter: require('./services/twitter')
 };

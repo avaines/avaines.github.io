@@ -30,10 +30,10 @@ async function publish(post, config) {
   }
 
   const mutation = `
-    mutation CreatePost($input: CreateStoryInput!) {
-      createPublicationStory(input: $input, publicationId: "${publicationId}") {
+    mutation PublishPost($input: PublishPostInput!) {
+      publishPost(input: $input) {
         post {
-          slug
+          id
           url
         }
       }
@@ -41,16 +41,19 @@ async function publish(post, config) {
   `;
 
   const response = await axios.post(
-    'https://api.hashnode.com/',
+    'https://gql.hashnode.com/',
     {
       query: mutation,
       variables: {
         input: {
           title: converted.metadata.title,
+          publicationId,
           contentMarkdown: converted.content,
           tags: converted.metadata.tags,
-          canonicalUrl: converted.metadata.canonicalUrl,
-          coverImageUrl: converted.metadata.coverImageUrl
+          originalArticleURL: converted.metadata.canonicalUrl,
+          coverImageOptions: converted.metadata.coverImageUrl
+            ? { coverImageURL: converted.metadata.coverImageUrl }
+            : undefined
         }
       }
     },
@@ -66,7 +69,7 @@ async function publish(post, config) {
     throw new Error(`Hashnode API error: ${JSON.stringify(response.data.errors)}`);
   }
 
-  return { url: response.data.data.createPublicationStory.post.url };
+  return { url: response.data.data.publishPost.post.url };
 }
 
 module.exports = { publish };

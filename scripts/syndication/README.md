@@ -9,7 +9,6 @@ This system automatically syndicates your Hugo blog posts to various platforms w
 ## Supported Platforms
 
 - ✅ **dev.to** - Full API support
-- ✅ **Medium** - Full API support
 - ✅ **Hashnode** - GraphQL API support
 - ✅ **Twitter/X** - Thread generation
 - ✅ **Mastodon** - Thread generation
@@ -34,7 +33,6 @@ Enable/disable platforms in `package.json`:
     "enabled": true,
     "targets": {
       "devto": { "enabled": true },
-      "medium": { "enabled": true }
     }
   }
 }
@@ -59,7 +57,6 @@ Add to your post's frontmatter:
 title: "My Post"
 syndicate:
   - devto
-  - medium
   - twitter
 ---
 ```
@@ -85,7 +82,6 @@ Add secrets to your GitHub repository:
 
 Required secrets:
 - `DEVTO_API_KEY`
-- `MEDIUM_TOKEN`
 - `HASHNODE_TOKEN`
 - `HASHNODE_PUBLICATION_ID`
 - etc. (see `.env.example` for full list)
@@ -163,18 +159,12 @@ Syndication state is tracked in `.github/syndication-state.json` to prevent dupl
 2. Generate an API key
 3. Add to secrets as `DEVTO_API_KEY`
 
-### Medium
-
-1. Go to https://medium.com/me/settings
-2. Scroll to "Integration tokens"
-3. Generate a token
-4. Add to secrets as `MEDIUM_TOKEN`
-
 ### Hashnode
 
 1. Go to https://hashnode.com/settings/developer
 2. Generate a personal access token
-3. Get your publication ID from your blog dashboard
+3. Get your publication ID from `https://gql.hashnode.com/` using:
+  - `query Me { me { publications(first: 10) { edges { node { id title url } } } } }`
 4. Add `HASHNODE_TOKEN` and `HASHNODE_PUBLICATION_ID`
 
 ### Twitter/X
@@ -243,7 +233,6 @@ scripts/syndication/
 │   └── state.js          # Track syndication state
 ├── services/
 │   ├── devto.js          # dev.to API
-│   ├── medium.js         # Medium API
 │   ├── hashnode.js       # Hashnode GraphQL
 │   ├── twitter.js        # Twitter API
 │   ├── mastodon.js       # Mastodon API

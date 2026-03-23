@@ -15,7 +15,7 @@ async function publish(post, config) {
     throw new Error('SUBSTACK_API_KEY and SUBSTACK_PUBLICATION_ID environment variables are required');
   }
 
-  const converted = convertContent(post, 'medium', config); // Use medium format
+  const converted = convertContent(post, 'substack', config);
   const isDryRun = process.env.SYNDICATION_DRY_RUN === 'true';
 
   if (isDryRun) {

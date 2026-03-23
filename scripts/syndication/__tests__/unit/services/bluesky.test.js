@@ -99,6 +99,13 @@ describe('Bluesky service', () => {
       reply: expect.objectContaining({
         root: expect.objectContaining({ uri: 'at://did/post1' }),
         parent: expect.objectContaining({ uri: 'at://did/post1' })
+      }),
+      embed: expect.objectContaining({
+        $type: 'app.bsky.embed.external',
+        external: expect.objectContaining({
+          uri: 'https://www.vaines.org/posts/test-post/',
+          title: 'Test Post'
+        })
       })
     }));
   });

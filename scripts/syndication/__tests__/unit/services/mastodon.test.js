@@ -1,10 +1,7 @@
-const Mastodon = require('mastodon-api');
+const axios = require('axios');
 const { publish } = require('../../../services/mastodon');
 
-// Mock the Mastodon API
-jest.mock('mastodon-api', () => {
-  return jest.fn();
-});
+jest.mock('axios');
 
 describe('Mastodon service', () => {
   const mockPost = {
@@ -58,32 +55,39 @@ describe('Mastodon service', () => {
   });
 
   it('should create thread posts', async () => {
-    const mockPostFn = jest.fn((endpoint, params, callback) => {
-      if (!params.in_reply_to_id) {
-        callback(null, { id: 'toot1', url: 'https://mastodon.social/@user/toot1' });
-      } else {
-        callback(null, { id: 'toot2', url: 'https://mastodon.social/@user/toot2' });
-      }
-    });
-
-    Mastodon.mockImplementation(() => ({
-      post: mockPostFn
-    }));
+    axios.post
+      .mockResolvedValueOnce({
+        data: { id: 'toot1', url: 'https://mastodon.social/@user/toot1' }
+      })
+      .mockResolvedValueOnce({
+        data: { id: 'toot2', url: 'https://mastodon.social/@user/toot2' }
+      });
 
     const result = await publish(mockPost, mockConfig);
 
-    expect(mockPostFn).toHaveBeenCalledTimes(2);
+    expect(axios.post).toHaveBeenCalledTimes(2);
+    expect(axios.post).toHaveBeenNthCalledWith(
+      1,
+      'https://mastodon.social/api/v1/statuses',
+      { status: expect.any(String) },
+      expect.objectContaining({
+        headers: expect.objectContaining({ Authorization: 'Bearer test-token' })
+      })
+    );
+    expect(axios.post).toHaveBeenNthCalledWith(
+      2,
+      'https://mastodon.social/api/v1/statuses',
+      expect.objectContaining({
+        status: expect.any(String),
+        in_reply_to_id: 'toot1'
+      }),
+      expect.any(Object)
+    );
     expect(result.url).toBe('https://mastodon.social/@user/toot1');
   });
 
   it('should handle API errors', async () => {
-    const mockPostFn = jest.fn((endpoint, params, callback) => {
-      callback(new Error('Rate limited'));
-    });
-
-    Mastodon.mockImplementation(() => ({
-      post: mockPostFn
-    }));
+    axios.post.mockRejectedValue(new Error('Rate limited'));
 
     await expect(publish(mockPost, mockConfig)).rejects.toThrow('Rate limited');
   });

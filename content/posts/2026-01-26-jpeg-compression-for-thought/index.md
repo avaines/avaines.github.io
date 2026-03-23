@@ -22,7 +22,6 @@ syndicate:
   - devto
   - hashnode
   - mastodon
-  - medium
   - substack
   - twitter
 ---
