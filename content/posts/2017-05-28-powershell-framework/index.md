@@ -59,7 +59,7 @@ The main script block is where the specific code for the project/tasks goes, thi
 
 When writing a main script block use the following structure to write messages to the log file.
 
-```
+```powershell
 Log-write -logpath $Script:LogPath -linevalue "A message"
 ```
 

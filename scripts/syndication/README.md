@@ -78,9 +78,11 @@ SYNDICATION_DRY_RUN=true node scripts/syndication/index.js --all
 ### 6. GitHub Actions Setup
 
 Add secrets to your GitHub repository:
+
 - Settings > Secrets and variables > Actions > New repository secret
 
 Required secrets:
+
 - `DEVTO_API_KEY`
 - `HASHNODE_TOKEN`
 - `HASHNODE_PUBLICATION_ID`
@@ -144,6 +146,7 @@ Add delays (in seconds) to stagger posting:
 ### Canonical URLs
 
 All syndicated posts include:
+
 - Canonical URL pointing to your site
 - "Originally published at..." note at the top
 
@@ -163,8 +166,7 @@ Syndication state is tracked in `.github/syndication-state.json` to prevent dupl
 
 1. Go to https://hashnode.com/settings/developer
 2. Generate a personal access token
-3. Get your publication ID from `https://gql.hashnode.com/` using:
-  - `query Me { me { publications(first: 10) { edges { node { id title url } } } } }`
+3. Get your publication ID from `https://gql.hashnode.com/` using: `query Me { me { publications(first: 10) { edges { node { id title url } } } } }`
 4. Add `HASHNODE_TOKEN` and `HASHNODE_PUBLICATION_ID`
 
 ### Twitter/X
@@ -219,12 +221,13 @@ npm run test:syndication -- --coverage
 ### State File Conflicts
 
 If you get state file conflicts, you can:
+
 1. Manually resolve the conflict
 2. Or reset state (posts will be skipped if already syndicated)
 
 ## Architecture
 
-```
+```text
 scripts/syndication/
 ├── index.js              # Main orchestrator
 ├── lib/

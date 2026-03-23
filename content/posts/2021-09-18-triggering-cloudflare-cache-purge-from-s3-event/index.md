@@ -10,7 +10,8 @@ categories:
   - Cloudflare
 ---
 
-#### The Challenge
+## The Challenge
+
 I've have been looking at some cost and performance improvements in some of my infrastructure. This particular environment is essentially a handful of websites which use some shared static assets that reside in an S3 bucket think assets.website.com which is used by website.co.uk, website.nl and website.ie.
 
 These websites are currently all running through Cloudflare' CDN service, but this assets cache is fronted by AWS Cloudfront.
@@ -37,7 +38,8 @@ Whilst there is a 'purge_cache' privilage option it grants this access to all do
 
 ![cloudflare user perms 1](blg_s3_cf_perms1.png)
 
-#### The Solution
+## The Solution
+
 I needed a solution which would purge the cache when specific objects or types of objects are uploaded to S3, ideally without any user interaction whatsoever.
 
 I created a fairly simple Lambda function which is triggered by S3 events, it takes in the Cloudflare API details from an AWS SSM Parameter Store value. Given the S3 event we can assemble the URL, generate a POST request and send a request to the Cloudflare API to purge this specific item (code at the bottom of this post).

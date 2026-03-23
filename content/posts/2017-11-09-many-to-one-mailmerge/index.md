@@ -31,7 +31,7 @@ For each unique manager in this list ("A" and "B") a new email will be created b
 
 Using the table above, manager "A" will receive and email about employees 1001 & 1002, and manager "B" about employee 1003.
 
-# Setup
+## Setup
 
 * Edit the *"_template.html*" file in MS Word (to retain the formatting)
 * Edit/replace the *"sourcedata.csv"* file, retaining the headers
@@ -39,7 +39,8 @@ Using the table above, manager "A" will receive and email about employees 1001 &
 * All messages will sit in outlooks *"Draft"* folder until ready to send
 
 
-# To Do/Extension
+## To Do/Extension
+
 1) Automatic sending
     The initial use case for this script need it to be sent by outlook at a given time
 

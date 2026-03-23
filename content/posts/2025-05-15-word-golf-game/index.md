@@ -28,7 +28,7 @@ The concept would be for a player to guess a handful of synonyms for a word they
 
 **Word Golf** is a game where you try to find the shortest possible synonym for each given word. Like golf, the goal is to use as few letters as possible while minimizing failed attempts!
 
-### Rules:
+## Rules:
 
     Each game consists of 5 words (holes)
     For each word, enter a valid synonym
@@ -37,7 +37,7 @@ The concept would be for a player to guess a handful of synonyms for a word they
     Par is calculated as the median length of all possible synonyms
     Try to score under par by finding short synonyms with minimal attempts!
 
-### Scoring Example:
+## Scoring Example:
 
 Word: "Dangerous" (Par: 5)
     "Risky" on first try = 5 letters (Par)
@@ -45,7 +45,8 @@ Word: "Dangerous" (Par: 5)
     "Unsafe" after 2 failed attempts = 6 letters + 2 = 8 (3 over par)
     Failed all 3 attempts = Par + 3
 
-### Tips:
-    Think carefully before guessing to avoid penalty points from failed attempts
-    Consider skipping a difficult word rather than using all attempts
-    Short synonyms are great, but only if you can find them quickly!
+## Tips:
+
+- Think carefully before guessing to avoid penalty points from failed attempts
+- Consider skipping a difficult word rather than using all attempts
+- Short synonyms are great, but only if you can find them quickly!

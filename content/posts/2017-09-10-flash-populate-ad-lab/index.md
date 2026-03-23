@@ -25,57 +25,71 @@ This script will create users with the following attributes:
 * **Manager** – People have managers. After creating the user accounts, the script will assign each user a manager from their department and company (A “Manager” does have to be a valid job role in the department the user is assigned to for this to work)
 * **EmployeeNumber** – Some organisations assign an ID number to users, this is especially helpful when people have non-alphanumeric characters in their name
 
-# Setup
+## Setup
+
 * You will need to prepare the AD environment by creating the following OU structure first:
-```
+
+```text
 LAB.local
-     \---Company
-         \---Users
+         \---Company
+                 \---Users
 ```
 
-* Update the first 30 or so lines of the script to match your lab environment
-    *   This is the OU in your lab where the user accounts will reside
-        ```
+* Update the first 30 or so lines of the script to match your lab environment.
+    * This is the OU in your lab where the user accounts will reside:
+
+        ```powershell
         # User properties
         # Base OU for users, sub OU for country code will be created
         $BaseOU = "OU=Users,OU=Company,DC=lab,DC=local"
         ```
-    * The Domain Details include the Org short name and full DNS suffix, this will be used, as the comments say, to construct the UPNs for each user.
-        ```
+
+    * The domain details include the org short name and full DNS suffix. This will be used, as the comments say, to construct the UPNs for each user.
+
+        ```powershell
         # Domain Details
         $orgShortName = "LAB" # This is used to build a user's sAMAccountName
         $dnsDomain = "lab.local" # Domain is used for e-mail address and UPN
         ```
-    * A list of companies within the organisation a user could belong to. Some organisations have smaller companies within, this helps model that structure. In most cases this can just be left as is depending on what you are trying to test. Each user will be assigned a company from this list at random.
-        ```
-        #Companies the user could be part of
+
+    * A list of companies within the organisation a user could belong to. Some organisations have smaller companies within. This helps model that structure. In most cases this can be left as-is depending on what you are trying to test. Each user will be assigned a company from this list at random.
+
+        ```powershell
+        # Companies the user could be part of
         $Companies = @("Lab Corp", "Lab Ltd", "Env. Testing Industries", "MyLab Inc.")
         ```
-    * A list of departments, each with a set of job roles. Each user will be assigned a random department and a role/position from within it. Once the script has finished creating the users, it will run back through all the users it created and assign everyone in each department a manager from the same department and company.
-        ```
-        # Departments and their sub positions users could be part of
-        # Departments and associated job titles to assign to the users
+
+    * A list of departments, each with a set of job roles. Each user will be assigned a random department and a role/position from within it. Once the script has finished creating users, it will run back through all created users and assign everyone in each department a manager from the same department and company.
+
+        ```powershell
+        # Departments and associated job titles to assign to users
         $Departments = (
-                  @{"Name" = "Finance & Accounting"; Positions = ("Manager", "Accountant", "Data Entry")},
-                  @{"Name" = "Human Resources"; Positions = ("Manager", "Administrator", "Officer", "Coordinator")},
-                  @{"Name" = "Sales"; Positions = ("Manager", "Representative", "Consultant")},
-                  @{"Name" = "Marketing"; Positions = ("Manager", "Coordinator", "Assistant", "Specialist")},
-                  @{"Name" = "Engineering"; Positions = ("Manager", "Engineer", "Scientist")},
-                  @{"Name" = "Consulting"; Positions = ("Manager", "Consultant")},
-                  @{"Name" = "IT"; Positions = ("Manager", "Engineer", "Technician")}
-               )
+                            @{"Name" = "Finance & Accounting"; Positions = ("Manager", "Accountant", "Data Entry")},
+                            @{"Name" = "Human Resources"; Positions = ("Manager", "Administrator", "Officer", "Coordinator")},
+                            @{"Name" = "Sales"; Positions = ("Manager", "Representative", "Consultant")},
+                            @{"Name" = "Marketing"; Positions = ("Manager", "Coordinator", "Assistant", "Specialist")},
+                            @{"Name" = "Engineering"; Positions = ("Manager", "Engineer", "Scientist")},
+                            @{"Name" = "Consulting"; Positions = ("Manager", "Consultant")},
+                            @{"Name" = "IT"; Positions = ("Manager", "Engineer", "Technician")}
+                     )
         ```
-    * Each user will be assigned a random role for this list. Update it as required
-        ```
+
+    * Each user will be assigned a random role from this list. Update it as required.
+
+        ```powershell
         $employeeTypes = @("EMP", "Regular", "Contractor", "Fixed Term Regular", "Temporary", "Full-Time")
         ```
-    * Finally, the path for the user data, as long as the fields are the same feel free to replace/update it.
-        ```
+
+    * Finally, set the path for the user data. As long as the fields are the same, feel free to replace/update it.
+
+        ```powershell
         $UsersFile = ".\FakeUserData.csv"
         ```
 
-# How does it work?
+## How does it work?
+
 The script will create a user account for each user in the “FakeUserData.csv” file with the following information:
+
 * **SAMAccount Name** – A unique ID number authenticate a user
 * **Password** – Users have passwords, and not all set to “Password1!” or something equally as daft
 * **Name** – A user has a full name sourced from a list of regional names
@@ -91,17 +105,21 @@ Each user created will be done so with a random company, a random department and
 
 As a final task the script will in back through all the AD accounts in the $BaseOU organizational unit and for each of the companies set in $Companies find each department and assign everyone a random manager from the same department in the same company.
 
-If you want the environment to do something different with the SAM account names like “first.last” you will need to update line 73 to something like
-```
+If you want the environment to do something different with the SAM account names like “first.last” you will need to update line 73 to something like:
+
+```powershell
 New-AdUser -SamAccountName $User.Username -Name $UserFullName -Path $UserOUPath -AccountPassword $UserPassword -Enabled $True `
 ```
+
 to something like this:
 
-```$NewUsername = $User.givenname + "." + $User.Surname
+```powershell
+$NewUsername = $User.givenname + "." + $User.Surname
 New-AdUser -SamAccountName $NewUsername -Name $UserFullName -Path $UserOUPath -AccountPassword $UserPassword -Enabled $True `
 ```
 
-# Credit
+## Credit
+
 The information stored in “FakeUserData.csv” was provided by [fakenamegenerator.com](https://www.fakenamegenerator.com/) and contains around 600 random users doted around Europe in the following countries:
 
 * Germany
@@ -110,12 +128,3 @@ The information stored in “FakeUserData.csv” was provided by [fakenamegenera
 * France
 * United Kingdom
 * Poland
-
-```---
-title: "Flash Populate AD Lab"
-date: 2017-09-10
-author: Aiden Vaines
-categories:
-  - AD
----
-```

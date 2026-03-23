@@ -68,6 +68,6 @@ Then away we go, are a couple of prompts to get started
 
 I can now query ChatGPT directly from my terminal, pipe the results straight in to files, commit it to git, and call it a day. Job done. I can also use it to generate pictures of robots riding horses. I don't know which has greater value.
 
-![](/uploads/gpt-robot-horse-1.png "A robot riding a horse")
+![A robot riding a horse](/uploads/gpt-robot-horse-1.png "A robot riding a horse")
 
 Later on I might make changes to allow me to refine by replying and asking followup questions to the service or in the case of images, asking for variations on a response. It looks like you can [tune the AI response](https://platform.openai.com/docs/api-reference/chat/create) using  things like the temperature of the prompt to alter the deterministic response.
