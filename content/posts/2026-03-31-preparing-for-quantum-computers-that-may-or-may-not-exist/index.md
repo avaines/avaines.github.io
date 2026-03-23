@@ -28,9 +28,7 @@ syndicate:
   - hashnode
   - mastodon
   - substack
-  - twitter
 ---
-
 
 
 

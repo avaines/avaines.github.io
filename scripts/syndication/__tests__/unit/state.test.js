@@ -5,16 +5,18 @@ const {
   saveState,
   isSyndicated,
   recordSyndication,
-  clearSyndication,
-  STATE_FILE
+  clearSyndication
 } = require('../../lib/state');
 
-// Mock state file path for testing
 const TEST_STATE_FILE = path.join(__dirname, '../fixtures/test-state.json');
 
 describe('state management', () => {
+  beforeAll(async () => {
+    process.env.SYNDICATION_STATE_FILE = TEST_STATE_FILE;
+  });
+
   beforeEach(async () => {
-    // Clean up test state file before each test
+    // Ensure tests always start with no test state file
     try {
       await fs.unlink(TEST_STATE_FILE);
     } catch (error) {
@@ -31,6 +33,10 @@ describe('state management', () => {
     }
   });
 
+  afterAll(async () => {
+    delete process.env.SYNDICATION_STATE_FILE;
+  });
+
   describe('loadState', () => {
     it('should return empty object if state file does not exist', async () => {
       const state = await loadState();
@@ -45,24 +51,39 @@ describe('state management', () => {
       };
 
       // Write test state
-      await fs.mkdir(path.dirname(STATE_FILE), { recursive: true });
-      await fs.writeFile(STATE_FILE, JSON.stringify(testState), 'utf-8');
+      await fs.mkdir(path.dirname(TEST_STATE_FILE), { recursive: true });
+      await fs.writeFile(TEST_STATE_FILE, JSON.stringify(testState), 'utf-8');
 
       const state = await loadState();
       expect(state).toEqual(testState);
 
       // Cleanup
-      await fs.unlink(STATE_FILE);
+      await fs.unlink(TEST_STATE_FILE);
     });
 
     it('should throw error for invalid JSON', async () => {
-      await fs.mkdir(path.dirname(STATE_FILE), { recursive: true });
-      await fs.writeFile(STATE_FILE, 'invalid json{', 'utf-8');
+      await fs.mkdir(path.dirname(TEST_STATE_FILE), { recursive: true });
+      await fs.writeFile(TEST_STATE_FILE, 'invalid json{', 'utf-8');
 
       await expect(loadState()).rejects.toThrow();
 
       // Cleanup
-      await fs.unlink(STATE_FILE);
+      await fs.unlink(TEST_STATE_FILE);
+    });
+
+    it('should normalize absolute state keys to repo-relative keys', async () => {
+      const testState = {
+        '/Users/someone/repo/content/posts/2026-01-01-test/index.md': {
+          devto: { url: 'https://dev.to/test', syndicatedAt: '2026-03-23T00:00:00.000Z' }
+        }
+      };
+
+      await fs.mkdir(path.dirname(TEST_STATE_FILE), { recursive: true });
+      await fs.writeFile(TEST_STATE_FILE, JSON.stringify(testState), 'utf-8');
+
+      const state = await loadState();
+      expect(state['/content/posts/2026-01-01-test/index.md']).toBeDefined();
+      expect(state['/content/posts/2026-01-01-test/index.md'].devto.url).toBe('https://dev.to/test');
     });
   });
 
@@ -76,22 +97,22 @@ describe('state management', () => {
 
       await saveState(testState);
 
-      const saved = await fs.readFile(STATE_FILE, 'utf-8');
+      const saved = await fs.readFile(TEST_STATE_FILE, 'utf-8');
       expect(JSON.parse(saved)).toEqual(testState);
 
       // Cleanup
-      await fs.unlink(STATE_FILE);
+      await fs.unlink(TEST_STATE_FILE);
     });
 
     it('should create directory if it does not exist', async () => {
       const testState = { test: 'data' };
       await saveState(testState);
 
-      const exists = await fs.access(STATE_FILE).then(() => true).catch(() => false);
+      const exists = await fs.access(TEST_STATE_FILE).then(() => true).catch(() => false);
       expect(exists).toBe(true);
 
       // Cleanup
-      await fs.unlink(STATE_FILE);
+      await fs.unlink(TEST_STATE_FILE);
     });
   });
 
@@ -151,6 +172,19 @@ describe('state management', () => {
 
       const timestamp = updated['post1.md'].devto.syndicatedAt;
       expect(timestamp).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
+    });
+
+    it('should normalize absolute post path to repo-relative key', () => {
+      const state = {};
+      const updated = recordSyndication(
+        state,
+        '/Users/someone/repo/content/posts/2026-01-01-test/index.md',
+        'devto',
+        'https://dev.to/test'
+      );
+
+      expect(updated['/content/posts/2026-01-01-test/index.md']).toBeDefined();
+      expect(updated['/content/posts/2026-01-01-test/index.md'].devto.url).toBe('https://dev.to/test');
     });
   });
 

@@ -5,7 +5,7 @@ require('dotenv').config({ path: __dirname + '/.env' });
 const path = require('path');
 const packageJson = require('../../package.json');
 const { getChangedPosts, getAllPosts } = require('./lib/parser');
-const { loadState, saveState, isSyndicated, recordSyndication } = require('./lib/state');
+const { loadState, saveState, isSyndicated, getSyndication, recordSyndication } = require('./lib/state');
 
 // Import all services
 const services = {
@@ -116,7 +116,7 @@ async function main() {
     for (const target of enabledTargets) {
       // Check if already syndicated
       if (isSyndicated(state, postPath, target)) {
-        const existing = state[postPath][target];
+        const existing = getSyndication(state, postPath, target);
         console.log(`   ✓ ${target} (already syndicated: ${existing.url})`);
         skipCount++;
         continue;
