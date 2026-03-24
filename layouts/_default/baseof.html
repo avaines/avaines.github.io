@@ -24,6 +24,41 @@
     </script>
   {{ end }}
   {{ partial "carousel.html" . }}
+
+  <!-- Lightbox modal -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-dark border-0">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center px-3 pb-3 pt-1">
+          <img id="lightboxImage" src="" alt="" class="img-fluid rounded" style="max-height:80vh;">
+          <p id="lightboxCaption" class="text-white-50 small mt-2 mb-0"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('img.lightbox-trigger').forEach(function (img) {
+          img.addEventListener('click', function () {
+            var src = this.dataset.src || this.src;
+            var caption = this.dataset.caption || this.alt || '';
+            document.getElementById('lightboxImage').src = src;
+            document.getElementById('lightboxImage').alt = caption;
+            document.getElementById('lightboxCaption').textContent = caption;
+            $('#lightboxModal').modal('show');
+          });
+        });
+      });
+    })();
+  </script>
+
 </body>
 
 </html>

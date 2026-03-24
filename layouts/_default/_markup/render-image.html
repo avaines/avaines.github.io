@@ -1,0 +1,13 @@
+<figure class="post-image">
+  <img
+    src="{{ .Destination | safeURL }}"
+    alt="{{ .PlainText }}"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+    loading="lazy"
+    class="img-fluid rounded lightbox-trigger"
+    style="cursor: zoom-in;"
+    data-src="{{ .Destination | safeURL }}"
+    data-caption="{{ .PlainText }}"
+  >
+  {{ with .PlainText }}<figcaption class="text-center text-muted small mt-1">{{ . }}</figcaption>{{ end }}
+</figure>
