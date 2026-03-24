@@ -11,11 +11,11 @@
 {{ partial "opengraph.html" . }}
 
 <section class="section">
-  <div class="container">
+  <div class="container single-container">
     <div class="row justify-content-center">
       <!-- left sidebar -->
       {{ if eq $sidebar "left" }}
-      <aside class="col-lg-4 order-2 order-lg-1">
+      <aside class="col-lg-4 col-xl-3 order-2 order-lg-1">
         <div class="{{ if eq $sidebar `left` }}pl-lg-4{{ end }}{{ if eq $sidebar `right` }}pr-lg-4{{ end }}">
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
           <!-- AdSense - Below Sidebar -->
@@ -35,7 +35,7 @@
       {{ end }}
       <!-- /left sidebar -->
 
-      <div class="{{ if $has_sidebar }}col-lg-8{{ else }}col-lg-10{{ end }} {{ if eq $sidebar `left` }}order-1 order-lg-2{{ end }}">
+      <div class="{{ if $has_sidebar }}col-lg-8 col-xl-9{{ else }}col-lg-10{{ end }} {{ if eq $sidebar `left` }}order-1 order-lg-2{{ end }}">
         <div class="block shadow mb-4">
           <h2>{{ .Title | markdownify }}</h2>
           <div class="mb-4 mt-3 post-meta">
@@ -177,7 +177,7 @@
 
       <!-- right sidebar -->
       {{ if eq $sidebar "right" }}
-      <aside class="col-lg-4 mt-5 mt-lg-0">
+      <aside class="col-lg-4 col-xl-3 mt-5 mt-lg-0">
         <div class="{{ if eq $sidebar `left` }}pr-lg-4{{ end }}{{ if eq $sidebar `right` }}pl-lg-4{{ end }}">
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
           <!-- AdSense - Below Sidebar -->
@@ -203,7 +203,7 @@
 {{ else }}
 
 <section class="section">
-  <div class="container">
+  <div class="container single-container">
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <div class="content">

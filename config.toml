@@ -58,7 +58,7 @@ icon_font = "Font Awesome 5 Free"
 
 ######################## sidebar widgets #########################
 [params.widgets]
-sidebar = ["about-me", "subscription", "featured-post", "social", "categories","tags"]
+sidebar = ["about-me", "subscription", "featured-post", "social", "tags"]
 # available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription
 
 # preloader

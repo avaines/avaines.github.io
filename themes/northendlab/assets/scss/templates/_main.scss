@@ -203,6 +203,16 @@
   padding: 7%;
 }
 
+.single-container {
+  @media (min-width: 1200px) {
+    max-width: 1320px;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 1480px;
+  }
+}
+
 .author-thumb {
   height: 300px;
   width: 300px;
