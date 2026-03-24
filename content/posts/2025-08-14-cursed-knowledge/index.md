@@ -14,6 +14,15 @@ The creators of the Immich photo hosting app have a page for [Cursed Knowledge](
 
 {{< timeline >}}
   {{% event
+    title="GitHub Forks are cursed"
+    year="2026"
+    icon="icons/code.svg"
+    link="https://www.vaines.org/posts/2026-03-24-the-comforting-lie-of-sha-pinning/"
+  %}}
+Pinning a GitHub Action to a commit SHA doesn't actually scope it to the repository you think you're trusting. GitHub will happily resolve and execute that SHA from an attacker-controlled fork.
+  {{% /event %}}
+
+  {{% event
     title="MS Dynamics version control system is cursed"
     year="2026"
     icon="icons/tools.svg"
