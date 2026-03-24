@@ -34,5 +34,23 @@
       "url": "https://mastodon.social/@avaines/116280846190478518",
       "syndicatedAt": "2026-03-23T22:28:24.205Z"
     }
+  },
+  "/content/posts/2026-03-24-the-comforting-lie-of-sha-pinning/index.md": {
+    "bluesky": {
+      "url": "https://bsky.app/profile/drsausages.bsky.social/post/3mhslg24a3o26",
+      "syndicatedAt": "2026-03-24T12:32:25.674Z"
+    },
+    "devto": {
+      "url": "https://dev.to/avaines/the-comforting-lie-of-sha-pinning-4b15",
+      "syndicatedAt": "2026-03-24T12:32:26.116Z"
+    },
+    "hashnode": {
+      "url": "https://vaines.hashnode.dev/the-comforting-lie-of-sha-pinning",
+      "syndicatedAt": "2026-03-24T12:32:26.875Z"
+    },
+    "mastodon": {
+      "url": "https://mastodon.social/@avaines/116284165171671952",
+      "syndicatedAt": "2026-03-24T12:32:28.046Z"
+    }
   }
 }
