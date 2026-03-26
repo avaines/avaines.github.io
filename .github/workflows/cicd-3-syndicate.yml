@@ -51,8 +51,12 @@ jobs:
           MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
 
           # Substack (optional)
-          SUBSTACK_API_KEY: ${{ secrets.SUBSTACK_API_KEY }}
-          SUBSTACK_PUBLICATION_ID: ${{ secrets.SUBSTACK_PUBLICATION_ID }}
+          SUBSTACK_TOKEN: ${{ secrets.SUBSTACK_TOKEN || secrets.SUBSTACK_API_KEY }}
+          SUBSTACK_PUBLICATION_URL: ${{ secrets.SUBSTACK_PUBLICATION_URL || secrets.SUBSTACK_PUBLICATION_ID }}
+
+          # Lobste.rs
+          LOBSTERS_USERNAME: ${{ secrets.LOBSTERS_USERNAME }}
+          LOBSTERS_PASSWORD: ${{ secrets.LOBSTERS_PASSWORD }}
 
           # Twitter/X
           TWITTER_APP_KEY: ${{ secrets.TWITTER_APP_KEY }}

@@ -15,6 +15,10 @@
     "bluesky": {
       "url": "https://bsky.app/profile/drsausages.bsky.social/post/3mhqyxwg7pe2p",
       "syndicatedAt": "2026-03-23T21:29:44.987Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/jpeg-compression-but-for-thought",
+      "syndicatedAt": "2026-03-26T20:10:06.626Z"
     }
   },
   "/content/posts/2026-03-23-preparing-for-quantum-computers-that-may-or-may-not-exist/index.md": {
@@ -33,6 +37,10 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/116280846190478518",
       "syndicatedAt": "2026-03-23T22:28:24.205Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/preparing-for-quantum-computers-that",
+      "syndicatedAt": "2026-03-26T20:10:07.833Z"
     }
   },
   "/content/posts/2026-03-24-the-comforting-lie-of-sha-pinning/index.md": {
@@ -51,6 +59,10 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/116284165171671952",
       "syndicatedAt": "2026-03-24T12:32:28.046Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/the-comforting-lie-of-sha-pinning",
+      "syndicatedAt": "2026-03-26T20:10:09.120Z"
     }
   }
 }

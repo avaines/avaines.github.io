@@ -29,11 +29,13 @@
     "autoprefixer": "^10.2.5",
     "axios": "^1.6.0",
     "gray-matter": "^4.0.3",
+    "lob-story": "^1.0.0",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
+    "substack-api": "^4.0.0",
     "tailwindcss": "^2.1.1",
     "twitter-api-v2": "^1.15.0",
     "unified": "^11.0.4"
@@ -65,11 +67,14 @@
       "hashnode": {
         "enabled": true
       },
+      "lobsters": {
+        "enabled": false
+      },
       "mastodon": {
         "enabled": true
       },
       "substack": {
-        "enabled": false
+        "enabled": true
       }
     },
     "defaults": {

@@ -13,7 +13,8 @@ This system automatically syndicates your Hugo blog posts to various platforms w
 - ✅ **Twitter/X** - Thread generation
 - ✅ **Mastodon** - Thread generation
 - ✅ **Bluesky** - AT Protocol support
-- ⚠️ **Substack** - API access required
+- ✅ **Substack** - substack-api client (note with link)
+- ✅ **Lobsters** - lob-post client (note with link)
 
 ## Quick Start
 
@@ -187,6 +188,18 @@ Syndication state is tracked in `.github/syndication-state.json` to prevent dupl
 2. Create new application
 3. Copy access token
 4. Add `MASTODON_ACCESS_TOKEN` and `MASTODON_INSTANCE`
+
+### Substack
+
+1. Get your `substack.sid` cookie from your authenticated browser session
+2. Set `SUBSTACK_TOKEN` to that cookie value
+3. Set `SUBSTACK_PUBLICATION_URL` to your publication host (e.g. `yourpub.substack.com`)
+
+### Lobster
+
+1. Use your Lobste.rs handle
+2. Use your account password
+3. Add `LOBSTERS_USERNAME` and `LOBSTERS_PASSWORD`
 
 ## Testing
 

@@ -12,6 +12,7 @@ const services = {
   bluesky: require('./services/bluesky'),
   devto: require('./services/devto'),
   hashnode: require('./services/hashnode'),
+  lobsters: require('./services/lobsters'),
   mastodon: require('./services/mastodon'),
   substack: require('./services/substack'),
   twitter: require('./services/twitter')
