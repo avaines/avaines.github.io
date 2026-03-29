@@ -18,6 +18,7 @@ references:
   - https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23
   - https://www.wiz.io/blog/widespread-npm-supply-chain-attack-breaking-down-impact-scope-across-debug-chalk
   - https://www.wiz.io/blog/shai-hulud-npm-supply-chain-attack
+  - https://www.chainguard.dev/unchained/what-the-fork-imposter-commits-in-github-actions-and-ci-cd
 syndicate:
   - bluesky
   - devto
@@ -106,3 +107,24 @@ GitHub Actions, in particular exacerbates this somewhat as workflows routinely e
 At a minimum, we need to introduce *provenance checks*. I've said above that SHA's are not human friendly like tags so theres a couple of things we can, and probably should be doing to validate. Obviously that the SHA or tag exists in the right repository and GitHub should enforce tag mutability in my opinion:
 
 We tend to describe these incidents as “supply chain attacks”, which is accurate but slightly misleading. It implies a complex and sophisticated multi-stage compromise by 1337 h4x0rz. In reality, the weakest link is often much simpler because humans are a bit shit sometimes. SHA pinning being touted as the solution is just security-theater rather than due diligence in an ecosystem that is not helping either.
+
+
+<br><hr><br>
+
+### Post Update (2026-03-29)
+
+> After I shared this on [LinkedIn](https://www.linkedin.com/posts/aidenvaines_the-comforting-lie-of-sha-pinning-activity-7442194938823458816-7Aid?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAi9UXUBwToTsp3hwQbjTWK5GpC40gf06ZM), someone pointed me to [Chainguard's write-up of the same issue](https://www.chainguard.dev/unchained/what-the-fork-imposter-commits-in-github-actions-and-ci-cd) from nearly **THREE YEARS AGO**. They highlighted a secondary problem with what I've already heard as the mitigation for this issue.
+
+I've setup a GitHub organisation called `VainesOrg` and configured it to **only** allow actions owned by the organisation, plus specific trusted external actions (`actions/checkout`), **and** to enabled mandatory full-length commit SHA pinning.
+![Github org settings restricting use of custom actions](gha-org-settings.png)
+
+As expected, an action outside the organisation like `aidenvaines-cgi/blog_gh_sha_pinning_action` is blocked by policy. The commit on that fork is `6d7ec8077aaa....`.
+![Remote action failing due to validation](gha-external-action.png)
+
+If I leave the action owner unchanged and only swap the SHA, the original exploit still works...
+![exploit still working with org restrictions](gha-cross-org-working.png)
+
+For completeness, here is the malicious commit in the `aidenvaines-cgi/blog_gh_sha_pinning_action` repository:
+![malicious commit id](gha-malicious-commit.png)
+
+I find this more concerning than the original behaviour, because it suggests GitHub Actions is capable of validating ownership in the `external/myaction` case, but still fails to enforce that same ownership check for `myorg/myaction@externalcommit`.
