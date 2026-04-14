@@ -62,23 +62,23 @@ sidebar = ["about-me", "subscription", "social", "featured-post", "links", "tags
 # available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription,links
 
 [[params.blog_links]]
-name = "Chris"
+name = "Chris King"
 url = "https://noscootersrequired.substack.com"
 
 [[params.blog_links]]
-name = "Jonathan"
+name = "Jonathan Relf"
 url = "https://jonathanrelf.substack.com"
 
 [[params.blog_links]]
-name = "Sid"
+name = "Sid Nair"
 url = "https://sidssn.github.io"
 
 [[params.blog_links]]
-name = "Tim"
+name = "Tim Pepper"
 url = "https://tpepper.dev/"
 
 [[params.blog_links]]
-name = "Will"
+name = "Will Nossiter"
 url = "https://medium.com/feed/@willn2"
 
 # preloader
@@ -218,7 +218,6 @@ name = "Privacy"
 weight = 9
 url = "https://buymeacoffee.com/u6zv4r45ct"
 name = "Buy me a coffee"
-
 
 [[params.social_profile]]
 icon = "fab fa-linkedin"
