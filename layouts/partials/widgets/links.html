@@ -1,0 +1,11 @@
+{{ "<!-- links -->" | safeHTML }}
+{{ with site.Params.blog_links }}
+<div class="widget">
+  <h5 class="widget-title"><span>Some Similar Blogs</span></h5>
+  <ul class="list-unstyled widget-categories-list mb-0">
+    {{ range . }}
+    <li><a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a></li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

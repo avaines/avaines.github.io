@@ -58,8 +58,28 @@ icon_font = "Font Awesome 5 Free"
 
 ######################## sidebar widgets #########################
 [params.widgets]
-sidebar = ["about-me", "subscription", "featured-post", "social", "tags"]
-# available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription
+sidebar = ["about-me", "subscription", "social", "featured-post", "links", "tags"]
+# available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription,links
+
+[[params.blog_links]]
+name = "Chris"
+url = "https://noscootersrequired.substack.com"
+
+[[params.blog_links]]
+name = "Jonathan"
+url = "https://jonathanrelf.substack.com"
+
+[[params.blog_links]]
+name = "Sid"
+url = "https://sidssn.github.io"
+
+[[params.blog_links]]
+name = "Tim"
+url = "https://tpepper.dev/"
+
+[[params.blog_links]]
+name = "Will"
+url = "https://medium.com/feed/@willn2"
 
 # preloader
 [params.preloader]
@@ -198,7 +218,6 @@ name = "Privacy"
 weight = 9
 url = "https://buymeacoffee.com/u6zv4r45ct"
 name = "Buy me a coffee"
-
 
 
 [[params.social_profile]]
