@@ -53,7 +53,7 @@ If the agent isn’t autonomous, then what is it actually doing?
 
 The setup is fairly simple. A GitHub Actions job invokes the Bedrock AgentCore runtime, which runs the agent and then triggers the deploy workflow once it finishes. Compared to a traditional Bedrock Agent there is substantially fewer moving parts while achieving similar goals.
 
-![diagram](/things/2026-01-04-ai-site-generator/diagram.png)
+![diagram](diagram.png)
 
 The agent starts by cloning the [repo](https://github.com/avaines/ai-site-generator-blog) where the blog posts are then we run the AI portion of the site generation process across four logical steps (If you try do it in a single shot you'll run out of tokens).
 
@@ -137,14 +137,14 @@ Reliability is where things really fall apart. The system produces a fully funct
 
 Determinism turns out not to be an implementation detail, but a feature. Even with the ability to override themes and styles, the results are inconsistent in ways that are difficult to reason about. Handing responsibility to a closed AI system always introduces risk, and sometimes that trade-off is acceptable. For the one place your content is meant to live, it feels like a step too far.
 
-- ![Generated site variant with funky monochrome style](/things/2026-01-04-ai-site-generator/site-bw-funky.png)
-- ![Generated site variant with cyber monochrome style](/things/2026-01-04-ai-site-generator/site-bw-cyber.png)
-- ![Generated site variant with dark monochrome style](/things/2026-01-04-ai-site-generator/site-bw-dark.png)
-- ![Generated site variant with farm monochrome style](/things/2026-01-04-ai-site-generator/site-bw-farm.png)
-- ![Generated site variant using Nova model output](/things/2026-01-04-ai-site-generator/site-bb-nova.png)
-- ![Generated site variant that rendered mostly blank](/things/2026-01-04-ai-site-generator/site-bb-blank.png)
-- ![Generated site variant with feast-style theme](/things/2026-01-04-ai-site-generator/site-bw-feast.png)
-- ![Generated site variant with princess-style theme](/things/2026-01-04-ai-site-generator/site-bw-princess.png)
+- ![Generated site variant with funky monochrome style](site-bw-funky.png)
+- ![Generated site variant with cyber monochrome style](site-bw-cyber.png)
+- ![Generated site variant with dark monochrome style](site-bw-dark.png)
+- ![Generated site variant with farm monochrome style](site-bw-farm.png)
+- ![Generated site variant using Nova model output](site-bb-nova.png)
+- ![Generated site variant that rendered mostly blank](site-bb-blank.png)
+- ![Generated site variant with feast-style theme](site-bw-feast.png)
+- ![Generated site variant with princess-style theme](site-bw-princess.png)
 
 None of this is really an indictment of StrandsAgents or AgentCore themselves. Strands was genuinely fun to work with. Being able to develop, build, and test the agent locally before deploying it into the Bedrock AgentCore service is dramatically simpler than wiring up a traditional Bedrock Agent with multiple Lambda handlers, IAM roles, and all the associated deployment artefacts.
 

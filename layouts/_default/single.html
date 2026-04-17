@@ -20,6 +20,7 @@
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
           <!-- AdSense - Below Sidebar -->
           <div class="widget mb-4">
+            <h5 class="widget-title"><span>Ads</span></h5>
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-4546884587701577"
@@ -29,6 +30,12 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+            <hr class="mt-3 mb-2">
+            <p class="text-center mb-2">Support My Nonsense</p>
+            <ul class="list-unstyled list-inline text-center mb-0">
+              <li class="list-inline-item mr-3"><a href="https://buymeacoffee.com/u6zv4r45ct" target="_blank" aria-label="Buy me a coffee"><i class="fas fa-mug-hot"></i></a></li>
+              <li class="list-inline-item mr-3"><a href="https://shop.vaines.org" target="_blank" aria-label="Shop"><i class="fas fa-store"></i></a></li>
+            </ul>
           </div>
         </div>
       </aside>
@@ -85,7 +92,7 @@
 
 
           <div class="content mb-5">
-            {{ .Content }}
+            {{ partial "list-to-carousel.html" .Content }}
           </div>
 
 
@@ -182,6 +189,7 @@
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
           <!-- AdSense - Below Sidebar -->
           <div class="widget mb-4">
+            <h5 class="widget-title"><span>Ads</span></h5>
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-4546884587701577"
@@ -191,6 +199,12 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+            <hr class="mt-3 mb-2">
+            <p class="text-center mb-2">Support my nonsense</p>
+            <ul class="list-unstyled list-inline text-center mb-0">
+              <li class="list-inline-item mr-3"><a href="https://buymeacoffee.com/u6zv4r45ct" target="_blank" aria-label="Buy me a coffee"><i class="fas fa-mug-hot"></i></a></li>
+              <li class="list-inline-item mr-3"><a href="https://shop.vaines.org" target="_blank" aria-label="Shop"><i class="fas fa-store"></i></a></li>
+            </ul>
           </div>
         </div>
       </aside>

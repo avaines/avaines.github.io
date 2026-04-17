@@ -1,14 +1,15 @@
 {{- $duration := "7000" -}}
 
 {{- $content := $ -}}
-{{- $imageListPattern := `<ul>\s*(<li>\s*<img[^>]*>\s*</li>\s*)+</ul>` -}}
+{{- /* Updated pattern to match lists with figure-wrapped images */ -}}
+{{- $imageListPattern := `(?s)<ul>[\s\n]*(<li>.*?<img.*?>.*?</li>[\s\n]*)+</ul>` -}}
 {{- $imageLists := findRE $imageListPattern $content -}}
 {{- range $index,$il := $imageLists -}}
-  {{- $listItems := findRE `<li>\s*<img[^>]*>\s*</li>` . -}}
+  {{- $listItems := findRE `(?s)<li>.*?<img.*?>.*?</li>` . -}}
   {{- $itemCount := len $listItems -}}
   {{- $items := `<ul>` -}}
   {{- range $i,$li := $listItems -}}
-    {{- $img := index (findRE `(?s)<img.*?>` .) 0 }}
+    {{- $img := index (findRE `(?s)<img[^>]*>` .) 0 }}
     {{- $items = print $items `<li id="c` $index `_slide` $i `">` $img `</li>` -}}
   {{- end -}}
   {{- $items = print $items `</ul>` -}}
