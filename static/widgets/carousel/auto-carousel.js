@@ -13,6 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
       let startX;
       let scrollLeft;
 
+      // Create backdrop element for blurred background
+      let backdrop = carousel.querySelector('.auto-carousel-backdrop');
+      if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'auto-carousel-backdrop';
+        carousel.insertBefore(backdrop, ele);
+      }
+
       // Initialize the carousel
       nextarrow.style.display = 'block';
       prevarrow.style.display = 'block';
@@ -40,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
           if(carousel.parentElement.parentElement.querySelector('.dynamictitle')) {
               const title = carousel.querySelector('ul li:nth-child('+nthchild+') img').getAttribute('title');
               if(title) carousel.parentElement.parentElement.querySelector('.dynamictitle').innerHTML = title;
+          }
+          // Update backdrop image
+          const activeImg = carousel.querySelector('ul li:nth-child('+nthchild+') img');
+          if(activeImg && backdrop) {
+              backdrop.style.backgroundImage = 'url(' + activeImg.src + ')';
           }
       }
 
