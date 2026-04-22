@@ -3,8 +3,6 @@
 <!-- checking blog -->
 {{ if or (eq .Section "post") (eq .Section "posts") (eq .Section "blog") (eq .Section "blogs") (eq .Section "news") (eq .Section "categories") (eq .Section "tags") }}
 
-{{ partial "adsense-gutter.html" . }}
-
 {{ $sidebar := site.Params.sidebar }}
 {{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
 {{ $widget:= site.Params.widgets.sidebar }}
@@ -18,24 +16,17 @@
       <aside class="col-lg-4 col-xl-3 order-2 order-lg-1">
         <div class="{{ if eq $sidebar `left` }}pl-lg-4{{ end }}{{ if eq $sidebar `right` }}pr-lg-4{{ end }}">
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
-          <!-- AdSense - Below Sidebar -->
+          <!-- Support Widget -->
           <div class="widget mb-4">
-            <h5 class="widget-title"><span>Ads</span></h5>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4546884587701577"
-                 data-ad-slot="sidebar-bottom"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <hr class="mt-3 mb-2">
-            <p class="text-center mb-2">Support My Nonsense</p>
-            <ul class="list-unstyled list-inline text-center mb-0">
-              <li class="list-inline-item mr-3"><a href="https://buymeacoffee.com/u6zv4r45ct" target="_blank" aria-label="Buy me a coffee"><i class="fas fa-mug-hot"></i></a></li>
-              <li class="list-inline-item mr-3"><a href="https://shop.vaines.org" target="_blank" aria-label="Shop"><i class="fas fa-store"></i></a></li>
-            </ul>
+            <h5 class="widget-title"><span>Support My Nonsense</span></h5>
+            <div class="d-flex flex-column gap-2">
+              <a href="https://buymeacoffee.com/u6zv4r45ct" target="_blank" class="btn btn-outline-primary btn-block">
+                <i class="fas fa-mug-hot mr-2"></i>Buy Me a Coffee
+              </a>
+              <a href="https://shop.vaines.org" target="_blank" class="btn btn-outline-primary btn-block mt-2">
+                <i class="fas fa-store mr-2"></i>Visit My Shop
+              </a>
+            </div>
           </div>
         </div>
       </aside>
@@ -166,20 +157,6 @@
           {{ template "_internal/disqus.html" . }}
         </div>
         {{ end }}
-
-        <!-- AdSense - Below Comments -->
-        <div class="mt-4">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-4546884587701577"
-               data-ad-slot="below-comments"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-        <!-- /AdSense -->
       </div>
 
       <!-- right sidebar -->
@@ -187,24 +164,17 @@
       <aside class="col-lg-4 col-xl-3 mt-5 mt-lg-0">
         <div class="{{ if eq $sidebar `left` }}pr-lg-4{{ end }}{{ if eq $sidebar `right` }}pl-lg-4{{ end }}">
           {{- partial "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) -}}
-          <!-- AdSense - Below Sidebar -->
+          <!-- Support Widget -->
           <div class="widget mb-4">
-            <h5 class="widget-title"><span>Ads</span></h5>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4546884587701577"
-                 data-ad-slot="sidebar-bottom"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <hr class="mt-3 mb-2">
-            <p class="text-center mb-2">Support my nonsense</p>
-            <ul class="list-unstyled list-inline text-center mb-0">
-              <li class="list-inline-item mr-3"><a href="https://buymeacoffee.com/u6zv4r45ct" target="_blank" aria-label="Buy me a coffee"><i class="fas fa-mug-hot"></i></a></li>
-              <li class="list-inline-item mr-3"><a href="https://shop.vaines.org" target="_blank" aria-label="Shop"><i class="fas fa-store"></i></a></li>
-            </ul>
+            <h5 class="widget-title"><span>Support My Nonsense</span></h5>
+            <div class="d-flex flex-column gap-2">
+              <a href="https://buymeacoffee.com/u6zv4r45ct" target="_blank" class="btn btn-outline-primary btn-block">
+                <i class="fas fa-mug-hot mr-2"></i>Buy Me a Coffee
+              </a>
+              <a href="https://shop.vaines.org" target="_blank" class="btn btn-outline-primary btn-block mt-2">
+                <i class="fas fa-store mr-2"></i>Visit My Shop
+              </a>
+            </div>
           </div>
         </div>
       </aside>

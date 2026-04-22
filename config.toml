@@ -28,8 +28,10 @@ copyright = "Copyright © 2025 - Aiden Vaines · All rights reserved"
 # search *** true or false (if Search is disable Menu will align in Right) ***
 search = true
 header_search_layout = "expanded" # "expanded" or "popupable"
+
 # Menu align *** "left", "right" or "center" (if Search is disable Menu will align in Right) ***
 menu_align = "center"
+
 # Blog-details page sidebar
 sidebar = "right" # Sidebar value ("left", "right" or false)
 
@@ -64,22 +66,27 @@ sidebar = ["about-me", "subscription", "social", "featured-post", "links", "tags
 [[params.blog_links]]
 name = "Chris King"
 url = "https://noscootersrequired.substack.com"
+description = "Discussion around the delivery of projects and programmes, change, ideas and new technologies."
 
 [[params.blog_links]]
 name = "Jonathan Relf"
 url = "https://jonathanrelf.substack.com"
+description = "Exploring how AI and DevOps can converge in Agile Engineering for the Agentic Age."
 
 [[params.blog_links]]
 name = "Sid Nair"
 url = "https://sidssn.github.io"
+description = "Engineering and cloud architecture."
 
 [[params.blog_links]]
 name = "Tim Pepper"
 url = "https://tpepper.dev/"
+description = "Reflections on returning to hands-on software engineering after years in technical leadership."
 
 [[params.blog_links]]
 name = "Will Nossiter"
-url = "https://medium.com/feed/@willn2"
+url = "https://medium.com/@willn2"
+description = "Serverless technologies, machine learning, generative AI and foreign languages."
 
 # preloader
 [params.preloader]
@@ -203,6 +210,11 @@ name = "Other"
     url = "cursed"
     weight = 2
 
+    [[Languages.en.menu.main]]
+    parent = "Other"
+    name = "My Shop"
+    url = "https://shop.vaines.org"
+    weight = 4
 
 [[Languages.en.menu.footer]]
 weight = 1

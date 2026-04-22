@@ -1,9 +1,23 @@
 {{ "<!-- Social -->" | safeHTML }}
 <div class="widget">
   <h5 class="widget-title"><span>Socials</span></h5>
-  <ul class="list-inline widget-social">
-    {{- range site.Params.social }}
-    <li class="list-inline-item"><a class="text-primary" href="{{ .link | safeURL }}"><i class="{{.icon}}"></i></a></li>
-    {{- end }}
-  </ul>
+  <div class="d-flex flex-column gap-2">
+    {{ range site.Params.social }}
+    {{ $label := "" }}
+    {{ if in .link "linkedin" }}{{ $label = "LinkedIn" }}
+    {{ else if in .link "github" }}{{ $label = "GitHub" }}
+    {{ else if in .link "buymeacoffee" }}{{ $label = "Buy Me a Coffee" }}
+    {{ else if in .link "shop" }}{{ $label = "Shop" }}
+    {{ else if in .link "npmjs" }}{{ $label = "npm" }}
+    {{ else if in .link "twitter" }}{{ $label = "Twitter" }}
+    {{ else if in .link "x.com" }}{{ $label = "X" }}
+    {{ else if in .link "mastodon" }}{{ $label = "Mastodon" }}
+    {{ else if in .link "youtube" }}{{ $label = "YouTube" }}
+    {{ else }}{{ $label = .link }}
+    {{ end }}
+    <a href="{{ .link | safeURL }}" target="_blank" class="btn btn-outline-primary btn-block btn-sm">
+      <i class="{{.icon}} mr-2"></i>{{ $label }}
+    </a>
+    {{ end }}
+  </div>
 </div>
