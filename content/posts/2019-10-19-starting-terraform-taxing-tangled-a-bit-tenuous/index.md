@@ -56,11 +56,11 @@ The immediate challenge is learning the new language, syntax, structure, referen
     │   ├── main.tf
     │   ├── outputs.tf
     │   └── variables.tf
-    ├── web_server
-    │   ├── ec2.tf
-    │   ├── security_groups.tf
-    │   ├── outputs.tf
-    │   └── variables.tf
+    └── web_server
+        ├── ec2.tf
+        ├── security_groups.tf
+        ├── outputs.tf
+        └── variables.tf
 ```
 
 The book recommends you structure your project sort of like this, where you have a ‘component’ which references a number of modules.
@@ -99,11 +99,11 @@ I figured a quick YouTube series or two would should be enough to fill in some b
     │   ├── main.tf
     │   ├── outputs.tf
     │   └── variables.tf
-    ├── web_server
-    │   ├── ec2.tf
-    │   ├── security_groups.tf
-    │   ├── outputs.tf
-    │   └── variables.tf
+    └── web_server
+        ├── ec2.tf
+        ├── security_groups.tf
+        ├── outputs.tf
+        └── variables.tf
 ```
 
 I found a couple of series of videos, which I have completely lost other wise I would include links, where they structured the project something like this. Keeping the above example in mind we still have two modules and a ‘myplatform’ component.
@@ -116,7 +116,49 @@ This is fine but continues to be a bit of a pain for anything complicated, with 
 
 I had the chance to work on an existing project where they had got some complicated infrastructure and needed to resolve the challenges I had seen up to this point.
 
-![module structure with symlinks](moduleDirStruct3.png)
+```text
+├── roles
+│   ├── key_pair
+|   |   ├── key_pair.tf
+|   |   ├── outputs.tf
+|   |   └── vars.tf
+│   ├── web_server
+|   |   ├── ec2.tf
+|   |   ├── outputs.tf
+|   |   ├── security_groups.tf
+|   |   └── vars.tf
+│   ├── modules.tf
+│   ├── providers.tf
+│   ├── terraform.tf
+│   └── variables.tf
+└── environments
+    ├── shared
+    │   ├── providers.tf
+    │   └── myplatform
+    |       ├── modules.tf
+    |       ├── outputs.tf
+    |       ├── providers.tf
+    |       └── vars.tf
+    ├── dev-aws-account
+    |   ├── shared
+    │   |   └── dev.tfvars
+    │   └── myplatform
+    |       ├── modules.tf -> ../../shared/myplatform/modules.tf
+    |       ├── outputs.tf -> ../../shared/myplatform/outputs.tf
+    |       ├── providers.tf -> ../../shared/myplatform/providers.tf
+    |       ├── terraform.tf
+    |       └── vars.tf -> ../../shared/myplatform/vars.tf
+    └── prod-aws-account
+        ├── shared
+        |   └── prod.tfvars
+        └── myplatform
+            ├── modules.tf -> ../../shared/myplatform/modules.tf
+            ├── outputs.tf -> ../../shared/myplatform/outputs.tf
+            ├── providers.tf -> ../../shared/myplatform/providers.tf
+            ├── terraform.tf
+            └── vars.tf -> ../../shared/myplatform/vars.tf
+```
+
 
 I have simplified the teams setup continuing from the previous examples.
 

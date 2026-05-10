@@ -9,6 +9,11 @@
   "scripts": {
     "start": "hugo server --disableFastRender",
     "build": "NODE_ENV=production hugo --gc",
+    "precommit": "pre-commit run --all-files",
+    "syndicate": "node scripts/syndication/index.js",
+    "syndicate:dry-run": "SYNDICATION_DRY_RUN=true node scripts/syndication/index.js",
+    "syndicate:disable": "npm pkg set syndication.enabled=false",
+    "syndicate:enable": "npm pkg set syndication.enabled=true",
     "test": "npm run test:all",
     "test:e2e": "playwright test",
     "test:ui": "playwright test --ui",
@@ -16,11 +21,7 @@
     "test:report": "playwright show-report",
     "test:unit": "jest scripts/syndication",
     "test:unit:coverage": "jest scripts/syndication --coverage",
-    "test:all": "npm run test:unit && npm run test:e2e",
-    "syndicate": "node scripts/syndication/index.js",
-    "syndicate:dry-run": "SYNDICATION_DRY_RUN=true node scripts/syndication/index.js",
-    "syndicate:disable": "npm pkg set syndication.enabled=false",
-    "syndicate:enable": "npm pkg set syndication.enabled=true"
+    "test:all": "npm run test:unit && npm run test:e2e"
   },
   "dependencies": {
     "@atproto/api": "^0.12.0",
