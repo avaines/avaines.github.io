@@ -27,7 +27,7 @@ syndicate:
   - substack
 ---
 
-I'm often asked about AI stuff as the rest of my blog might suggest. The world is currently scrambling around for how and where AI best accelerates delivery of software programmes, but I still don't think there is one solution - similar to what happens when you ask any two people how JIRA should be used to be fair.
+I'm often asked about AI stuff as the rest of my blog might suggest. The world is currently scrambling around for how and where AI best accelerates delivery of software programmes, but I still don't think there is one solution - similar to what happens when you ask any two people how Jira should be used to be fair.
 
 There's so much hype and a lot of vapour-thought for ways of working that sound legit but have never been battle tested at any scale. Intermixed with that are some amazing success stories and methodologies that work great for a a particular org or project or just a single team greatly enhancing their workflows.
 
