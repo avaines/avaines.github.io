@@ -1,20 +1,20 @@
 .DS_Store
-node_modules/
-resources/_gen/
-*.lock
+.env
 .hugo_build.lock
 .vscode/
-public/
-content/test/
-hugo_stats.json
-node_modules
-.env
-coverage/
-# Playwright
-/test-results/
+*.afphoto~lock~
+*.lock
 /playwright-report/
 /playwright/.cache/
-test-results.json/
-test-output.log
+/test-results/
+# Playwright
+content/test/
+coverage/
 full-test-output.txt
-.DS_Store
+hugo_stats.json
+node_modules
+node_modules/
+public/
+resources/_gen/
+test-output.log
+test-results.json/

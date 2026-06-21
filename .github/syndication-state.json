@@ -81,6 +81,10 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/116552284052708411",
       "syndicatedAt": "2026-05-10T20:58:37.252Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/why-hasnt-ai-improved-my-metrics",
+      "syndicatedAt": "2026-05-10T20:58:37.252Z"
     }
   }
 }
