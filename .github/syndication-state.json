@@ -99,6 +99,10 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/116789752594691064",
       "syndicatedAt": "2026-06-21T19:29:59.666Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/new-shiny-aws-finops-toys",
+      "syndicatedAt": "2026-06-21T19:35:44.650Z"
     }
   }
 }

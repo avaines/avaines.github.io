@@ -6,7 +6,6 @@
 {{ $sidebar := site.Params.sidebar }}
 {{ $has_sidebar := or (eq $sidebar `left`) (eq $sidebar `right`)}}
 {{ $widget:= site.Params.widgets.sidebar }}
-{{ partial "opengraph.html" . }}
 
 <section class="section">
   <div class="container">
