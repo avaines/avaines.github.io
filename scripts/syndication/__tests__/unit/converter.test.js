@@ -93,26 +93,9 @@ describe('converter', () => {
     });
   });
 
-  describe('convertToHashnode', () => {
-    it('should include cover image if present', () => {
-      const result = convertContent(mockPost, 'hashnode', mockConfig);
-      expect(result.metadata.coverImageUrl).toContain('featured.png');
-    });
-
-    it('should handle posts without cover image', () => {
-      const postWithoutImage = {
-        ...mockPost,
-        frontmatter: { ...mockPost.frontmatter, image: undefined }
-      };
-
-      const result = convertContent(postWithoutImage, 'hashnode', mockConfig);
-      expect(result.metadata.coverImageUrl).toBeUndefined();
-    });
-  });
-
   describe('convertToMicroblog', () => {
-    it('should create thread-style posts for Twitter/Mastodon/Bluesky', () => {
-      const result = convertContent(mockPost, 'twitter', mockConfig);
+    it('should create thread-style posts for Mastodon/Bluesky', () => {
+      const result = convertContent(mockPost, 'mastodon', mockConfig);
 
       expect(Array.isArray(result.content)).toBe(true);
       expect(result.content.length).toBeGreaterThan(0);

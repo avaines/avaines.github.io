@@ -27,7 +27,6 @@ references:
 syndicate:
   - bluesky
   - devto
-  - hashnode
   - mastodon
   - substack
 ---

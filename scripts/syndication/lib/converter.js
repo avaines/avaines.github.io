@@ -32,10 +32,6 @@ function convertContent(post, platform, config) {
     case 'substack':
       return convertToLongform(contentWithCanonicalNote, frontmatter, canonicalUrl);
 
-    case 'hashnode':
-      return convertToHashnode(contentWithCanonicalNote, frontmatter, canonicalUrl);
-
-    case 'twitter':
     case 'mastodon':
     case 'bluesky':
       return convertToMicroblog(contentWithAbsoluteImages, frontmatter, canonicalUrl);
@@ -86,25 +82,7 @@ function convertToLongform(content, frontmatter, canonicalUrl) {
 }
 
 /**
- * Convert to Hashnode format
- */
-function convertToHashnode(content, frontmatter, canonicalUrl) {
-  return {
-    content,
-    metadata: {
-      title: frontmatter.title,
-      tags: (frontmatter.categories || []).map(tag => ({
-        name: tag,
-        slug: tag.toLowerCase().replace(/\s+/g, '-')
-      })),
-      canonicalUrl,
-      coverImageUrl: frontmatter.image ? `${canonicalUrl}${frontmatter.image}` : undefined
-    }
-  };
-}
-
-/**
- * Convert to microblog format (Twitter, Mastodon, Bluesky)
+ * Convert to microblog format (Mastodon, Bluesky)
  */
 function convertToMicroblog(content, frontmatter, canonicalUrl) {
   // Extract first non-empty paragraph and sanitize common markdown prefix

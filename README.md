@@ -34,10 +34,8 @@ Add syndication targets to post frontmatter:
 syndicate:
   - bluesky
   - devto
-  - hashnode
   - mastodon
   - substack
-  - twitter
 ```
 
 Test syndication without publishing:

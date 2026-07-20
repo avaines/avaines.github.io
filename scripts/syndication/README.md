@@ -9,12 +9,9 @@ This system automatically syndicates your Hugo blog posts to various platforms w
 ## Supported Platforms
 
 - ✅ **dev.to** - Full API support
-- ✅ **Hashnode** - GraphQL API support
-- ✅ **Twitter/X** - Thread generation
 - ✅ **Mastodon** - Thread generation
 - ✅ **Bluesky** - AT Protocol support
 - ✅ **Substack** - substack-api client (note with link)
-- ✅ **Lobsters** - lob-post client (note with link)
 
 ## Quick Start
 
@@ -58,7 +55,7 @@ Add to your post's frontmatter:
 title: "My Post"
 syndicate:
   - devto
-  - twitter
+  - mastodon
 ---
 ```
 
@@ -85,8 +82,6 @@ Add secrets to your GitHub repository:
 Required secrets:
 
 - `DEVTO_API_KEY`
-- `HASHNODE_TOKEN`
-- `HASHNODE_PUBLICATION_ID`
 - etc. (see `.env.example` for full list)
 
 ## Usage
@@ -135,7 +130,7 @@ Add delays (in seconds) to stagger posting:
 {
   "syndication": {
     "targets": {
-      "hashnode": {
+      "mastodon": {
         "enabled": true,
         "delay": 300
       }
@@ -163,19 +158,6 @@ Syndication state is tracked in `.github/syndication-state.json` to prevent dupl
 2. Generate an API key
 3. Add to secrets as `DEVTO_API_KEY`
 
-### Hashnode
-
-1. Go to https://hashnode.com/settings/developer
-2. Generate a personal access token
-3. Get your publication ID from `https://gql.hashnode.com/` using: `query Me { me { publications(first: 10) { edges { node { id title url } } } } }`
-4. Add `HASHNODE_TOKEN` and `HASHNODE_PUBLICATION_ID`
-
-### Twitter/X
-
-1. Create app at https://developer.twitter.com/en/portal/dashboard
-2. Generate API keys and access tokens
-3. Add all four credentials to secrets
-
 ### Bluesky
 
 1. Use your Bluesky handle (e.g., `username.bsky.social`)
@@ -194,12 +176,6 @@ Syndication state is tracked in `.github/syndication-state.json` to prevent dupl
 1. Get your `substack.sid` cookie from your authenticated browser session
 2. Set `SUBSTACK_TOKEN` to that cookie value
 3. Set `SUBSTACK_PUBLICATION_URL` to your publication host (e.g. `yourpub.substack.com`)
-
-### Lobster
-
-1. Use your Lobste.rs handle
-2. Use your account password
-3. Add `LOBSTERS_USERNAME` and `LOBSTERS_PASSWORD`
 
 ## Testing
 
@@ -249,8 +225,6 @@ scripts/syndication/
 │   └── state.js          # Track syndication state
 ├── services/
 │   ├── devto.js          # dev.to API
-│   ├── hashnode.js       # Hashnode GraphQL
-│   ├── twitter.js        # Twitter API
 │   ├── mastodon.js       # Mastodon API
 │   ├── bluesky.js        # Bluesky AT Protocol
 │   └── ...               # Other platforms

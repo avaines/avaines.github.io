@@ -12,11 +12,9 @@ date: 2026-03-23T00:00:00.000Z
 syndicate:
   - bluesky
   - devto
-  - hashnode
   - mastodon
   - medium
   - substack
-  - twitter
 ---
 
 This is a sample blog post used for testing the syndication system.

@@ -42,10 +42,6 @@ jobs:
           # dev.to
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
 
-          # Hashnode
-          HASHNODE_TOKEN: ${{ secrets.HASHNODE_TOKEN }}
-          HASHNODE_PUBLICATION_ID: ${{ secrets.HASHNODE_PUBLICATION_ID }}
-
           # Mastodon
           MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
           MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
@@ -53,16 +49,6 @@ jobs:
           # Substack (optional)
           SUBSTACK_TOKEN: ${{ secrets.SUBSTACK_TOKEN || secrets.SUBSTACK_API_KEY }}
           SUBSTACK_PUBLICATION_URL: ${{ secrets.SUBSTACK_PUBLICATION_URL || secrets.SUBSTACK_PUBLICATION_ID }}
-
-          # Lobste.rs
-          LOBSTERS_USERNAME: ${{ secrets.LOBSTERS_USERNAME }}
-          LOBSTERS_PASSWORD: ${{ secrets.LOBSTERS_PASSWORD }}
-
-          # Twitter/X
-          TWITTER_APP_KEY: ${{ secrets.TWITTER_APP_KEY }}
-          TWITTER_APP_SECRET: ${{ secrets.TWITTER_APP_SECRET }}
-          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
 
         run: npm run syndicate
 
