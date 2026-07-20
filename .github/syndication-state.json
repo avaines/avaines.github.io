@@ -117,6 +117,10 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/116954381301287246",
       "syndicatedAt": "2026-07-20T21:17:14.328Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/sunk-cost-fallacy-as-a-feature",
+      "syndicatedAt": "2026-07-20T21:17:34.228Z"
     }
   }
 }
