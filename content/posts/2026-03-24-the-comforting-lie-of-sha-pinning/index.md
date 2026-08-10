@@ -30,7 +30,7 @@ In March 2026, Trivy became the latest reminder that software supply chains are,
 
 A typosquatting attack slipped malicious code into what looked like a legitimate dependency path. The post-mortems are worth reading, and they all converge on a single recommendation: *pin your dependencies*. In the GitHub Actions world, that usually translates to *use commit SHAs, not tags*.
 
-There’s a widely held belief that pinning a GitHub Action to a commit SHA gives you immutability, its what Microsoft/GitHub are recommending, and its what Aqua are recommending. After all, a SHA is content-addressed. It cannot be moved. It cannot be re-tagged. It is, in theory, the most stable reference you can use. The problem with that line of thinking is that the *resolution of that SHA is not scoped the way most people assume*. Specifically, GitHub Actions **does not** meaningfully validate that the commit SHA you reference belongs to the repository you think it does.
+There’s a widely held belief that pinning a GitHub Action to a commit SHA gives solved the immutability problem with tags, its what Microsoft/GitHub are recommending, and its what Aqua are recommending. After all, a SHA is content-addressed. It cannot be moved. It cannot be re-tagged. It is, in theory, the most stable reference you can use. The problem with that line of thinking is that the *resolution of that SHA is not scoped the way most people assume*. Specifically, GitHub Actions **does not** meaningfully validate that the commit SHA you reference belongs to the repository you think it does.
 
 ## Wait, what? No, thats not right...
 
