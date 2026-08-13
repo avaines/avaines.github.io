@@ -146,7 +146,7 @@ icon = "fas fa-mug-hot"
 link = "https://buymeacoffee.com/u6zv4r45ct"
 [[params.social]]
 icon = "fas fa-store"
-link = "https://shop.vaines.org"
+link = "https://sticksandgiggles.uk/shop/#yorkshire-garage"
 [[params.social]]
 icon = "fab fa-npm"
 link = "https://www.npmjs.com/~aiden.vaines"
@@ -213,7 +213,7 @@ name = "Other"
     [[Languages.en.menu.main]]
     parent = "Other"
     name = "My Shop"
-    url = "https://shop.vaines.org"
+    url = "https://sticksandgiggles.uk/shop/#yorkshire-garage"
     weight = 4
 
 [[Languages.en.menu.footer]]
@@ -242,7 +242,7 @@ icon = "fas fa-mug-hot"
 link = "https://buymeacoffee.com/u6zv4r45ct"
 [[params.social_profile]]
 icon = "fas fa-store"
-link = "https://shop.vaines.org"
+link = "https://sticksandgiggles.uk/shop/#yorkshire-garage"
 [[params.social_profile]]
 icon = "fab fa-npm"
 link = "https://www.npmjs.com/~aiden.vaines"
