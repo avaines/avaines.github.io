@@ -41,10 +41,10 @@ Enable/disable platforms in `package.json`:
 Copy the example environment file:
 
 ```bash
-cp scripts/syndication/.env.example .env
+cp scripts/syndication/.env.example scripts/syndication/.env
 ```
 
-Edit `.env` and add your API keys.
+Edit `scripts/syndication/.env` and add your API keys.
 
 ### 4. Add Syndication to Posts
 
@@ -206,6 +206,8 @@ npm run test:unit:coverage
 2. Check rate limits
 3. Review platform-specific error messages
 4. Try dry-run mode first
+
+Substack errors identify the failed operation and HTTP status. A 401 or 403 can mean the session was rejected or lacks access to the publication; it does not by itself prove an API change. Verify that the account can open the publication dashboard. The local command loads `scripts/syndication/.env`; existing shell environment variables take precedence. Dry-run mode does not validate credentials.
 
 ### State File Conflicts
 

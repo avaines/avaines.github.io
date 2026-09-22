@@ -54,43 +54,48 @@ describe('Substack service', () => {
     expect(result.url).toContain('preview');
   });
 
-  it('should publish article successfully', async () => {
-    const createPostMock = jest.fn().mockResolvedValue({
-      id: 123456,
-      canonicalUrl: 'https://testpub.substack.com/p/test-post'
-    });
-
+  it('publishes through drafts without requiring a global profile lookup', async () => {
+    const ownProfile = jest.fn().mockRejectedValue(new Error('HTTP 401'));
+    const post = jest.fn()
+      .mockResolvedValueOnce({ id: 123456 })
+      .mockResolvedValueOnce({ canonical_url: 'https://testpub.substack.com/p/test-post' });
     SubstackClient.mockImplementation(() => ({
-      ownProfile: jest.fn().mockResolvedValue({
-        createPost: createPostMock
-      })
+      ownProfile,
+      publicationClient: { post }
     }));
-
     const result = await publish(mockPost, mockConfig);
-
-    expect(SubstackClient).toHaveBeenCalledWith({
-      token: 'test-token',
-      publicationUrl: 'testpub.substack.com'
-    });
-    expect(createPostMock).toHaveBeenCalledWith(expect.objectContaining({
-      title: 'Test Post',
-      isDraft: false,
-      body: expect.stringContaining('![Test Post](https://www.vaines.org/posts/test-post/featured.png)')
+    expect(ownProfile).not.toHaveBeenCalled();
+    expect(post).toHaveBeenNthCalledWith(1, '/drafts', expect.objectContaining({
+      draft_title: 'Test Post',
+      draft_body: expect.stringContaining('![Test Post](https://www.vaines.org/posts/test-post/featured.png)'),
+      should_send_email: false
     }));
+    expect(post).toHaveBeenNthCalledWith(2, '/drafts/123456/publish', { should_send_email: false });
     expect(result.url).toBe('https://testpub.substack.com/p/test-post');
   });
 
-  it('should handle API errors', async () => {
-    const ownProfileMock = jest.fn().mockRejectedValue(new Error('Authentication failed'));
-
-    SubstackClient.mockImplementation(() => ({
-      ownProfile: ownProfileMock
-    }));
-
-    await expect(publish(mockPost, mockConfig)).rejects.toThrow('Authentication failed');
+  it('does not publish posts marked as drafts', async () => {
+    const post = jest.fn().mockResolvedValue({ id: 123, slug: 'test-post' });
+    SubstackClient.mockImplementation(() => ({ publicationClient: { post } }));
+    await publish({ ...mockPost, frontmatter: { ...mockPost.frontmatter, draft: true } }, mockConfig);
+    expect(post).toHaveBeenCalledTimes(1);
+    expect(post.mock.calls[0][0]).toBe('/drafts');
   });
 
-  it('should fallback to publication client when own profile decoding fails', async () => {
+  it('identifies draft rejection without leaking response or request secrets', async () => {
+    const error = Object.assign(new Error('Request failed with status code 403'), {
+      response: { status: 403, headers: {}, data: 'secret-response' },
+      config: { headers: { Cookie: 'secret-cookie' } }
+    });
+    SubstackClient.mockImplementation(() => ({
+      ownProfile: jest.fn().mockResolvedValue({}),
+      publicationClient: { post: jest.fn().mockRejectedValue(error) }
+    }));
+    await expect(publish(mockPost, mockConfig)).rejects.toThrow('create draft failed (HTTP 403)');
+    await expect(publish(mockPost, mockConfig)).rejects.not.toThrow('secret');
+  });
+
+  it('uses the returned publication slug for the post URL', async () => {
     const postMock = jest.fn()
       .mockResolvedValueOnce({
         id: 987654,

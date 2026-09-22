@@ -135,6 +135,10 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/117316905081973395",
       "syndicatedAt": "2026-09-22T21:51:48.243Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/make-the-internet-fun-again",
+      "syndicatedAt": "2026-09-22T22:02:02.142Z"
     }
   }
 }

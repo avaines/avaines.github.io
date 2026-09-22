@@ -42,8 +42,33 @@ function buildNoteBody(post, converted, config) {
   return `${heroImageMarkdown}\n\n${baseBody}`;
 }
 
+function describeRequestError(error, operation) {
+  const status = error?.response?.status
+    || Number(String(error?.message).match(/status code (\d{3})/)?.[1]);
+  if (!status) return error;
+
+  const headers = error?.response?.headers || {};
+  const challenge = headers['cf-mitigated'] === 'challenge';
+  const detail = challenge
+    ? 'Substack returned a Cloudflare challenge; this does not establish whether the session is valid.'
+    : status === 401 || status === 403
+      ? 'Substack rejected the session or publication access. Verify the session in the browser and that its account can manage the configured publication.'
+      : 'Substack rejected the request.';
+
+  // Never include Axios request config, cookies, or response bodies in CLI errors.
+  return new Error(`Substack ${operation} failed (HTTP ${status}). ${detail}`);
+}
+
+async function requestWithContext(operation, request) {
+  try {
+    return await request();
+  } catch (error) {
+    throw describeRequestError(error, operation);
+  }
+}
+
 async function createViaDraftEndpoints(client, title, body, isDraft) {
-  const createdDraft = await client.publicationClient.post('/drafts', {
+  const createdDraft = await requestWithContext('create draft', () => client.publicationClient.post('/drafts', {
     type: 'newsletter',
     audience: 'everyone',
     draft_bylines: [],
@@ -51,15 +76,15 @@ async function createViaDraftEndpoints(client, title, body, isDraft) {
     draft_subtitle: '',
     draft_body: body,
     should_send_email: false
-  });
+  }));
 
   if (isDraft) {
     return createdDraft;
   }
 
-  return client.publicationClient.post(`/drafts/${createdDraft.id}/publish`, {
+  return requestWithContext('publish draft', () => client.publicationClient.post(`/drafts/${createdDraft.id}/publish`, {
     should_send_email: false
-  });
+  }));
 }
 
 /**
@@ -95,28 +120,11 @@ async function publish(post, config) {
   const fullBody = buildNoteBody(post, converted, config);
   const isDraft = !!post.frontmatter.draft;
 
-  let createdPost;
-
-  try {
-    const profile = await client.ownProfile();
-    if (typeof profile?.createPost === 'function') {
-      createdPost = await profile.createPost({
-        title: converted.metadata.title,
-        body: fullBody,
-        isDraft
-      });
-    }
-  } catch (error) {
-    const message = String(error?.message || error);
-    if (!/Invalid Full profile response|photo_url|own profile/i.test(message)) {
-      throw error;
-    }
-  }
-
-  // Fallback for clients that don't expose createPost on OwnProfile
-  if (!createdPost) {
-    createdPost = await createViaDraftEndpoints(client, converted.metadata.title, fullBody, isDraft);
-  }
+  // substack-api v4 OwnProfile supports Notes, not longform createPost.
+  // Publication drafts do not require a global profile lookup.
+  const createdPost = await createViaDraftEndpoints(
+    client, converted.metadata.title, fullBody, isDraft
+  );
 
   const normalizedPublicationUrl = publicationUrl.startsWith('http')
     ? publicationUrl
