@@ -7,6 +7,7 @@ draft: false
 categories:
   - Thought Leadership
   - AI
+  - Tinfoil Hat
 date: 2026-01-26T00:00:00.000Z
 code_url: "https://github.com/avaines/misc-python-scripts/tree/main/llm-stegnography"
 references:
