@@ -36,7 +36,7 @@
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "substack-api": "^4.0.0",
-    "tailwindcss": "^2.1.1",
+    "tailwindcss": "^4.3.3",
     "unified": "^11.0.4"
   },
   "browserslist": [
