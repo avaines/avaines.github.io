@@ -42,10 +42,12 @@ test.describe('Static Pages', () => {
       for (const img of images) {
         const src = await img.getAttribute('src');
         if (src && !src.startsWith('data:')) {
-          // Check natural width > 0 (means image loaded)
-          // Skip visibility check for lazy-loaded images
-          const naturalWidth = await img.evaluate(el => el.naturalWidth);
-          expect(naturalWidth, `Image failed to load: ${src}`).toBeGreaterThan(0);
+          // Load offscreen images too, then wait for the browser to finish decoding.
+          await img.evaluate(el => { el.loading = 'eager'; });
+          await expect.poll(
+            () => img.evaluate(el => el.complete && el.naturalWidth > 0),
+            { message: `Image failed to load: ${src}`, timeout: 10000 }
+          ).toBe(true);
         }
       }
     });

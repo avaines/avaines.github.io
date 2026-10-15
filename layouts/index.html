@@ -24,7 +24,7 @@
       <div class="col-12">
         <div class="row slider-block">
           {{ range where site.RegularPages ".Params.featured" "=" true }}
-          <article class="card-overlapped col mb-5">
+          <article class="card-overlapped col mb-4">
             <div class="badge">Featured</div>
             {{ if .Params.image }}
               {{ $img := .Params.image }}
@@ -57,38 +57,17 @@
 </div>
 <!-- /featured-post-slider -->
 
-<!-- Popular Categories -->
-<div class="popular-categories">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-title mb-4 mb-md-3">
-          <h2 class="h4">Popular Categories</h2>
-        </div>
-      </div>
-      <div class="col-12">
-        <ul class="list-unstyled category-list list-inline align-items-center">
-          {{ range site.Taxonomies.categories.ByCount }}
-          <li class="category-item list-inline-item text-center shadow">
-            <a class="d-block" href="{{ .Page.Permalink }}" data-text="{{ substr .Page.Title 0 1 }}">{{ .Page.Title }} <sup>({{ .Count }})</sup></a>
-          </li>
-          {{ end }}
-          <li class="category-item list-inline-item text-center shadow">
-            <a class="d-block" href="{{ `categories/` | absLangURL }}">All Categories <span class="fas fa-chevron-right"></span></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- /Popular Categories -->
+
 
 <!-- blog -->
-<section class="section">
+<section class="section recent-posts" aria-labelledby="recent-posts-heading">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        {{ $paginator := .Paginate (where site.RegularPages "Section" "in" site.Params.mainSections ) }}
+        <div class="section-title mb-0">
+          <h2 id="recent-posts-heading" class="h4">Recent Posts</h2>
+        </div>
+        {{ $paginator := .Paginate ((where site.RegularPages "Section" "in" site.Params.mainSections).ByDate.Reverse) }}
         {{ range $paginator.Pages }}
         {{ .Render "article-w-image" }}
         {{ end }}

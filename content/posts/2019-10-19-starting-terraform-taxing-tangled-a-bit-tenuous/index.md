@@ -11,7 +11,7 @@ categories:
 date: 2019-10-19T23:00:00.000Z
 banner:
   type: info
-  message: "I wrote an [update](/posts/2026-03-01-terraform-six-years-on) to this post after using Terraform for six years.<br>[Read it here](/posts/2026-03-01-terraform-six-years-on)"
+  message: "I wrote an [update](posts/2026-03-02-terraform-six-years-on/) to this post after using Terraform for six years.<br>[Read it here](posts/2026-03-02-terraform-six-years-on/)"
 ---
 One of the first tools I picked up walking in to the DevOps world was Terraform, I found it a bit challenging to get to grips with one major concept. The language itself is easy enough to get to grips with but actually structuring anything slightly complex just didn’t click for me.
 

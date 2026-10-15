@@ -69,7 +69,7 @@ That doesn't mean half the websites we visit were written by robots, though that
 
 [Cloudflare saw AI and search crawler traffic grow sharply in the first half of 2025](https://blog.cloudflare.com/crawlers-click-ai-bots-training/). GPTBot requests increased dramatically, while bots associated with AI assistants increasingly crawled pages in response to user requests. [By the end of 2025, Cloudflare was reporting](https://www.cloudflare.com/the-net/year-in-review-25/) huge amounts of crawling for AI training, search and user actions.
 
-There is a relationship emerging where Humans put things on the internet, bots read them and other bots summarise them. Humans ask an AI about them. The AI replies. Nobody visits the original website. I wrote a bit about [this irritating trend earlier this year](/2026-01-26-jpeg-compression-for-thought/) if you didn't get enough of my writing after getting this far.
+There is a relationship emerging where Humans put things on the internet, bots read them and other bots summarise them. Humans ask an AI about them. The AI replies. Nobody visits the original website. I wrote a bit about [this irritating trend earlier this year](posts/2026-01-26-jpeg-compression-for-thought/) if you didn't get enough of my writing after getting this far.
 
 Cloudflare started measuring what it calls the ["crawl-to-click" gap](https://blog.cloudflare.com/crawlers-click-ai-bots-training/), basically how often AI systems crawl a site compared with how often they send a meatbag to it. For some AI crawlers that ratio runs into thousands of crawls for every referred visitor.
 
