@@ -48,10 +48,11 @@ function convertContent(post, platform, config) {
  * Convert to dev.to format
  */
 function convertToDevTo(content, frontmatter, canonicalUrl) {
-  // dev.to uses frontmatter
-  const tags = (frontmatter.categories || [])
-    .slice(0, 4) // dev.to allows max 4 tags
-    .map(tag => tag.toLowerCase().replace(/\s+/g, ''));
+  // dev.to tags must be alphanumeric (e.g. Next.js becomes nextjs).
+  const tags = [...new Set((frontmatter.categories || [])
+    .map(tag => tag.toLowerCase().replace(/[^a-z0-9]/g, ''))
+    .filter(Boolean))]
+    .slice(0, 4); // dev.to allows max 4 tags
 
   return {
     content,

@@ -20,6 +20,33 @@ describe('converter', () => {
   };
 
   describe('convertToDevTo', () => {
+    it('should convert the Lambda post categories to valid dev.to tags', () => {
+      const post = {
+        ...mockPost,
+        frontmatter: {
+          ...mockPost.frontmatter,
+          categories: ['AWS', 'AI', 'Serverless', 'Next.js']
+        }
+      };
+
+      expect(convertContent(post, 'devto', mockConfig).metadata.tags)
+        .toEqual(['aws', 'ai', 'serverless', 'nextjs']);
+      expect(post.frontmatter.categories).toContain('Next.js');
+    });
+
+    it('should remove empty and duplicate tags before applying the limit', () => {
+      const post = {
+        ...mockPost,
+        frontmatter: {
+          ...mockPost.frontmatter,
+          categories: ['---', 'Next.js', 'NextJS', 'CI/CD', 'Web Dev', 'AWS', 'AI']
+        }
+      };
+
+      expect(convertContent(post, 'devto', mockConfig).metadata.tags)
+        .toEqual(['nextjs', 'cicd', 'webdev', 'aws']);
+    });
+
     it('should convert post to dev.to format', () => {
       const result = convertContent(mockPost, 'devto', mockConfig);
 

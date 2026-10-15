@@ -149,6 +149,14 @@
     "mastodon": {
       "url": "https://mastodon.social/@avaines/117445774583346536",
       "syndicatedAt": "2026-10-15T16:05:00.989Z"
+    },
+    "substack": {
+      "url": "https://avaines.substack.com/p/aws-news-lambda-web-functions",
+      "syndicatedAt": "2026-10-15T16:05:58.960Z"
+    },
+    "devto": {
+      "url": "https://dev.to/avaines/aws-news-lambda-web-functions-2dea",
+      "syndicatedAt": "2026-10-15T17:04:30.508Z"
     }
   }
 }
