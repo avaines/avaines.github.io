@@ -2,7 +2,7 @@
 title: 'Preparing for Quantum Computers That May or May Not Exist'
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 draft: false
 categories:
   - Thought Leadership

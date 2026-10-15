@@ -2,7 +2,7 @@
 title: 'Terraform Six Years On (Retrospective)'
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 draft: false
 categories:
   - Thought Leadership

@@ -4,7 +4,7 @@ title: >-
   Death to Bastion Hosts, long live Bastion Containers!
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 categories:
   - Terraform
   - AWS

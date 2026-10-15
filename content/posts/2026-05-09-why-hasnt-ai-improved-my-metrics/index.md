@@ -2,7 +2,7 @@
 title: '¡Hola, soy DORA. Why hasn’t AI improved my metrics?'
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 draft: false
 categories:
   - Thought Leadership

@@ -2,7 +2,7 @@
 title: 'New Shiny AWS FinOps Toys?'
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 draft: false
 categories:
   - Thought Leadership

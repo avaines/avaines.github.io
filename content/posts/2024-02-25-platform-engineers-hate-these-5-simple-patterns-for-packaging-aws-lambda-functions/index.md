@@ -4,7 +4,7 @@ title: >-
   Platform Engineers hate these 5 simple patterns for packaging AWS Lambda functions
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 categories:
   - Terraform
   - CICD

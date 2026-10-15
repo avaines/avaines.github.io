@@ -3,7 +3,7 @@ draft: false
 title: 'Building a Simple Ecommerce Site with Hugo, Cloudflare Workers, and Square'
 author: Aiden Vaines
 image: featured.png
-featured: true
+featured: false
 categories:
   - JavaScript
   - Cloudflare
