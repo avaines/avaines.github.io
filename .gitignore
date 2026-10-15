@@ -18,3 +18,7 @@ public/
 resources/_gen/
 test-output.log
 test-results.json/
+
+.test-site/
+external-link-report/
+external-link-results/

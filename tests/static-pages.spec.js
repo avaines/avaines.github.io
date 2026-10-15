@@ -1,55 +1,51 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, checkImages, checkInternalLinks } = require('./site-fixtures');
 
-test.describe('Static Pages', () => {
-  const pages = [
-    { path: '/', name: 'Home' },
-    { path: '/about/', name: 'About' },
-    { path: '/contact/', name: 'Contact' },
-    { path: '/privacy/', name: 'Privacy' },
-    { path: '/search/', name: 'Search' },
-  ];
+for (const { path, name } of [
+  { path: '/', name: 'Home' },
+  { path: '/about/', name: 'About' },
+  { path: '/contact/', name: 'Contact' },
+  { path: '/privacy/', name: 'Privacy' },
+  { path: '/search/', name: 'Search' },
+]) {
+  test(`${name} page renders without browser errors`, async ({ page }) => {
+    const response = await page.goto(path);
+    expect(response.status()).toBe(200);
+    if (name === 'Search') {
+      await expect(page.getByRole('searchbox')).toBeVisible();
+    } else {
+      await expect(page.locator('h1, h2').first()).toBeVisible();
+    }
+  });
+  test(`${name} page local images load`, async ({ page }) => {
+    await page.goto(path);
+    await checkImages(page);
+  });
+  test(`${name} page internal links work`, async ({ page, request, baseURL }) => {
+    await page.goto(path);
+    await checkInternalLinks(page, request, baseURL);
+  });
+}
 
-  for (const { path, name } of pages) {
-    test(`${name} page loads successfully`, async ({ page }) => {
-      const response = await page.goto(path);
-      expect(response.status()).toBe(200);
+test('search returns a matching post and opens it', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('searchbox').fill('Lambda Web Functions');
+  await page.getByRole('searchbox').press('Enter');
+  await expect(page).toHaveURL(/\/search\/?\?s=/);
+  const result = page.locator('#search-results').getByRole('link', { name: 'AWS News: Lambda Web Functions', exact: true });
+  await expect(result).toBeVisible();
+  await result.click();
+  await expect(page).toHaveURL(/\/posts\/2029-10-15-lambda-web-functions\//);
+  await expect(page.locator('.content').first()).toBeVisible();
+});
 
-      // Check page has content
-      await expect(page.locator('body')).not.toBeEmpty();
-    });
-
-    test(`${name} page has no console errors`, async ({ page }) => {
-      const consoleErrors = [];
-      page.on('console', msg => {
-        if (msg.type() === 'error') {
-          const text = msg.text();
-          // Ignore resource loading failures (fonts, analytics, CDN resources)
-          if (!text.includes('Failed to load resource')) {
-            consoleErrors.push(text);
-          }
-        }
-      });
-
-      await page.goto(path);
-      expect(consoleErrors, `Console errors found: ${consoleErrors.join(', ')}`).toHaveLength(0);
-    });
-
-    test(`${name} page all images load successfully`, async ({ page }) => {
-      await page.goto(path);
-
-      const images = await page.locator('img').all();
-
-      for (const img of images) {
-        const src = await img.getAttribute('src');
-        if (src && !src.startsWith('data:')) {
-          // Load offscreen images too, then wait for the browser to finish decoding.
-          await img.evaluate(el => { el.loading = 'eager'; });
-          await expect.poll(
-            () => img.evaluate(el => el.complete && el.naturalWidth > 0),
-            { message: `Image failed to load: ${src}`, timeout: 10000 }
-          ).toBe(true);
-        }
-      }
-    });
-  }
+test('mobile navigation expands and opens the posts page', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await expect(page.locator('#navigation')).not.toBeVisible();
+  await page.getByRole('button', { name: 'navigation', exact: true }).click();
+  await expect(page.locator('#navigation')).toBeVisible();
+  await page.locator('#navigation').getByRole('button', { name: 'Posts', exact: true }).click();
+  await page.locator('#navigation').getByRole('link', { name: 'All posts', exact: true }).click();
+  await expect(page).toHaveURL(/\/posts\/$/);
+  await expect(page.locator('h1, h2').first()).toBeVisible();
 });

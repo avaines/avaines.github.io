@@ -1,9 +1,9 @@
-const { BskyAgent } = require('@atproto/api');
+const { createAgent } = require('../../../lib/bluesky-client');
 const { publish } = require('../../../services/bluesky');
 
-// Mock the BskyAgent
-jest.mock('@atproto/api', () => ({
-  BskyAgent: jest.fn()
+// Mock client creation; the real ESM loader is exercised by test:sdk.
+jest.mock('../../../lib/bluesky-client', () => ({
+  createAgent: jest.fn()
 }));
 
 describe('Bluesky service', () => {
@@ -58,7 +58,7 @@ describe('Bluesky service', () => {
     const mockPostMethod = jest.fn()
       .mockResolvedValueOnce({ uri: 'at://did/post1', cid: 'cid1' });
 
-    BskyAgent.mockImplementation(() => ({
+    createAgent.mockImplementation(() => ({
       login: mockLogin,
       post: mockPostMethod
     }));
@@ -78,7 +78,7 @@ describe('Bluesky service', () => {
     const mockPostFn = jest.fn()
       .mockResolvedValueOnce({ uri: 'at://did/post1', cid: 'cid1' });
 
-    BskyAgent.mockImplementation(() => ({
+    createAgent.mockImplementation(() => ({
       login: mockLogin,
       post: mockPostFn
     }));
