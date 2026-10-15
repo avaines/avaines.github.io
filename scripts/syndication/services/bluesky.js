@@ -1,4 +1,4 @@
-const { BskyAgent } = require('@atproto/api');
+const { createAgent } = require('../lib/bluesky-client');
 const { convertContent } = require('../lib/converter');
 
 /**
@@ -34,7 +34,7 @@ async function publish(post, config) {
     return { url: `https://bsky.app/profile/${handle}/post/preview` };
   }
 
-  const agent = new BskyAgent({ service: 'https://bsky.social' });
+  const agent = await createAgent({ service: 'https://bsky.social' });
   await agent.login({ identifier: handle, password });
 
   const postData = { text };

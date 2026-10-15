@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "hugo server --disableFastRender",
-    "build": "NODE_ENV=production hugo --gc",
+    "build": "node scripts/testing/check-toolchain.js && hugo --environment production --gc --minify",
     "precommit": "pre-commit run --all-files",
     "syndicate": "node scripts/syndication/index.js --all",
     "syndicate:dry-run": "SYNDICATION_DRY_RUN=true node scripts/syndication/index.js --all",
@@ -21,7 +21,9 @@
     "test:report": "playwright show-report",
     "test:unit": "jest scripts/syndication",
     "test:unit:coverage": "jest scripts/syndication --coverage",
-    "test:all": "npm run test:unit && npm run test:e2e"
+    "test:all": "npm run test:unit && npm run test:sdk && npm run test:e2e",
+    "test:sdk": "node --test scripts/testing/sdk.test.js",
+    "test:external-links": "CHECK_EXTERNAL_LINKS=1 playwright test"
   },
   "dependencies": {
     "@atproto/api": "^0.22.0",
@@ -76,5 +78,8 @@
       "maxRetries": 3,
       "retryDelay": 5000
     }
+  },
+  "engines": {
+    "node": ">=22.0.0 <23"
   }
 }

@@ -1,4 +1,6 @@
 ---
+aliases:
+  - /author/aiden-vaines/
 title: "About"
 layout: "about"
 image: "banner-image.png"
