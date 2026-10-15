@@ -140,5 +140,15 @@
       "url": "https://avaines.substack.com/p/make-the-internet-fun-again",
       "syndicatedAt": "2026-09-22T22:02:02.142Z"
     }
+  },
+  "/content/posts/2029-10-15-lambda-web-functions/index.md": {
+    "bluesky": {
+      "url": "https://bsky.app/profile/drsausages.bsky.social/post/3mxwguuujae25",
+      "syndicatedAt": "2026-10-15T16:04:59.793Z"
+    },
+    "mastodon": {
+      "url": "https://mastodon.social/@avaines/117445774583346536",
+      "syndicatedAt": "2026-10-15T16:05:00.989Z"
+    }
   }
 }
