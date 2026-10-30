@@ -1,6 +1,9 @@
 const { parsePost, getChangedPosts, getAllPosts } = require('../../lib/parser');
 const path = require('path');
 const fs = require('fs').promises;
+const { execSync } = require('child_process');
+
+jest.mock('child_process', () => ({ execSync: jest.fn() }));
 
 describe('parser', () => {
   describe('parsePost', () => {
@@ -32,9 +35,17 @@ describe('parser', () => {
 
   describe('getChangedPosts', () => {
     it('should return empty array if git command fails', async () => {
-      const posts = await getChangedPosts();
-      // In test environment without git history, should return empty
-      expect(Array.isArray(posts)).toBe(true);
+      execSync.mockImplementationOnce(() => {
+        throw new Error("fatal: bad revision 'HEAD~1'");
+      });
+      const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        await expect(getChangedPosts()).resolves.toEqual([]);
+        expect(warn).toHaveBeenCalledWith('No git history or changed files found, checking all posts');
+      } finally {
+        warn.mockRestore();
+        execSync.mockReset();
+      }
     });
   });
 
