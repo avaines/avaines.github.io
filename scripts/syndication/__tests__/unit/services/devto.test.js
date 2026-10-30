@@ -1,5 +1,7 @@
-const nock = require('nock');
+const axios = require('axios');
 const { publish } = require('../../../services/devto');
+
+jest.mock('axios');
 
 describe('dev.to service', () => {
   const mockPost = {
@@ -20,31 +22,48 @@ describe('dev.to service', () => {
   };
 
   beforeEach(() => {
+    jest.resetAllMocks();
     process.env.DEVTO_API_KEY = 'test-api-key';
     delete process.env.SYNDICATION_DRY_RUN;
   });
 
   afterEach(() => {
-    nock.cleanAll();
     delete process.env.DEVTO_API_KEY;
+    delete process.env.SYNDICATION_DRY_RUN;
   });
 
   it('should publish article successfully', async () => {
-    nock('https://dev.to')
-      .post('/api/articles')
-      .reply(201, {
+    axios.post.mockResolvedValueOnce({
+      data: {
         url: 'https://dev.to/test/test-post',
         id: 123
-      });
+      }
+    });
 
     const result = await publish(mockPost, mockConfig);
     expect(result.url).toBe('https://dev.to/test/test-post');
+    expect(axios.post).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalledWith(
+      'https://dev.to/api/articles',
+      {
+        article: {
+          title: 'Test Post',
+          body_markdown: '> Originally published at https://www.vaines.org/posts/test-post/\n\n# Test Content\n\nThis is a test.',
+          published: true,
+          canonical_url: 'https://www.vaines.org/posts/test-post/',
+          tags: ['tech', 'javascript'],
+          main_image: undefined
+        }
+      },
+      { headers: { 'api-key': 'test-api-key', 'Content-Type': 'application/json' } }
+    );
   });
 
   it('should throw error if API key is missing', async () => {
     delete process.env.DEVTO_API_KEY;
 
     await expect(publish(mockPost, mockConfig)).rejects.toThrow('DEVTO_API_KEY');
+    expect(axios.post).not.toHaveBeenCalled();
   });
 
   it('should handle dry run mode', async () => {
@@ -53,13 +72,13 @@ describe('dev.to service', () => {
     const result = await publish(mockPost, mockConfig);
     expect(result.url).toContain('dev.to');
     expect(result.url).toContain('preview');
+    expect(axios.post).not.toHaveBeenCalled();
   });
 
   it('should handle API errors gracefully', async () => {
-    nock('https://dev.to')
-      .post('/api/articles')
-      .reply(429, { error: 'Rate limited' });
+    const error = Object.assign(new Error('Rate limited'), { response: { status: 429 } });
+    axios.post.mockRejectedValueOnce(error);
 
-    await expect(publish(mockPost, mockConfig)).rejects.toThrow();
+    await expect(publish(mockPost, mockConfig)).rejects.toBe(error);
   });
 });
