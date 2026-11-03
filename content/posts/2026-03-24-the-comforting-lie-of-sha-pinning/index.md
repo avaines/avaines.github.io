@@ -26,6 +26,8 @@ syndicate:
   - substack
 ---
 
+> **Update (3 November 2026):** GitHub has added workflow dependency lockfiles. I tested the original attack again and wrote up the results in [GitHub Actually Fixed SHA Pinning. I Wasn't Expecting That.](/posts/2026-11-03-github-actually-fixed-sha-pinning/).
+
 In March 2026, Trivy became the latest reminder that software supply chains are, at best, loosely held together with convention and trust.
 
 A typosquatting attack slipped malicious code into what looked like a legitimate dependency path. The post-mortems are worth reading, and they all converge on a single recommendation: *pin your dependencies*. In the GitHub Actions world, that usually translates to *use commit SHAs, not tags*.
