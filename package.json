@@ -26,7 +26,7 @@
     "test:external-links": "CHECK_EXTERNAL_LINKS=1 playwright test"
   },
   "dependencies": {
-    "@atproto/api": "^0.27.0",
+    "@atproto/api": "^0.29.1",
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "@tailwindcss/typography": "^0.5.20",
     "autoprefixer": "^10.6.1",
@@ -52,7 +52,7 @@
     "@types/node": "^26.6.5",
     "dotenv": "^18.0.8",
     "jest": "^30.5.2",
-    "postcss": "^8.5.30"
+    "postcss": "^8.5.31"
   },
   "syndication": {
     "enabled": true,
