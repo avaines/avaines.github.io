@@ -26,11 +26,11 @@
     "test:external-links": "CHECK_EXTERNAL_LINKS=1 playwright test"
   },
   "dependencies": {
-    "@atproto/api": "^0.27.0",
+    "@atproto/api": "^0.29.6",
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "@tailwindcss/typography": "^0.5.20",
-    "autoprefixer": "^10.6.1",
-    "axios": "^1.20.0",
+    "autoprefixer": "^10.6.2",
+    "axios": "^1.21.0",
     "gray-matter": "^4.0.3",
     "postcss-cli": "^12.0.0",
     "postcss-import": "^17.0.1",
@@ -49,10 +49,10 @@
   ],
   "devDependencies": {
     "@playwright/test": "^1.64.1",
-    "@types/node": "^26.6.5",
-    "dotenv": "^18.0.8",
+    "@types/node": "^26.6.6",
+    "dotenv": "^18.0.9",
     "jest": "^30.5.2",
-    "postcss": "^8.5.30"
+    "postcss": "^8.5.32"
   },
   "syndication": {
     "enabled": true,
